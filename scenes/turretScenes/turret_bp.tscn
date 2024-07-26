@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://der0pgl1pvdmo"]
+
+[ext_resource type="Texture2D" uid="uid://c7rd1q084yg4m" path="res://assets/turretStandBP.png" id="1_58vsx"]
+[ext_resource type="Script" path="res://scripts/turretScripts/turret_bp.gd" id="1_ek1ek"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl7nw"]
+atlas = ExtResource("1_58vsx")
+region = Rect2(0, 0, 27, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4hnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl7nw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl7nw")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_5myne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="Animation" id="Animation_sfb6t"]
+resource_name = "blinkAlpha"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.470588)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_jv3qm"]
+resource_name = "blink_and_size"
+length = 0.8
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.947059), Color(1, 1, 1, 0.713726)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ykk6"]
+_data = {
+"RESET": SubResource("Animation_5myne"),
+"blinkAlpha": SubResource("Animation_sfb6t"),
+"blink_and_size": SubResource("Animation_jv3qm")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_st0ue"]
+radius = 25.0799
+
+[node name="TurretBP" type="Node2D"]
+script = ExtResource("1_ek1ek")
+item_cost_array = Array[String](["Log", "Log", "Log"])
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_l4hnf")
+animation = &"new_animation"
+autoplay = "default"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_1ykk6")
+}
+autoplay = "blinkAlpha"
+
+[node name="Area2D" type="Area2D" parent="." groups=["blueprint"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["blueprint"]]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_st0ue")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

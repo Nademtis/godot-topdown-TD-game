@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvdaqh67fnauj"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_67qmu"]
+[ext_resource type="Texture2D" uid="uid://bnucg3b2nvste" path="res://assets/log.png" id="2_cj0cl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h874m"]
+
+[node name="Log" type="Node2D"]
+script = ExtResource("1_67qmu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = ExtResource("2_cj0cl")
+
+[node name="Area2D" type="Area2D" parent="." groups=["item"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_h874m")
