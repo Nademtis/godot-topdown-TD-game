@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpck16u0qt0pj"
-path="res://.godot/imported/bush2.png-91e30e32e6cc305af668af788cc20162.ctex"
+uid="uid://bofahlkrw15xa"
+path="res://.godot/imported/tile_set.png-2b8877871b9d3cde74d710ffb4929b0c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/plants/bush2.png"
-dest_files=["res://.godot/imported/bush2.png-91e30e32e6cc305af668af788cc20162.ctex"]
+source_file="res://assets/tile_set.png"
+dest_files=["res://.godot/imported/tile_set.png-2b8877871b9d3cde74d710ffb4929b0c.ctex"]
 
 [params]
 

@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://rir3qb64n22v"]
+
+[ext_resource type="Script" path="res://scripts/bush.gd" id="1_5xk15"]
+[ext_resource type="Texture2D" uid="uid://c3tsp2s0fbuq0" path="res://assets/plants/bush explosion.png" id="2_gatyd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3d76"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(0, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8pjy"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(20, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhbhx"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(40, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn226"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(60, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7600"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(80, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ewnu"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(100, 0, 20, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b07iq"]
+atlas = ExtResource("2_gatyd")
+region = Rect2(0, 0, 20, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqg82"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3d76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8pjy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhbhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mn226")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7600")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ewnu")
+}],
+"loop": false,
+"name": &"bush_hit",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b07iq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_fkgxv"]
+resource_name = "bush_hit"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_75i8p"]
+_data = {
+"bush_hit": SubResource("Animation_fkgxv")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_140d0"]
+radius = 8.06226
+
+[node name="Bush1" type="Node2D"]
+script = ExtResource("1_5xk15")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_jqg82")
+animation = &"bush_hit"
+autoplay = "idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_75i8p")
+}
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_140d0")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
