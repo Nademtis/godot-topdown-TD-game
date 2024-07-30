@@ -3,6 +3,10 @@ extends Area2D
 @export var inventory : Array
 
 
+var ui : CanvasLayer
+
+func _ready():
+	ui = get_tree().root.get_node("main/UI")
 
 func _process(_delta):
 	pass
@@ -14,6 +18,9 @@ func _on_area_entered(area):
 		inventory.push_front(area.get_parent().name)
 		#print(inventory)
 		area.get_parent().picked_up() # removes item drop
+		
+		#inform UI
+		ui.changeTxt(inventory)
 	
 	if area.is_in_group("blueprint"):
 		#area.get_parent().deposit_item(inventory)

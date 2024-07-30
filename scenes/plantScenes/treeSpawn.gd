@@ -16,7 +16,6 @@ const TREE_OLD = preload("res://assets/plants/tree_old.png")
 func _ready():
 	timer.wait_time = randi_range(9,15)
 	timer.start()
-	print(timer.wait_time)
 
 func _on_timer_timeout():
 	grow()
