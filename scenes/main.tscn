@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://drl6oyscgipyr"]
+[gd_scene load_steps=15 format=3 uid="uid://drl6oyscgipyr"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_oeng1"]
 [ext_resource type="PackedScene" uid="uid://ddiyqdwvovurd" path="res://scenes/playerScenes/player.tscn" id="2_c47mf"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://h2p1ri3g6em5" path="res://scenes/plantScenes/tree_new.tscn" id="8_iw5p0"]
 [ext_resource type="PackedScene" uid="uid://pg8rt4js4ahp" path="res://scenes/turretScenes/turret.tscn" id="8_o65la"]
 [ext_resource type="PackedScene" uid="uid://rir3qb64n22v" path="res://scenes/plantScenes/bush3.tscn" id="10_jj7xd"]
+[ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="11_gsdpn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d5k0q"]
 texture = ExtResource("3_oadaq")
@@ -145,29 +146,14 @@ position = Vector2(-154, 143)
 [node name="Tree2" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(225, 129)
 
-[node name="Tree15" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(210, -50)
-
-[node name="Tree16" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(-124, -14)
-
-[node name="Tree17" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(-123, 38)
-
 [node name="Tree18" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(-167, -99)
 
 [node name="Tree19" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(-13, -121)
 
-[node name="Tree20" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(43, -134)
-
 [node name="Tree21" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(-177, -5)
-
-[node name="Tree22" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(-36, 74)
 
 [node name="Tree23" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(99, 68)
@@ -184,12 +170,6 @@ position = Vector2(37, -78)
 [node name="Tree12" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(157, -25)
 
-[node name="Tree13" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(164, -142)
-
-[node name="Tree14" parent="TreeContainer" instance=ExtResource("4_jxmad")]
-position = Vector2(-25, -53)
-
 [node name="Tree5" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(83, -42)
 
@@ -199,20 +179,11 @@ position = Vector2(-194, -50)
 [node name="Tree9" parent="TreeContainer" instance=ExtResource("4_jxmad")]
 position = Vector2(-195, 83)
 
-[node name="Tree3" parent="TreeContainer" instance=ExtResource("8_iw5p0")]
-position = Vector2(13, -43)
-
-[node name="Tree4" parent="TreeContainer" instance=ExtResource("8_iw5p0")]
-position = Vector2(-47, -91)
-
 [node name="Tree7" parent="TreeContainer" instance=ExtResource("8_iw5p0")]
 position = Vector2(67, -97)
 
 [node name="Tree8" parent="TreeContainer" instance=ExtResource("8_iw5p0")]
 position = Vector2(117, -76)
-
-[node name="Tree25" parent="TreeContainer" instance=ExtResource("8_iw5p0")]
-position = Vector2(26, 63)
 
 [node name="Tree26" parent="TreeContainer" instance=ExtResource("8_iw5p0")]
 position = Vector2(186, 52)
@@ -257,7 +228,7 @@ position = Vector2(-216, -105)
 position = Vector2(-135, -75)
 
 [node name="TreeSpawn17" parent="TreeSpawnContainer" instance=ExtResource("7_7qjs2")]
-position = Vector2(53, -14)
+position = Vector2(36, -30)
 
 [node name="TreeSpawn18" parent="TreeSpawnContainer" instance=ExtResource("7_7qjs2")]
 position = Vector2(125, -79)
@@ -269,7 +240,7 @@ position = Vector2(-39, 132)
 position = Vector2(98, -112)
 
 [node name="TreeSpawn12" parent="TreeSpawnContainer" instance=ExtResource("7_7qjs2")]
-position = Vector2(22, -35)
+position = Vector2(-18, -74)
 
 [node name="TreeSpawn13" parent="TreeSpawnContainer" instance=ExtResource("7_7qjs2")]
 position = Vector2(167, -83)
@@ -295,42 +266,58 @@ position = Vector2(157, 49)
 [node name="BushContainer" type="Node" parent="."]
 
 [node name="Bush1" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(45, -36)
 
 [node name="Bush2" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(71, -20)
 
 [node name="Bush3" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(36, -15)
 
 [node name="Bush4" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(61, 42)
 
 [node name="Bush5" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-89, 46)
 
 [node name="Bush6" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-114, -95)
 
 [node name="Bush7" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-50, -53)
 
 [node name="Bush8" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-2, -98)
 
 [node name="Bush9" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(127, -54)
 
 [node name="Bush10" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(133, 52)
 
 [node name="Bush11" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-82, 78)
 
 [node name="Bush12" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-133, 80)
 
 [node name="Bush13" parent="BushContainer" instance=ExtResource("10_jj7xd")]
+visible = false
 position = Vector2(-156, 34)
+
+[node name="Wagon" parent="." instance=ExtResource("11_gsdpn")]
+position = Vector2(-70, 78)
 
 [connection signal="timeout" from="slimeSpawner/Timer" to="slimeSpawner" method="_on_timer_timeout"]

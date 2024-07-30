@@ -10,6 +10,7 @@ radius = 0.991224
 height = 12.1678
 
 [node name="Tree1" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_2gwh2")
 
 [node name="buttonSprite_2d" type="Sprite2D" parent="."]
@@ -21,6 +22,7 @@ position = Vector2(0, -10)
 texture = ExtResource("3_ntlys")
 
 [node name="topSprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(0, -5)
 texture = ExtResource("4_aa68q")
 offset = Vector2(-1.555, -10.44)
