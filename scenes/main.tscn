@@ -272,55 +272,42 @@ position = Vector2(157, 49)
 [node name="BushContainer" type="Node" parent="."]
 
 [node name="Bush1" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
-position = Vector2(45, -36)
+position = Vector2(44, -36)
 
 [node name="Bush2" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(71, -20)
 
 [node name="Bush3" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(36, -15)
 
 [node name="Bush4" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(61, 42)
 
 [node name="Bush5" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-89, 46)
 
 [node name="Bush6" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-114, -95)
 
 [node name="Bush7" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-50, -53)
 
 [node name="Bush8" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-2, -98)
 
 [node name="Bush9" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(127, -54)
 
 [node name="Bush10" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(133, 52)
 
 [node name="Bush11" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-82, 78)
 
 [node name="Bush12" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-133, 80)
 
 [node name="Bush13" parent="BushContainer" instance=ExtResource("10_jj7xd")]
-visible = false
 position = Vector2(-156, 34)
 
 [connection signal="timeout" from="slimeSpawner/Timer" to="slimeSpawner" method="_on_timer_timeout"]

@@ -1,10 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://mj5q7s0wwxqo"]
+[gd_scene load_steps=5 format=3 uid="uid://mj5q7s0wwxqo"]
 
 [ext_resource type="Texture2D" uid="uid://catuxlrbteaxs" path="res://assets/Wagon.png" id="1_2fmqh"]
+[ext_resource type="Script" path="res://scripts/wagon.gd" id="1_l4q3l"]
+[ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_53cgn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltk1c"]
+radius = 20.0
+height = 52.0
 
 [node name="Wagon" type="Node2D"]
-scale = Vector2(0.7, 0.7)
+script = ExtResource("1_l4q3l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_2fmqh")
+offset = Vector2(-11, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-4, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ltk1c")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -31.0
+offset_top = -27.0
+offset_right = 95.0
+offset_bottom = -4.0
+theme_override_fonts/font = ExtResource("3_53cgn")
+theme_override_font_sizes/font_size = 8
+text = "LOGS: 5/20"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

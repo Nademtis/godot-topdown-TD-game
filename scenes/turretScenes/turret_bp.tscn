@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://der0pgl1pvdmo"]
+[gd_scene load_steps=11 format=3 uid="uid://der0pgl1pvdmo"]
 
 [ext_resource type="Texture2D" uid="uid://c7rd1q084yg4m" path="res://assets/turretStandBP.png" id="1_58vsx"]
 [ext_resource type="Script" path="res://scripts/turretScripts/turret_bp.gd" id="1_ek1ek"]
+[ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_pws46"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dl7nw"]
 atlas = ExtResource("1_58vsx")
@@ -118,7 +119,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_st0ue"]
-radius = 25.0799
+radius = 20.025
 
 [node name="TurretBP" type="Node2D"]
 script = ExtResource("1_ek1ek")
@@ -141,6 +142,17 @@ autoplay = "blinkAlpha"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["blueprint"]]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_st0ue")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -33.0
+offset_top = -25.0
+offset_right = 35.0
+offset_bottom = -2.0
+theme_override_fonts/font = ExtResource("3_pws46")
+theme_override_font_sizes/font_size = 8
+text = "Put Logs: 3"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
