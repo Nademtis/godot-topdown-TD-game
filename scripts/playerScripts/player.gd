@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera = $Camera2D
 
+
 #player movement
 var direction
 var is_sprinting = false
@@ -16,10 +17,11 @@ var old_camera
 func _ready():
 	old_camera = camera.zoom
 
-
-	
 func _process(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
+	
+	if direction:
+		audio.foot_step()
 	
 	#update animation
 	handle_animation()

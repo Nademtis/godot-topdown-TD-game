@@ -1,0 +1,91 @@
+[gd_scene load_steps=16 format=3 uid="uid://dludsjr3ewamu"]
+
+[ext_resource type="AudioStream" uid="uid://hf6x2necycsq" path="res://assets/audio/sfx/chop1.wav" id="1_5qtr1"]
+[ext_resource type="Script" path="res://scripts/audioManager.gd" id="1_8t23k"]
+[ext_resource type="AudioStream" uid="uid://dbhs1ovx3ofwa" path="res://assets/audio/sfx/timber2.wav" id="2_betbq"]
+[ext_resource type="AudioStream" uid="uid://bm23io6yfxu08" path="res://assets/audio/sfx/tree_creek.wav" id="3_orrsu"]
+[ext_resource type="AudioStream" uid="uid://3llvgvrg7604" path="res://assets/audio/sfx/chop2.wav" id="5_ds0mm"]
+[ext_resource type="AudioStream" uid="uid://dogk8op58vuhp" path="res://assets/audio/sfx/chop3.wav" id="6_y0gps"]
+[ext_resource type="AudioStream" uid="uid://cga8uhwvb773h" path="res://assets/audio/sfx/chop4.wav" id="7_2ux36"]
+[ext_resource type="AudioStream" uid="uid://bqih2447rtp12" path="res://assets/audio/sfx/step1.wav" id="8_30vhu"]
+[ext_resource type="AudioStream" uid="uid://b7vfqhjfyavjw" path="res://assets/audio/sfx/step2.wav" id="9_tqshb"]
+[ext_resource type="AudioStream" uid="uid://l0jsaapnja3s" path="res://assets/audio/sfx/step3.wav" id="10_c1obq"]
+[ext_resource type="AudioStream" uid="uid://brtypuc04ro04" path="res://assets/audio/sfx/step4.wav" id="11_f521g"]
+[ext_resource type="AudioStream" uid="uid://c866qglrugx37" path="res://assets/audio/sfx/bird1.wav" id="12_dal1p"]
+[ext_resource type="AudioStream" uid="uid://bkqukn2gcbg38" path="res://assets/audio/sfx/bird2.wav" id="13_6v2xw"]
+[ext_resource type="AudioStream" uid="uid://b31bynwawy2fo" path="res://assets/audio/sfx/bird3.wav" id="14_2okh8"]
+[ext_resource type="AudioStream" uid="uid://dmesixvs8xk7v" path="res://assets/audio/sfx/bird4.wav" id="15_5mhui"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_8t23k")
+
+[node name="Tree" type="Node" parent="."]
+
+[node name="tree_falling" type="AudioStreamPlayer" parent="Tree"]
+stream = ExtResource("2_betbq")
+bus = &"SFX"
+
+[node name="tree_creek" type="AudioStreamPlayer" parent="Tree"]
+stream = ExtResource("3_orrsu")
+bus = &"SFX"
+
+[node name="Player" type="Node" parent="."]
+
+[node name="chop" type="Node" parent="Player"]
+
+[node name="chop1" type="AudioStreamPlayer" parent="Player/chop"]
+stream = ExtResource("1_5qtr1")
+bus = &"SFX"
+
+[node name="chop2" type="AudioStreamPlayer" parent="Player/chop"]
+stream = ExtResource("5_ds0mm")
+bus = &"SFX"
+
+[node name="chop3" type="AudioStreamPlayer" parent="Player/chop"]
+stream = ExtResource("6_y0gps")
+bus = &"SFX"
+
+[node name="chop4" type="AudioStreamPlayer" parent="Player/chop"]
+stream = ExtResource("7_2ux36")
+bus = &"SFX"
+
+[node name="footsteps" type="Node" parent="Player"]
+
+[node name="stepTimer" type="Timer" parent="Player/footsteps"]
+one_shot = true
+
+[node name="step1" type="AudioStreamPlayer" parent="Player/footsteps"]
+stream = ExtResource("8_30vhu")
+bus = &"SFX"
+
+[node name="step2" type="AudioStreamPlayer" parent="Player/footsteps"]
+stream = ExtResource("9_tqshb")
+bus = &"SFX"
+
+[node name="step3" type="AudioStreamPlayer" parent="Player/footsteps"]
+stream = ExtResource("10_c1obq")
+bus = &"SFX"
+
+[node name="step4" type="AudioStreamPlayer" parent="Player/footsteps"]
+stream = ExtResource("11_f521g")
+bus = &"SFX"
+
+[node name="Environment" type="Node" parent="."]
+
+[node name="bird1" type="AudioStreamPlayer" parent="Environment"]
+stream = ExtResource("12_dal1p")
+bus = &"Environment"
+
+[node name="bird2" type="AudioStreamPlayer" parent="Environment"]
+stream = ExtResource("13_6v2xw")
+bus = &"Environment"
+
+[node name="bird3" type="AudioStreamPlayer" parent="Environment"]
+stream = ExtResource("14_2okh8")
+bus = &"Environment"
+
+[node name="bird4" type="AudioStreamPlayer" parent="Environment"]
+stream = ExtResource("15_5mhui")
+bus = &"Environment"
+
+[node name="Music" type="Node" parent="."]

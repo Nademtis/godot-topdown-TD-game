@@ -5,6 +5,10 @@ extends Node2D
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
 
+func _ready():
+	if randf() > 0.5:
+		animated_sprite.play("purpleSlime")
+		animated_sprite.flip_h = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

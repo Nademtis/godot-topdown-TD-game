@@ -23,7 +23,7 @@ func attack():
 	
 	add_child(attack_instance)
 	# Wait 0.1 sec
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.5).timeout
 	attack_instance.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
