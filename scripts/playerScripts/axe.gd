@@ -3,13 +3,21 @@ extends Node2D
 @onready var player = $".."
 @onready var axe_sprite = $Sprite2D
 
+@onready var attack_cooldown_timer = $attackCooldownTimer
+var can_attack = true
+
+@onready var stamina_controller = $"../StaminaController"
+@export var stamina_cost : int = 5
+
 #attack
 @onready var attackScene = preload("res://scenes/playerScenes/attack.tscn")
 
 
 func _input(event):
 	if event.is_action_pressed("click"):
-		attack()
+		if (can_attack && stamina_controller.can_afford(stamina_cost)):
+			attack()
+			stamina_controller.use_stamina(stamina_cost)
 
 func attack():
 	var point = get_global_mouse_position()
@@ -17,40 +25,16 @@ func attack():
 	
 	var direction = point - global_position
 	var angle_radians = direction.angle()
-
 	attack_instance.rotation = angle_radians + PI
 
-	
+	#cooldown stuff
+	can_attack = false
+	attack_cooldown_timer.start()
+
 	add_child(attack_instance)
-	# Wait 0.1 sec
 	await get_tree().create_timer(0.5).timeout
 	attack_instance.queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-	#var mousePos = get_global_mouse_position()
-	
-	#for axe placement
-	#if player.direction.x < 0:
-		#print("left")
-	#elif player.direction.x > 0:
-		#print("right")
-	#elif player.direction.y > 0:
-		#print("down")
-	#elif player.direction.y < 0:
-		#print("up")
-	
-	#if mousePos.x > player.position.x && mousePos.y > player.position.y: #SE
-		#print("SE")
-	#elif mousePos.x > player.position.x && mousePos.y < player.position.y: #NE
-		#print("NE")
-	#elif mousePos.x < player.position.x && mousePos.y < player.position.y: #NW
-		#print("NW")
-	#elif mousePos.x < player.position.x && mousePos.y > player.position.y: #SW
-		#print("SW")
-	
-	
-	#print(mousePos)
-	#look_at(get_global_mouse_position())
-	
+
+func _on_attack_cooldown_timer_timeout():
+	can_attack = true

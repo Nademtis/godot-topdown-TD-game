@@ -6,6 +6,12 @@ extends CharacterBody2D
 @onready var camera = $Camera2D
 
 
+@onready var stamina_controller = $StaminaController
+
+@export var stamina_drain_rate : float = 0.35
+@export var stamina_sprint_cost : float = 2.5
+@onready var stamina_drain_timer : Timer = $staminaDrainTimer
+
 #player movement
 var direction
 var is_sprinting = false
@@ -16,6 +22,7 @@ var old_camera
 
 func _ready():
 	old_camera = camera.zoom
+	stamina_drain_timer.wait_time = stamina_drain_rate
 
 func _process(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
@@ -27,7 +34,10 @@ func _process(delta):
 	handle_animation()
 	
 	#handle sprinting
-	if Input.is_action_pressed("sprint"):
+	if Input.is_action_pressed("sprint") && stamina_controller.can_afford(stamina_sprint_cost):
+		if stamina_drain_timer.is_stopped(): #start drain timer
+			stamina_drain_timer.start()
+		
 		is_sprinting = true
 		velocity = direction * speed * 1.3 * delta
 	else:
@@ -36,7 +46,6 @@ func _process(delta):
 	
 	# smooth camera zoom
 	update_camera_zoom(delta)
-	
 	#move player
 	move_and_slide()
 	
@@ -64,5 +73,6 @@ func update_camera_zoom(_delta):
 	camera.zoom.y = lerp(camera.zoom.y, target_zoom.y, zoom_speed)
 
 
-
-
+func _on_stamina_drain_timer_timeout():
+	stamina_controller.use_stamina(stamina_sprint_cost)
+	pass # Replace with function body.

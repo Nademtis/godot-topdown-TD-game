@@ -1,8 +1,46 @@
-[gd_scene load_steps=5 format=3 uid="uid://mj5q7s0wwxqo"]
+[gd_scene load_steps=8 format=3 uid="uid://mj5q7s0wwxqo"]
 
 [ext_resource type="Texture2D" uid="uid://catuxlrbteaxs" path="res://assets/Wagon.png" id="1_2fmqh"]
 [ext_resource type="Script" path="res://scripts/wagon.gd" id="1_l4q3l"]
 [ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_53cgn"]
+
+[sub_resource type="Animation" id="Animation_w23ff"]
+resource_name = "deposit"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.8, 0.8), Vector2(0.7, 0.7)]
+}
+
+[sub_resource type="Animation" id="Animation_51cbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ax4a2"]
+_data = {
+"RESET": SubResource("Animation_51cbv"),
+"deposit": SubResource("Animation_w23ff")
+}
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ltk1c"]
 radius = 20.0
@@ -16,6 +54,12 @@ texture_filter = 1
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("1_2fmqh")
 offset = Vector2(-11, -8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ax4a2")
+}
+autoplay = "idle"
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-4, -7)

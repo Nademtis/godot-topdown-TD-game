@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://jkp33iupnnrw"]
+
+[ext_resource type="PackedScene" uid="uid://bww2g0yc683s" path="res://scenes/slime.tscn" id="1_acbj8"]
+
+[node name="smallSlime" type="PathFollow2D"]
+position = Vector2(-77, -208)
+rotates = false
+loop = false
+
+[node name="slime" parent="." instance=ExtResource("1_acbj8")]

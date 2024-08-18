@@ -10,6 +10,10 @@ var current_bp_hover = null
 func _process(_delta):
 	if trying_to_build:
 		current_bp_hover.global_position = get_global_mouse_position() #show the build position at mouse
+		if (Input.is_action_just_pressed("rightClick") || Input.is_action_just_pressed("esc")):
+			trying_to_build = false
+			remove_child(current_bp_hover)
+			
 		if (Input.is_action_just_pressed("click")):
 			#make new BP
 			var turret_BP = TURRET_BP.instantiate()

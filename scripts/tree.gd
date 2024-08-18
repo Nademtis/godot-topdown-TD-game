@@ -4,7 +4,6 @@ var hp = 3
 @onready var log_path = preload("res://scenes/log.tscn")
 
 
-
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("attack"):
 		take_damage()
@@ -25,9 +24,6 @@ func die():
 	var log_item = log_path.instantiate()
 	var item_container = get_tree().root.get_node("main").get_node("Items")
 	log_item.position = position
-	
-	#SFX
-	#tree_falling_audio_stream_player.play()
 	
 	#kill 
 	if item_container:

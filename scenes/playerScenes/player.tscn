@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://ddiyqdwvovurd"]
+[gd_scene load_steps=29 format=3 uid="uid://ddiyqdwvovurd"]
 
 [ext_resource type="Script" path="res://scripts/playerScripts/player.gd" id="1_j72qj"]
 [ext_resource type="Texture2D" uid="uid://btglf3wbge7d5" path="res://assets/Guy_spritesheet.png" id="2_iwyve"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/playerScripts/inventory.gd" id="3_f0pjc"]
 [ext_resource type="Texture2D" uid="uid://drfcxp7ur5osv" path="res://assets/axe.png" id="3_s0mhs"]
 [ext_resource type="Script" path="res://scripts/playerScripts/builder.gd" id="6_14108"]
+[ext_resource type="Script" path="res://scripts/playerScripts/StaminaController.gd" id="7_vsrvo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7cyrf"]
 atlas = ExtResource("2_iwyve")
@@ -138,9 +139,28 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4npg"]
 radius = 13.0384
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dncf7"]
+bg_color = Color(0.0962047, 0.0962048, 0.0962047, 0.784314)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brpl5"]
+bg_color = Color(0.6, 1, 0.6, 1)
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_j72qj")
+stamina_drain_rate = 0.1
+stamina_sprint_cost = 0.25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tymf2")
@@ -153,6 +173,9 @@ visible = false
 position = Vector2(-1, 4)
 scale = Vector2(1, 1.56)
 shape = SubResource("CircleShape2D_o6scs")
+
+[node name="staminaDrainTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="itemArea2D" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("3_f0pjc")
@@ -173,10 +196,37 @@ position = Vector2(0.0218067, -1.99988)
 rotation = -0.785398
 texture = ExtResource("3_s0mhs")
 
+[node name="attackCooldownTimer" type="Timer" parent="axe"]
+wait_time = 0.08
+one_shot = true
+
 [node name="Builder" type="Node2D" parent="."]
 script = ExtResource("6_14108")
 
-[node name="Audio" type="Node" parent="."]
+[node name="StaminaController" type="Node2D" parent="."]
+position = Vector2(-16, 14)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("7_vsrvo")
 
+[node name="StaminaBar" type="ProgressBar" parent="StaminaController"]
+offset_top = 3.0
+offset_right = 4.0
+offset_bottom = 30.0
+rotation = -1.57079
+scale = Vector2(1.52, 1.52)
+theme_override_styles/background = SubResource("StyleBoxFlat_dncf7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_brpl5")
+value = 50.0
+rounded = true
+fill_mode = 2
+show_percentage = false
+
+[node name="regenerationCoolDownTimer" type="Timer" parent="StaminaController"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="staminaDrainTimer" to="." method="_on_stamina_drain_timer_timeout"]
 [connection signal="area_entered" from="itemArea2D" to="itemArea2D" method="_on_area_entered"]
 [connection signal="area_exited" from="itemArea2D" to="itemArea2D" method="_on_area_exited"]
+[connection signal="timeout" from="axe/attackCooldownTimer" to="axe" method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="StaminaController/regenerationCoolDownTimer" to="StaminaController" method="_on_regeneration_cool_down_timer_timeout"]
