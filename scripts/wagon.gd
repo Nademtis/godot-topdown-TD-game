@@ -17,7 +17,6 @@ func _ready():
 	if (!required_logs): #just in case i forgot to set requiered logs in inspector
 		print("wagon required logs = 0")
 	
-	
 	ui = get_tree().root.get_node("main/UI")
 	update_label()
 
@@ -40,7 +39,7 @@ func _input(event):
 			break
 			
 func level_complete():
-	print("LEVEL COMPLETE")
+	levelManager.level_complete()
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):

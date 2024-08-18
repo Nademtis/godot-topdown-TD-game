@@ -34,7 +34,7 @@ func can_afford(price:int):
 		return false
 
 func use_stamina(price):
-	current_stamina -= price
+	#current_stamina -= price
 	update_UI()
 	can_regenerate = false
 	regeneration_cool_down_timer.start()

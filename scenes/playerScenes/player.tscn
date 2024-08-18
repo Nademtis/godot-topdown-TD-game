@@ -179,6 +179,7 @@ one_shot = true
 
 [node name="itemArea2D" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("3_f0pjc")
+inventory = [null, null, null, null, null]
 
 [node name="itemCollisionShape2D" type="CollisionShape2D" parent="itemArea2D"]
 visible = false
@@ -204,6 +205,7 @@ one_shot = true
 script = ExtResource("6_14108")
 
 [node name="StaminaController" type="Node2D" parent="."]
+visible = false
 position = Vector2(-16, 14)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("7_vsrvo")

@@ -17,7 +17,7 @@ func _process(delta):
 	get_parent().set_progress(get_parent().get_progress() + speed * delta)
 	
 	if get_parent().get_progress_ratio() >= 1:
-		#print("slime hit end")
+		get_tree().root.get_node("main").take_damage()
 		queue_free()
 	
 

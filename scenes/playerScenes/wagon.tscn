@@ -4,6 +4,21 @@
 [ext_resource type="Script" path="res://scripts/wagon.gd" id="1_l4q3l"]
 [ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_53cgn"]
 
+[sub_resource type="Animation" id="Animation_51cbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.7, 0.7)]
+}
+
 [sub_resource type="Animation" id="Animation_w23ff"]
 resource_name = "deposit"
 length = 0.1
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0.8, 0.8), Vector2(0.7, 0.7)]
-}
-
-[sub_resource type="Animation" id="Animation_51cbv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.7, 0.7)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ax4a2"]
