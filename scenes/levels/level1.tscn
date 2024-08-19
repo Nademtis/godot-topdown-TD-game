@@ -742,7 +742,7 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 0, 65534, 0, 0, 131069, 1, 0, 196
 
 [node name="Wagon" parent="." instance=ExtResource("11_gsdpn")]
 z_index = 1
-position = Vector2(-42, 39)
+position = Vector2(-165, 110)
 required_logs = 5
 
 [node name="Items" type="Node" parent="."]

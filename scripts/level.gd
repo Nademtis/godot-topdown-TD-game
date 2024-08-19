@@ -5,7 +5,7 @@ extends Node
 @onready var ui = $UI
 
 func _ready():
-	levelManager.set_current_level(self.scene_file_path)
+	levelManager.set_current_level(self)
 
 func take_damage():
 	current_hp -= 1
@@ -18,4 +18,5 @@ func take_damage():
 func die():
 	print("Gameover")
 	get_tree().reload_current_scene()
+
 
