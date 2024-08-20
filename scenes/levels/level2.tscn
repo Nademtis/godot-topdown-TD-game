@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://drl6oyscgipyr"]
+[gd_scene load_steps=16 format=3 uid="uid://drl6oyscgipyr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_yx0tr"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_y8ixa"]
@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bofahlkrw15xa" path="res://assets/tile_set.png" id="5_3xcfs"]
 [ext_resource type="Texture2D" uid="uid://rwj5vmk2ulym" path="res://assets/tile_set_DEMOWater.png" id="6_b8at5"]
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="7_a2ge5"]
-[ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree1.tscn" id="8_ej3ev"]
-[ext_resource type="PackedScene" uid="uid://h2p1ri3g6em5" path="res://scenes/plantScenes/tree2.tscn" id="9_8qdot"]
+[ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_ej3ev"]
 [ext_resource type="Script" path="res://scripts/slimeSpawner.gd" id="9_rxv1p"]
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="10_uiwqe"]
 
@@ -751,46 +750,43 @@ required_logs = 15
 [node name="TreeContainer" type="Node" parent="."]
 
 [node name="Tree1" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-154, 143)
+position = Vector2(-28, -100)
 
-[node name="Tree18" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-167, -99)
+[node name="Tree2" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(26, -71)
 
-[node name="Tree19" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-29, -95)
+[node name="Tree3" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(115, -55)
 
-[node name="Tree21" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-177, -5)
-
-[node name="Tree23" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(79, 138)
-
-[node name="Tree24" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(126, 120)
-
-[node name="Tree10" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(0, -47)
-
-[node name="Tree11" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(37, -78)
-
-[node name="Tree12" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-35, 75)
+[node name="Tree4" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(65, 79)
 
 [node name="Tree5" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(83, -42)
+position = Vector2(-52, 99)
 
 [node name="Tree6" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-194, -50)
+position = Vector2(-128, 46)
+
+[node name="Tree7" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-189, -35)
+
+[node name="Tree8" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-136, -97)
 
 [node name="Tree9" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-203, 89)
+position = Vector2(-120, -26)
 
-[node name="Tree7" parent="TreeContainer" instance=ExtResource("9_8qdot")]
-position = Vector2(70, -104)
+[node name="Tree10" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-38, -19)
 
-[node name="Tree8" parent="TreeContainer" instance=ExtResource("9_8qdot")]
-position = Vector2(127, -62)
+[node name="Tree11" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(68, -16)
+
+[node name="Tree12" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-195, 128)
+
+[node name="Tree13" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(123, 138)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("9_rxv1p")

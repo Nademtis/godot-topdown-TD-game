@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bofahlkrw15xa" path="res://assets/tile_set.png" id="5_3xcfs"]
 [ext_resource type="Texture2D" uid="uid://rwj5vmk2ulym" path="res://assets/tile_set_DEMOWater.png" id="6_b8at5"]
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="7_a2ge5"]
-[ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree1.tscn" id="8_ej3ev"]
+[ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_ej3ev"]
 [ext_resource type="Script" path="res://scripts/slimeSpawner.gd" id="9_rxv1p"]
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="10_uiwqe"]
 
@@ -750,43 +750,43 @@ required_logs = 5
 [node name="TreeContainer" type="Node" parent="."]
 
 [node name="Tree1" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-140, 40)
+position = Vector2(-27, -92)
 
 [node name="Tree2" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-214, -75)
+position = Vector2(27, -63)
 
 [node name="Tree3" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-141, -61)
+position = Vector2(116, -47)
 
 [node name="Tree4" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-200, -12)
+position = Vector2(66, 87)
 
-[node name="Tree9" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-187, 127)
-
-[node name="Tree10" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-119, 132)
-
-[node name="Tree11" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(51, 134)
-
-[node name="Tree12" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(115, 94)
-
-[node name="Tree13" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(56, 68)
-
-[node name="Tree14" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(48, -3)
+[node name="Tree5" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-51, 107)
 
 [node name="Tree6" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(-14, -28)
+position = Vector2(-127, 54)
 
 [node name="Tree7" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(69, -70)
+position = Vector2(-188, -27)
 
 [node name="Tree8" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
-position = Vector2(109, -13)
+position = Vector2(-135, -89)
+
+[node name="Tree9" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-119, -18)
+
+[node name="Tree10" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-37, -11)
+
+[node name="Tree11" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(69, -8)
+
+[node name="Tree12" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(-194, 136)
+
+[node name="Tree13" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
+position = Vector2(124, 146)
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("9_rxv1p")

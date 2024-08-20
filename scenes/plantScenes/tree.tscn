@@ -1,23 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://bvpuhpb6jhnsw"]
 
-[ext_resource type="Script" path="res://scripts/tree.gd" id="1_bp7ue"]
-[ext_resource type="Texture2D" uid="uid://dp54xk0dv1q00" path="res://assets/plants/tree_stump.png" id="3_8kyt0"]
-[ext_resource type="Texture2D" uid="uid://bgny4mm425fjy" path="res://assets/plants/tree_old.png" id="3_70dkf"]
+[ext_resource type="Script" path="res://scripts/tree.gd" id="1_7ekup"]
+[ext_resource type="Texture2D" uid="uid://do37fvatt2upu" path="res://assets/plants/tree_stump.png" id="2_pb5pg"]
+[ext_resource type="Texture2D" uid="uid://fot75imf8d7p" path="res://assets/plants/tree_new.png" id="3_bky7i"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qmcjj"]
 radius = 0.991224
 height = 12.1678
 
 [node name="Tree1" type="Node2D"]
-script = ExtResource("1_bp7ue")
+script = ExtResource("1_7ekup")
 
 [node name="buttonSprite_2d" type="Sprite2D" parent="."]
-position = Vector2(0, 3)
-texture = ExtResource("3_8kyt0")
+texture = ExtResource("2_pb5pg")
 
 [node name="topSprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -19)
-texture = ExtResource("3_70dkf")
+position = Vector2(0, -5)
+texture = ExtResource("3_bky7i")
+offset = Vector2(0, -20)
 
 [node name="Area2D" type="Area2D" parent="." groups=["tree"]]
 visible = false

@@ -10,7 +10,7 @@ const TREE_TEEN = preload("res://assets/plants/tree_teen.png")
 const TREE_ADULT = preload("res://assets/plants/tree_adult.png")
 const TREE_OLD = preload("res://assets/plants/tree_old.png")
 
-@onready var tree_scene_path = preload("res://scenes/plantScenes/tree1.tscn")
+@onready var tree_scene_path = preload("res://scenes/plantScenes/tree.tscn")
 @export var growth_state : int = 0
 
 func _ready():
