@@ -198,7 +198,7 @@ rotation = -0.785398
 texture = ExtResource("3_s0mhs")
 
 [node name="attackCooldownTimer" type="Timer" parent="axe"]
-wait_time = 0.08
+wait_time = 0.3
 one_shot = true
 
 [node name="Builder" type="Node2D" parent="."]

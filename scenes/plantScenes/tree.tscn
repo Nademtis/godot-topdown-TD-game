@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvpuhpb6jhnsw"]
+[gd_scene load_steps=12 format=3 uid="uid://bvpuhpb6jhnsw"]
 
 [ext_resource type="Script" path="res://scripts/tree.gd" id="1_7ekup"]
+[ext_resource type="Texture2D" uid="uid://dn7tln4oylgsa" path="res://assets/plants/tree_shaddow.png" id="2_5vrhv"]
 [ext_resource type="Texture2D" uid="uid://do37fvatt2upu" path="res://assets/plants/tree_stump.png" id="2_pb5pg"]
 [ext_resource type="Texture2D" uid="uid://fot75imf8d7p" path="res://assets/plants/tree_new.png" id="3_bky7i"]
 
@@ -8,8 +9,137 @@
 radius = 0.991224
 height = 12.1678
 
+[sub_resource type="Animation" id="Animation_kmluk"]
+resource_name = "hitLeft"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("topSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0306674, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_6njl5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("topSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_d2rxw"]
+resource_name = "hitRight"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("topSprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0306674, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mtehw"]
+resource_name = "dieRight"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.22173]
+}
+
+[sub_resource type="Animation" id="Animation_cvbxr"]
+resource_name = "dieLeft"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("topSprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -1.22173]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bq4d8"]
+_data = {
+"RESET": SubResource("Animation_6njl5"),
+"dieLeft": SubResource("Animation_cvbxr"),
+"dieRight": SubResource("Animation_mtehw"),
+"hitLeft": SubResource("Animation_kmluk"),
+"hitRight": SubResource("Animation_d2rxw")
+}
+
 [node name="Tree1" type="Node2D"]
 script = ExtResource("1_7ekup")
+
+[node name="shaddowSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.686275)
+position = Vector2(0, 3)
+texture = ExtResource("2_5vrhv")
 
 [node name="buttonSprite_2d" type="Sprite2D" parent="."]
 texture = ExtResource("2_pb5pg")
@@ -28,4 +158,10 @@ position = Vector2(1, 53)
 scale = Vector2(-4.03541, -1.14881)
 shape = SubResource("CapsuleShape2D_qmcjj")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bq4d8")
+}
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
