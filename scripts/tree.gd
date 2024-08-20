@@ -5,7 +5,13 @@ var hp = 3
 @onready var animation_player = $AnimationPlayer
 @onready var top_sprite_2d = $topSprite2D
 
+@onready var cpu_particles_2d = $CPUParticles2D
+const LEAF_PARTICLE_1 = preload("res://assets/particle/leaf_particle1.png")
+
 var anim_shouldChopRight = true
+
+func _ready():
+	cpu_particles_2d.texture = LEAF_PARTICLE_1
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("attack"):
