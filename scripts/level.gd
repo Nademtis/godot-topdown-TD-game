@@ -18,5 +18,3 @@ func take_damage():
 func die():
 	print("Gameover")
 	get_tree().reload_current_scene()
-
-
