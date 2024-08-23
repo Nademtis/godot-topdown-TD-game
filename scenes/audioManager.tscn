@@ -15,21 +15,21 @@
 [ext_resource type="AudioStream" uid="uid://bkqukn2gcbg38" path="res://assets/audio/sfx/bird2.wav" id="13_6v2xw"]
 [ext_resource type="AudioStream" uid="uid://b31bynwawy2fo" path="res://assets/audio/sfx/bird3.wav" id="14_2okh8"]
 [ext_resource type="AudioStream" uid="uid://dmesixvs8xk7v" path="res://assets/audio/sfx/bird4.wav" id="15_5mhui"]
-[ext_resource type="AudioStream" uid="uid://c72ujb243n5r" path="res://assets/audio/music/intro.wav" id="16_ie8hl"]
-[ext_resource type="AudioStream" uid="uid://coyrhwnwt84hq" path="res://assets/audio/music/base_loop.wav" id="17_b8is6"]
-[ext_resource type="AudioStream" uid="uid://c5l5fsi12tams" path="res://assets/audio/music/drum_1.wav" id="18_1w01h"]
-[ext_resource type="AudioStream" uid="uid://dnfr8c5eo0a72" path="res://assets/audio/music/drum_2.wav" id="19_unptj"]
-[ext_resource type="AudioStream" uid="uid://h18boxrsva3r" path="res://assets/audio/music/intensity_1.wav" id="20_vyj5w"]
+[ext_resource type="AudioStream" uid="uid://djnovj7qosma7" path="res://assets/audio/music/intro.ogg" id="16_s8ycq"]
+[ext_resource type="AudioStream" uid="uid://dxgn5o3vrfuih" path="res://assets/audio/music/base_loop.ogg" id="17_3tar0"]
+[ext_resource type="AudioStream" uid="uid://75fbdr1axk5s" path="res://assets/audio/music/drum_1.ogg" id="18_uvrpp"]
+[ext_resource type="AudioStream" uid="uid://dtqw1m3pneex0" path="res://assets/audio/music/drum_2.ogg" id="19_6257e"]
+[ext_resource type="AudioStream" uid="uid://dph7by2ubefgu" path="res://assets/audio/music/intensity_1.ogg" id="20_g47lx"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_bl8ew"]
 stream_count = 4
-stream_0/stream = ExtResource("17_b8is6")
+stream_0/stream = ExtResource("17_3tar0")
 stream_0/volume = 0.0
-stream_1/stream = ExtResource("18_1w01h")
+stream_1/stream = ExtResource("18_uvrpp")
 stream_1/volume = 0.0
-stream_2/stream = ExtResource("19_unptj")
+stream_2/stream = ExtResource("19_6257e")
 stream_2/volume = -8.76
-stream_3/stream = ExtResource("20_vyj5w")
+stream_3/stream = ExtResource("20_g47lx")
 stream_3/volume = 0.0
 
 [node name="AudioManager" type="Node"]
@@ -107,7 +107,7 @@ bus = &"Environment"
 [node name="Music" type="Node" parent="."]
 
 [node name="musicIntro" type="AudioStreamPlayer2D" parent="Music"]
-stream = ExtResource("16_ie8hl")
+stream = ExtResource("16_s8ycq")
 autoplay = true
 bus = &"Music"
 
