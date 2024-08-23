@@ -1,5 +1,12 @@
 extends Node
 
+#region MUSIC
+@onready var music_synced: AudioStreamPlayer2D = $Music/musicSynced
+@onready var music_intro: AudioStreamPlayer2D = $Music/musicIntro
+
+#endregion
+
+#region SFX
 #footStep
 @onready var step_1 = $Player/footsteps/step1
 @onready var step_2 = $Player/footsteps/step2
@@ -19,10 +26,12 @@ var chop_list : Array[AudioStreamPlayer]
 #tree
 @onready var tree_falling_sfx = $Tree/tree_falling
 @onready var tree_creek_sfx = $Tree/tree_creek
+#endregion
 
 
 
 func _ready():
+	
 	#footStep
 	footstep_list = [step_1, step_2, step_3, step_4]
 	footstep_timer.wait_time = footstep_cooldown
@@ -31,7 +40,7 @@ func _ready():
 	chop_list= [chop_1, chop_2]
 	#chop_list= [chop_1, chop_2, chop_3, chop_4]
 	
-	
+
 func foot_step():
 	if not footstep_timer.is_stopped():
 		return
@@ -49,3 +58,8 @@ func tree_creek():
 func tree_falling():
 	tree_falling_sfx.play()
 	
+
+func _on_music_intro_finished() -> void:
+	music_synced.play()
+	
+	pass # Replace with function body.
