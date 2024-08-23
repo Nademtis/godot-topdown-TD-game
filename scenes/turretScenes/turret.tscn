@@ -1,24 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://pg8rt4js4ahp"]
 
 [ext_resource type="Script" path="res://scripts/turretScripts/turret.gd" id="1_bdg1w"]
-[ext_resource type="Texture2D" uid="uid://bq0nxxsj16r6u" path="res://assets/turretStand.png" id="2_qqwkj"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ejrmo"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://dvtygejvu5n2n" path="res://assets/turret_1.png" id="2_amijv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l1x0x"]
 radius = 82.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlivr"]
+size = Vector2(30, 30)
 
 [node name="turret" type="Node2D"]
 script = ExtResource("1_bdg1w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qqwkj")
-
-[node name="hitboxArea2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hitboxArea2D"]
-shape = SubResource("RectangleShape2D_ejrmo")
+texture = ExtResource("2_amijv")
 
 [node name="rangeArea2D" type="Area2D" parent="."]
 visible = false
@@ -29,6 +24,12 @@ shape = SubResource("CircleShape2D_l1x0x")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.7
 one_shot = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_tlivr")
 
 [connection signal="area_entered" from="rangeArea2D" to="." method="_on_range_area_2d_area_entered"]
 [connection signal="area_exited" from="rangeArea2D" to="." method="_on_range_area_2d_area_exited"]

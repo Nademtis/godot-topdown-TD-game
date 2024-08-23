@@ -34,6 +34,7 @@ func can_afford(price:int):
 		return false
 
 func use_stamina(price):
+	price = price #remove - was just to remove warning
 	#current_stamina -= price
 	update_UI()
 	can_regenerate = false

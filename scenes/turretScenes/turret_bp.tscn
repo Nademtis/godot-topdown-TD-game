@@ -1,18 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://der0pgl1pvdmo"]
+[gd_scene load_steps=10 format=3 uid="uid://der0pgl1pvdmo"]
 
-[ext_resource type="Texture2D" uid="uid://c7rd1q084yg4m" path="res://assets/turretStandBP.png" id="1_58vsx"]
 [ext_resource type="Script" path="res://scripts/turretScripts/turret_bp.gd" id="1_ek1ek"]
+[ext_resource type="Texture2D" uid="uid://cbaev13fic4kd" path="res://assets/turret_1_BP.png" id="2_wrvqx"]
 [ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_pws46"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dl7nw"]
-atlas = ExtResource("1_58vsx")
-region = Rect2(0, 0, 27, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4hnf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dl7nw")
+"texture": ExtResource("2_wrvqx")
 }],
 "loop": true,
 "name": &"default",
@@ -20,7 +16,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dl7nw")
+"texture": ExtResource("2_wrvqx")
 }],
 "loop": true,
 "name": &"new_animation",
@@ -128,7 +124,6 @@ item_cost_array = Array[String](["Log", "Log", "Log"])
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_l4hnf")
-animation = &"new_animation"
 autoplay = "default"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

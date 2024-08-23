@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgbx1g3phmd8o"]
 
-[ext_resource type="Texture2D" uid="uid://c7rd1q084yg4m" path="res://assets/turretStandBP.png" id="1_8e5jj"]
+[ext_resource type="Texture2D" uid="uid://cbaev13fic4kd" path="res://assets/turret_1_BP.png" id="1_27b24"]
 
 [node name="TurretBuildableHover" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8e5jj")
+texture = ExtResource("1_27b24")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite2D")

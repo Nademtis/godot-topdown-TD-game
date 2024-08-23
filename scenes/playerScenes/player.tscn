@@ -169,7 +169,6 @@ autoplay = "idle"
 frame_progress = 0.0736265
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, 4)
 scale = Vector2(1, 1.56)
 shape = SubResource("CircleShape2D_o6scs")
