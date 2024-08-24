@@ -16,8 +16,11 @@ func attack():
 	var firstEnemy = enemyArray[-1].get_parent()
 	attack_anim(firstEnemy)
 	
-	var arrow = arrow_path.instantiate()
+	var arrow : CharacterBody2D = arrow_path.instantiate()
 	arrow.target_object = firstEnemy.get_parent()
+	#arrow.look_at(firstEnemy.global_position)
+	#should flip if shooting right
+	
 	add_child(arrow)
 	timer.start()
 	

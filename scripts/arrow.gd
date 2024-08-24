@@ -8,6 +8,7 @@ func _ready():
 	pass
 
 func _process(delta):
+
 	#check if alive
 	if target_object.get_child_count() == 0:
 		target_is_alive = false
@@ -17,6 +18,7 @@ func _process(delta):
 	
 	#move bullet towards enemy
 	if target_is_alive:
+		look_at(target_object.global_position)
 		var direction = (target_object.global_position - global_position).normalized()
 		global_position += direction * bullet_speed * delta
 	else:

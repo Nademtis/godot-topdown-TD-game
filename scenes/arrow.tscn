@@ -1,7 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://ctv0kskr1ls36"]
 
 [ext_resource type="Script" path="res://scripts/arrow.gd" id="1_c4ega"]
-[ext_resource type="Texture2D" uid="uid://drmqjt0clkjjn" path="res://assets/bullet.png" id="1_mre2w"]
 [ext_resource type="Texture2D" uid="uid://xr4vg1xdgmi7" path="res://assets/arrow_spritesheet.png" id="2_tu27r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7mqf"]
@@ -56,6 +55,10 @@ region = Rect2(154, 0, 14, 14)
 atlas = ExtResource("2_tu27r")
 region = Rect2(168, 0, 14, 14)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_psfpy"]
+atlas = ExtResource("2_tu27r")
+region = Rect2(168, 0, 14, 14)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_46vla"]
 animations = [{
 "frames": [{
@@ -101,35 +104,41 @@ animations = [{
 "loop": false,
 "name": &"default",
 "speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psfpy")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_myxnf"]
 radius = 3.16228
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_hjge6"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h47e8"]
+size = Vector2(16, 5)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_c4ega")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_46vla")
-autoplay = "default"
-frame = 12
-frame_progress = 1.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-z_index = 1
-texture = ExtResource("1_mre2w")
+animation = &"new_animation"
+autoplay = "new_animation"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_myxnf")
+disabled = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_hjge6")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_h47e8")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

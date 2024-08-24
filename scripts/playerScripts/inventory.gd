@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var inventory : Array
+@export var inventory : Array[String]
 
 
 var ui : CanvasLayer
