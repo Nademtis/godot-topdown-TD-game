@@ -7,7 +7,7 @@ extends Node2D
 
 func _ready():
 	if randf() > 0.5:
-		animated_sprite.play("purpleSlime")
+		#animated_sprite.play("purpleSlime")
 		animated_sprite.flip_h = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,7 +17,7 @@ func _process(delta):
 	get_parent().set_progress(get_parent().get_progress() + speed * delta)
 	
 	if get_parent().get_progress_ratio() >= 1:
-		get_tree().root.get_node("main").take_damage()
+		get_tree().root.get_node("main").take_damage() # damages player
 		queue_free()
 	
 
@@ -31,12 +31,6 @@ func take_damage():
 		animation_player.play("slime_hit") #making red on hit
 		if hp < 1:
 			die()
-			
-		
-		#var tween = get_tree().create_tween()
-		#animated_sprite.self_modulate = Color(1,0,0)
-		#tween.tween_property(animated_sprite, "self_modulate", Color.WHITE, 0.18)
-		#tween.tween_property(animated_sprite, "scale", Vector2(), 1)
 
 func die():
 	#var gParent = get_parent().get_parent() #kill/destroy this grand parent

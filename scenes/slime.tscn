@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://bww2g0yc683s"]
+[gd_scene load_steps=34 format=3 uid="uid://bww2g0yc683s"]
 
 [ext_resource type="Texture2D" uid="uid://bnhnw5p4h6cgx" path="res://assets/slimeJumpRight.png" id="1_3lw1y"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_o3sko"]
+[ext_resource type="Texture2D" uid="uid://bjy5yrdr1tutc" path="res://assets/slime_jump_D.png" id="3_2vaxa"]
 [ext_resource type="Texture2D" uid="uid://hsmbqrby01w2" path="res://assets/slime_purple.png" id="3_xxq1t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nkwck"]
@@ -39,6 +40,30 @@ region = Rect2(140, 0, 20, 22)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tdomi"]
 atlas = ExtResource("1_3lw1y")
 region = Rect2(160, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrmt8"]
+atlas = ExtResource("3_2vaxa")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vofwe"]
+atlas = ExtResource("3_2vaxa")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3myim"]
+atlas = ExtResource("3_2vaxa")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0p0y"]
+atlas = ExtResource("3_2vaxa")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_53e5c"]
+atlas = ExtResource("3_2vaxa")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myxsi"]
+atlas = ExtResource("3_2vaxa")
+region = Rect2(240, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ompgm"]
 atlas = ExtResource("3_xxq1t")
@@ -109,6 +134,29 @@ animations = [{
 "loop": true,
 "name": &"blueSlime",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrmt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vofwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3myim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0p0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_53e5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myxsi")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -214,8 +262,9 @@ script = ExtResource("1_o3sko")
 z_index = 1
 scale = Vector2(1.08, 1.08)
 sprite_frames = SubResource("SpriteFrames_81fw7")
-animation = &"purpleSlime"
-autoplay = "blueSlime"
+animation = &"new_animation"
+autoplay = "new_animation"
+frame_progress = 0.0756221
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

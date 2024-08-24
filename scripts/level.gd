@@ -17,4 +17,5 @@ func take_damage():
 	
 func die():
 	print("Gameover")
-	get_tree().reload_current_scene()
+	print_debug("die() is turned off")
+	#get_tree().reload_current_scene()
