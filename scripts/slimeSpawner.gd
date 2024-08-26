@@ -1,8 +1,20 @@
 extends Node
 
-@onready var slimePath = preload("res://scenes/slime_mob.tscn")
-@onready var path_2d = $Path2D
+@onready var SLIME = preload("res://scenes/slime.tscn")
+@onready var BEE = preload("res://scenes/bee.tscn")
+@onready var path_2d : Path2D = $Path2D
 
 func _on_timer_timeout():
-	var tempPath = slimePath.instantiate()
-	path_2d.add_child(tempPath)
+	var random : float = randf()
+	var enemyPath
+	if random > 0.5:
+		enemyPath = SLIME.instantiate()
+	else:
+		enemyPath = BEE.instantiate()
+		
+	var pathFollow2D : PathFollow2D = PathFollow2D.new()
+	pathFollow2D.loop = false
+	pathFollow2D.rotates = false
+	
+	path_2d.add_child(pathFollow2D)
+	pathFollow2D.add_child(enemyPath)

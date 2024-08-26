@@ -455,6 +455,6 @@ position = Vector2(-104, 84)
 [node name="BushContainer" type="Node" parent="."]
 
 [node name="turret" parent="." instance=ExtResource("12_ytk4w")]
-position = Vector2(-33, -30)
+position = Vector2(18, 135)
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

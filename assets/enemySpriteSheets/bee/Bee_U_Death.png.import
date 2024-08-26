@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjy5yrdr1tutc"
-path="res://.godot/imported/slime_jump_D.png-e312f2d4ba1af08e5e4260cb0e2cc3e3.ctex"
+uid="uid://bdg6lvx5ks2m4"
+path="res://.godot/imported/Bee_U_Death.png-e856d53e9ddf86cf82ef5b04c63ae6de.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slime_jump_D.png"
-dest_files=["res://.godot/imported/slime_jump_D.png-e312f2d4ba1af08e5e4260cb0e2cc3e3.ctex"]
+source_file="res://assets/enemySpriteSheets/bee/Bee_U_Death.png"
+dest_files=["res://.godot/imported/Bee_U_Death.png-e856d53e9ddf86cf82ef5b04c63ae6de.ctex"]
 
 [params]
 

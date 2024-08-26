@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnhnw5p4h6cgx"
-path="res://.godot/imported/slimeJumpRight.png-2ecdc72cb5194dad11f63422743d1d81.ctex"
+uid="uid://bteqpy75n6toc"
+path="res://.godot/imported/Bee_U_Walk.png-68b45cc7ee077bbc4297ad1730a7a185.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/slimeJumpRight.png"
-dest_files=["res://.godot/imported/slimeJumpRight.png-2ecdc72cb5194dad11f63422743d1d81.ctex"]
+source_file="res://assets/enemySpriteSheets/bee/Bee_U_Walk.png"
+dest_files=["res://.godot/imported/Bee_U_Walk.png-68b45cc7ee077bbc4297ad1730a7a185.ctex"]
 
 [params]
 
