@@ -1,4 +1,4 @@
-extends Node2D
+class_name Enemy extends Node2D
 
 @export var hp : int = 3
 @export var speed = 40
@@ -28,7 +28,7 @@ func _on_area_2d_area_entered(area):
 
 func take_damage():
 		hp = hp - 1
-		animation_player.play("slime_hit") #making red on hit
+		animation_player.play("enemy_hit") #making red on hit
 		if hp < 1:
 			die()
 

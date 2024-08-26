@@ -17,7 +17,6 @@ func _ready():
 	
 
 func check_build_status():
-	#print("remaining wood: " + str(item_cost_array.size()))
 	label.text = "Put Logs: " + str(item_cost_array.size())
 	if item_cost_array.size() <= 0:
 		var turret = turret_path.instantiate()

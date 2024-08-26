@@ -249,7 +249,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2umao"]
 _data = {
 "RESET": SubResource("Animation_4xllh"),
-"slime_hit": SubResource("Animation_6r0ac")
+"enemy_hit": SubResource("Animation_6r0ac")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwj7u"]

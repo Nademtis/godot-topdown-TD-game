@@ -2,14 +2,14 @@ extends Node2D
 
 var enemyArray = []
 var canShoot = true
-@onready var timer = $Timer
+@onready var attack_speed_timer = $Timer
 @onready var arrow_path = preload("res://scenes/arrow.tscn")
 @onready var animate_archer: AnimatedSprite2D = $archer/AnimatedSprite2D
-
 
 func _process(_delta):
 	if enemyArray.size() > 0 && canShoot:
 		attack()
+	
 
 func attack():
 	canShoot = false
@@ -18,11 +18,8 @@ func attack():
 	
 	var arrow : CharacterBody2D = arrow_path.instantiate()
 	arrow.target_object = firstEnemy.get_parent()
-	#arrow.look_at(firstEnemy.global_position)
-	#should flip if shooting right
-	
 	add_child(arrow)
-	timer.start()
+	attack_speed_timer.start()
 	
 func attack_anim(enemyPos) -> void:
 	var direction = (enemyPos.global_position - global_position).normalized()
@@ -36,7 +33,11 @@ func attack_anim(enemyPos) -> void:
 			animate_archer.play('d_attack')
 		else:
 			animate_archer.play('u_attack')
-			
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	print(animate_archer.animation)
+	#should instansiate arrow here
+	pass # Replace with function body.
 
 func _on_range_area_2d_area_entered(area):
 	if area.is_in_group("enemy"):

@@ -37,11 +37,9 @@ func snap_to_grid(position: Vector2) -> Vector2:
 	return TILEMAP_1.map_to_local(grid_pos)
 
 func tile_under_mouse_is_buildable(position : Vector2) -> bool:
-	#var mouse_pos = get_global_mouse_position()
 	var tile = TILEMAP_1.local_to_map(position)
 	var tileData = TILEMAP_1.get_cell_tile_data(tile)
 	var tile_under_mouse_isBuildable = tileData.get_custom_data('isBuildable')
-	print(tile_under_mouse_isBuildable)
 	return tile_under_mouse_isBuildable
 
 func _input(event):
