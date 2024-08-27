@@ -59,6 +59,7 @@ func take_damage():
 			
 
 func die():
+	get_tree().call_group("turrets", "_on_enemy_died", self)
 	speed = 0 # since we dead
 	
 	var firstLetter : String = animated_sprite.animation.substr(0, 1)
@@ -68,4 +69,5 @@ func die():
 	#kill when done
 	
 func kill():
-	get_parent().queue_free()
+	get_parent().queue_free() #should probably also kill the parent (pathfollow2d)
+	#queue_free()

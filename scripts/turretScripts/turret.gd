@@ -1,28 +1,38 @@
-extends Node2D
+class_name Turret extends Node2D
 
-var enemyArray = []
+var enemyArray : Array[Node2D] = []
 var canShoot = true
 @onready var attack_speed_timer = $Timer
 @onready var arrow_path = preload("res://scenes/arrow.tscn")
 @onready var animate_archer: AnimatedSprite2D = $archer/AnimatedSprite2D
 
+@onready var l_attack_pos: Node2D = $archer/L_attackPos
+@onready var r_attack_pos: Node2D = $archer/R_attackPos
+@onready var d_attack_pos: Node2D = $archer/D_attackPos
+@onready var u_attack_pos: Node2D = $archer/U_attackPos
+
+
+
+func _ready() -> void:
+		add_to_group("turrets")
+
 func _process(_delta):
-	if enemyArray.size() > 0 && canShoot:
+	if enemyArray.size() > 0 and canShoot:
 		attack()
-	
+	if enemyArray.size() <= 0:
+		animate_archer.play('d_idle')
 
 func attack():
-	canShoot = false
-	var firstEnemy = enemyArray[-1].get_parent()
-	attack_anim(firstEnemy)
-	
-	var arrow : CharacterBody2D = arrow_path.instantiate()
-	arrow.target_object = firstEnemy.get_parent()
-	add_child(arrow)
-	attack_speed_timer.start()
-	
-func attack_anim(enemyPos) -> void:
-	var direction = (enemyPos.global_position - global_position).normalized()
+	if is_instance_valid(enemyArray[-1]):
+		canShoot = false
+		attack_anim(enemyArray[-1].global_position)
+		attack_speed_timer.start()
+	else:
+		# Remove invalid enemy from the array
+		enemyArray.pop_back()
+
+func attack_anim(enemy_pos : Vector2) -> void:
+	var direction = (enemy_pos - global_position).normalized()
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
 			animate_archer.play('r_attack')
@@ -35,14 +45,32 @@ func attack_anim(enemyPos) -> void:
 			animate_archer.play('u_attack')
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	print(animate_archer.animation)
-	#should instansiate arrow here
-	pass # Replace with function body.
+	if enemyArray.size() > 0 and is_instance_valid(enemyArray[-1]):
+		var arrow: CharacterBody2D = arrow_path.instantiate()
+		arrow.target_object = enemyArray[-1]
+		
+		match animate_archer.animation:
+			'r_attack': 
+				print('shoot right')
+				arrow.global_position = r_attack_pos.position
+			'l_attack':
+				print('shoot left')
+				arrow.global_position = l_attack_pos.position
+			'd_attack':
+				print('shoot down')
+				arrow.global_position = d_attack_pos.position
+			'u_attack':
+				print('shoot up')
+				arrow.global_position = u_attack_pos.position
+		add_child(arrow)
+	else:
+		# If the target is invalid, remove it from the array
+		if enemyArray.size() > 0:
+			enemyArray.pop_back()
 
-func _on_range_area_2d_area_entered(area):
+func _on_range_area_2d_area_entered(area : Area2D):
 	if area.is_in_group("enemy"):
-		enemyArray.push_front(area)
-	
+		enemyArray.push_front(area.get_parent())
 
 func _on_range_area_2d_area_exited(area):
 	if area.is_in_group("enemy"):
@@ -50,3 +78,6 @@ func _on_range_area_2d_area_exited(area):
 
 func _on_timer_timeout():
 	canShoot = true
+
+func _on_enemy_died(enemy):
+	enemyArray.erase(enemy)

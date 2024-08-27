@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ctv0kskr1ls36"]
+[gd_scene load_steps=22 format=3 uid="uid://ctv0kskr1ls36"]
 
 [ext_resource type="Script" path="res://scripts/arrow.gd" id="1_c4ega"]
 [ext_resource type="Texture2D" uid="uid://xr4vg1xdgmi7" path="res://assets/arrow_spritesheet.png" id="2_tu27r"]
@@ -55,7 +55,15 @@ region = Rect2(154, 0, 14, 14)
 atlas = ExtResource("2_tu27r")
 region = Rect2(168, 0, 14, 14)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_psfpy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dt0xj"]
+atlas = ExtResource("2_tu27r")
+region = Rect2(140, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_06nph"]
+atlas = ExtResource("2_tu27r")
+region = Rect2(154, 0, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16hgb"]
 atlas = ExtResource("2_tu27r")
 region = Rect2(168, 0, 14, 14)
 
@@ -107,11 +115,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_psfpy")
+"texture": SubResource("AtlasTexture_dt0xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06nph")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16hgb")
 }],
-"loop": true,
+"loop": false,
 "name": &"new_animation",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_myxnf"]
@@ -130,6 +144,8 @@ position = Vector2(0, 5)
 sprite_frames = SubResource("SpriteFrames_46vla")
 animation = &"new_animation"
 autoplay = "new_animation"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,8 +1,14 @@
 extends Node
 
 #region MUSIC
-@onready var music_synced: AudioStreamPlayer2D = $Music/musicSynced
+@export var music_should_play : bool = false
+@onready var music_synced: AudioStreamPlayer = %musicSynced
 @onready var music_intro: AudioStreamPlayer2D = $Music/musicIntro
+
+const BASE_LOOP = preload("res://assets/audio/music/base_loop.ogg")
+const DRUM_1 = preload("res://assets/audio/music/drum_1.ogg")
+const DRUM_2 = preload("res://assets/audio/music/drum_2.ogg")
+const INTENSITY_1 = preload("res://assets/audio/music/intensity_1.ogg")
 
 #endregion
 
@@ -28,7 +34,9 @@ var chop_list : Array[AudioStreamPlayer]
 @onready var tree_creek_sfx = $Tree/tree_creek
 #endregion
 
-
+func _process(delta: float) -> void:
+	if not music_synced.is_playing() && music_should_play:
+		music_synced.play()
 
 func _ready():
 	
@@ -39,6 +47,15 @@ func _ready():
 	#chop
 	chop_list= [chop_1, chop_2]
 	#chop_list= [chop_1, chop_2, chop_3, chop_4]
+	
+	setup_music()
+	
+	
+
+func setup_music():
+	var audio_stream : AudioStreamSynchronized = music_synced.stream
+	audio_stream.set_sync_stream_volume(2,-60)
+	
 	
 
 func foot_step():
@@ -60,6 +77,5 @@ func tree_falling():
 	
 
 func _on_music_intro_finished() -> void:
-	music_synced.play()
-	
+	music_should_play = true
 	pass # Replace with function body.

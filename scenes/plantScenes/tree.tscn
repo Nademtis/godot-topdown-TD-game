@@ -202,18 +202,20 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.403922)
 [node name="Tree1" type="Node2D"]
 script = SubResource("GDScript_jmdit")
 
-[node name="shaddowSprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.686275)
-position = Vector2(0, 3)
-texture = ExtResource("2_5vrhv")
+[node name="topSprite2D" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(0, -5)
+texture = ExtResource("3_bky7i")
+offset = Vector2(0, -20)
 
 [node name="buttonSprite_2d" type="Sprite2D" parent="."]
 texture = ExtResource("2_pb5pg")
 
-[node name="topSprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -5)
-texture = ExtResource("3_bky7i")
-offset = Vector2(0, -20)
+[node name="shaddowSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.686275)
+z_index = -1
+position = Vector2(0, 3)
+texture = ExtResource("2_5vrhv")
 
 [node name="Area2D" type="Area2D" parent="." groups=["tree"]]
 visible = false

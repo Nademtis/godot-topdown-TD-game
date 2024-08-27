@@ -266,21 +266,63 @@ position = Vector2(0, -8)
 
 [node name="L_attackPos" type="Node2D" parent="archer"]
 visible = false
-position = Vector2(-14, -1)
+position = Vector2(-20, -6)
 
 [node name="Sprite2D" type="Sprite2D" parent="archer/L_attackPos"]
 visible = false
+position = Vector2(6, 5)
 rotation = -1.5708
 texture = ExtResource("3_hcx2m")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 14, 14)
 
+[node name="R_attackPos" type="Node2D" parent="archer"]
+visible = false
+position = Vector2(20, -6)
+
+[node name="Sprite2D" type="Sprite2D" parent="archer/R_attackPos"]
+visible = false
+position = Vector2(-6, 5)
+rotation = -1.5708
+texture = ExtResource("3_hcx2m")
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 14)
+
+[node name="D_attackPos" type="Node2D" parent="archer"]
+visible = false
+position = Vector2(0, 3)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="archer/D_attackPos"]
+visible = false
+position = Vector2(-6, 5)
+rotation = -1.5708
+texture = ExtResource("3_hcx2m")
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 14)
+
+[node name="U_attackPos" type="Node2D" parent="archer"]
+visible = false
+position = Vector2(-2, -21)
+rotation = -3.14159
+
+[node name="Sprite2D" type="Sprite2D" parent="archer/U_attackPos"]
+position = Vector2(-6, -6)
+texture = ExtResource("3_hcx2m")
+flip_h = true
+flip_v = true
+region_enabled = true
+region_rect = Rect2(0, 0, 14, 14)
+
 [node name="Sprite2D" type="Sprite2D" parent="archer"]
 visible = false
-texture = ExtResource("5_b17si")
 region_enabled = true
-region_rect = Rect2(0, 0, 48, 48)
+region_rect = Rect2(192, 0, 48, 48)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="archer"]
 y_sort_enabled = true

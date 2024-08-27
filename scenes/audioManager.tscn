@@ -24,11 +24,11 @@
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_bl8ew"]
 stream_count = 4
 stream_0/stream = ExtResource("17_3tar0")
-stream_0/volume = 0.0
+stream_0/volume = -3.41
 stream_1/stream = ExtResource("18_uvrpp")
-stream_1/volume = 0.0
+stream_1/volume = 1.46
 stream_2/stream = ExtResource("19_6257e")
-stream_2/volume = -8.76
+stream_2/volume = -7.3
 stream_3/stream = ExtResource("20_g47lx")
 stream_3/volume = 0.0
 
@@ -111,8 +111,10 @@ stream = ExtResource("16_s8ycq")
 autoplay = true
 bus = &"Music"
 
-[node name="musicSynced" type="AudioStreamPlayer2D" parent="Music"]
+[node name="musicSynced" type="AudioStreamPlayer" parent="Music"]
+unique_name_in_owner = true
 stream = SubResource("AudioStreamSynchronized_bl8ew")
+volume_db = -4.634
 bus = &"Music"
 
 [connection signal="finished" from="Music/musicIntro" to="." method="_on_music_intro_finished"]
