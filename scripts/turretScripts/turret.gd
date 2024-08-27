@@ -51,16 +51,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		
 		match animate_archer.animation:
 			'r_attack': 
-				print('shoot right')
 				arrow.global_position = r_attack_pos.position
 			'l_attack':
-				print('shoot left')
 				arrow.global_position = l_attack_pos.position
 			'd_attack':
-				print('shoot down')
 				arrow.global_position = d_attack_pos.position
 			'u_attack':
-				print('shoot up')
 				arrow.global_position = u_attack_pos.position
 		add_child(arrow)
 	else:

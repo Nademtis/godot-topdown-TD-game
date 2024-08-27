@@ -353,6 +353,10 @@ autostart = true
 position = Vector2(38, -31)
 curve = SubResource("Curve2D_rxvsi")
 
+[node name="memeTimer" type="Timer" parent="EnemySpawner"]
+wait_time = 5.0
+autostart = true
+
 [node name="TreeContainer" type="Node" parent="."]
 
 [node name="Tree1" parent="TreeContainer" instance=ExtResource("8_ej3ev")]
@@ -421,3 +425,4 @@ position = Vector2(-18, 54)
 position = Vector2(18, 135)
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
+[connection signal="timeout" from="EnemySpawner/memeTimer" to="EnemySpawner" method="_on_meme_timer_timeout"]
