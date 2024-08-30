@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://drl6oyscgipyr"]
+[gd_scene load_steps=13 format=4 uid="uid://drl6oyscgipyr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_yx0tr"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_y8ixa"]
@@ -11,17 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="10_uiwqe"]
 [ext_resource type="PackedScene" uid="uid://pg8rt4js4ahp" path="res://scenes/turretScenes/turret.tscn" id="12_ytk4w"]
 
-[sub_resource type="Resource" id="Resource_3dkfh"]
+[sub_resource type="Resource" id="Resource_01q6t"]
 script = ExtResource("7_afoko")
-slime_amount = 5
-bee_amount = 5
-wave_duration = 15.0
-
-[sub_resource type="Resource" id="Resource_xciry"]
-script = ExtResource("7_afoko")
-slime_amount = 5
-bee_amount = 5
-wave_duration = 15.0
+amount_of_slime = 0
+amount_of_bee = 0
+waveDuration = 20.0
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -60,7 +54,7 @@ required_logs = 15
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("9_rxv1p")
-waves = Array[ExtResource("7_afoko")]([SubResource("Resource_3dkfh"), SubResource("Resource_xciry")])
+waves = Array[ExtResource("7_afoko")]([SubResource("Resource_01q6t")])
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 wait_time = 1.3

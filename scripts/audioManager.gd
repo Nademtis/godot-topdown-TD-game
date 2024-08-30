@@ -34,7 +34,7 @@ var chop_list : Array[AudioStreamPlayer]
 @onready var tree_creek_sfx = $Tree/tree_creek
 #endregion
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not music_synced.is_playing() && music_should_play:
 		music_synced.play()
 

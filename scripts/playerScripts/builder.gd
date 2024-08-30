@@ -32,12 +32,12 @@ func _process(_delta):
 			remove_child(current_bp_hover) #removed the hover
 			trying_to_build = false
 
-func snap_to_grid(position: Vector2) -> Vector2:
-	var grid_pos = TILEMAP_1.local_to_map(position)
+func snap_to_grid(snapPosition: Vector2) -> Vector2:
+	var grid_pos = TILEMAP_1.local_to_map(snapPosition)
 	return TILEMAP_1.map_to_local(grid_pos)
 
-func tile_under_mouse_is_buildable(position : Vector2) -> bool:
-	var tile = TILEMAP_1.local_to_map(position)
+func tile_under_mouse_is_buildable(mousePosition : Vector2) -> bool:
+	var tile = TILEMAP_1.local_to_map(mousePosition)
 	var tileData = TILEMAP_1.get_cell_tile_data(tile)
 	var tile_under_mouse_isBuildable = tileData.get_custom_data('isBuildable')
 	return tile_under_mouse_isBuildable
