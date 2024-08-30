@@ -2,25 +2,38 @@ extends Resource
 
 class_name Wave
 
+var SLIME = preload("res://scenes/slime.tscn")
+var BEE = preload("res://scenes/bee.tscn")
+
 @export var slime_amount : int
 @export var bee_amount : int
 @export var wave_duration : float
 
 var total_amount_of_enemies : int
 var spawn_rate : float
+var mobs_left_in_wave : int 
 
+func calculate_mob_numbers():
+	mobs_left_in_wave = slime_amount + bee_amount
+	print('mobs left: ' + str(mobs_left_in_wave))
 
-func _init(p_duration: float = 15, p_slime_amount: int = 1, p_bee_amount: int = 1):
-	slime_amount = p_slime_amount
-	bee_amount = p_bee_amount
-	wave_duration = p_duration
-	
-	print(slime_amount) # prints 0 even when i have waves in the inspecter window array
-	print(bee_amount)
-	
-	
+func init_wave():
+	calculate_mob_numbers()
 	total_amount_of_enemies = slime_amount + bee_amount
-	spawn_rate = wave_duration/total_amount_of_enemies
+	if total_amount_of_enemies > 0:
+		spawn_rate = wave_duration / total_amount_of_enemies
+	else:
+		spawn_rate = 0
+	print("spawn_rate is: " + str(spawn_rate))
 
-func get_random_enemy_path():
-	pass
+func get_random_enemy_path() -> PackedScene:
+	var random = randf()
+	
+	if random > 0.5:
+		slime_amount -= 1
+		calculate_mob_numbers()
+		return SLIME
+	else:
+		bee_amount -= 1
+		calculate_mob_numbers()
+		return BEE
