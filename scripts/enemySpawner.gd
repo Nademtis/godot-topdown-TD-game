@@ -16,6 +16,7 @@ func _ready() -> void:
 	if waves.is_empty():
 		print_debug('no waves in this level')
 	else:
+		enemy_spawn_rate_timer.timeout.connect(spawn_enemy)
 		start_wave()
 		
 func start_wave():
@@ -24,19 +25,22 @@ func start_wave():
 	if (waves.size() >= current_wave_index+1):
 		var wave : Wave = waves[current_wave_index]
 		wave.init_wave()
-		wave_duration_timer.wait_time = wave.wave_duration
+		wave_duration_timer.wait_time = wave.wave_duration + 1 #plus 1 second to add a breathing room
 		wave_duration_timer.start()
 		
-		enemy_spawn_rate_timer.wait_time = wave.spawn_rate
-		enemy_spawn_rate_timer.timeout.connect(spawn_enemy)
-		enemy_spawn_rate_timer.start()
+		if wave.total_amount_of_enemies > 0: #when there are enemies in wave
+			enemy_spawn_rate_timer.wait_time = wave.spawn_rate
+			enemy_spawn_rate_timer.start()
+		else:
+			print('no enemies in this wave')
 	else:
 		print("no more levels")
 		
 func next_wave():
+	enemy_spawn_rate_timer.stop()
 	if waves[current_wave_index].mobs_left_in_wave > 0:
 		print("whoops waiting for next wave, everything havent spawned")
-		await get_tree().create_timer(3.0).timeout
+		print("mobs left based on spawner " + str(waves[current_wave_index].mobs_left_in_wave))
 		next_wave()
 	else:
 		print("swapping wave")

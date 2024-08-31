@@ -22,14 +22,14 @@ func init_wave():
 	total_amount_of_enemies = slime_amount + bee_amount
 	if total_amount_of_enemies > 0:
 		spawn_rate = wave_duration / total_amount_of_enemies
+		print(spawn_rate)
 	else:
 		spawn_rate = 0
-	print("spawn_rate is: " + str(spawn_rate))
 
 func get_random_enemy_path() -> PackedScene:
 	var random = randf()
 	
-	if random > 0.5:
+	if random > 0.5 && slime_amount > 0:
 		slime_amount -= 1
 		calculate_mob_numbers()
 		return SLIME
