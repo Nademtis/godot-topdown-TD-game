@@ -28,7 +28,8 @@ window/stretch/mode="canvas_items"
 
 folder_colors={
 "res://assets/": "purple",
-"res://scenes/": "green",
+"res://assets/world/": "green",
+"res://scenes/": "orange",
 "res://scenes/plantScenes/": "green",
 "res://scripts/": "blue"
 }

@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://kgfcsuen7f07"]
+
+[ext_resource type="Texture2D" uid="uid://bp82xe3kxij4s" path="res://assets/world/camp/campfire3.png" id="1_2osju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fyjdl"]
+atlas = ExtResource("1_2osju")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdce7"]
+atlas = ExtResource("1_2osju")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcb5i"]
+atlas = ExtResource("1_2osju")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4s5x"]
+atlas = ExtResource("1_2osju")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgnha"]
+atlas = ExtResource("1_2osju")
+region = Rect2(128, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kijgb"]
+atlas = ExtResource("1_2osju")
+region = Rect2(160, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2mpi3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fyjdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fdce7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcb5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4s5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgnha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kijgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fjobb"]
+radius = 5.0
+
+[node name="Campfire" type="Node2D"]
+y_sort_enabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(0, -2)
+sprite_frames = SubResource("SpriteFrames_2mpi3")
+autoplay = "default"
+frame_progress = 0.0427955
+offset = Vector2(0, -23)
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+position = Vector2(-1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_fjobb")

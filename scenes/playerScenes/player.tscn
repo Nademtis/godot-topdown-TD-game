@@ -133,7 +133,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_o6scs"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_5wk2g"]
 radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4npg"]
@@ -157,21 +157,24 @@ anti_aliasing = false
 bg_color = Color(0.6, 1, 0.6, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+z_as_relative = false
+y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("1_j72qj")
 stamina_drain_rate = 0.1
 stamina_sprint_cost = 0.25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_tymf2")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.0736265
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
-scale = Vector2(1, 1.56)
-shape = SubResource("CircleShape2D_o6scs")
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_5wk2g")
 
 [node name="staminaDrainTimer" type="Timer" parent="."]
 one_shot = true
@@ -187,6 +190,8 @@ shape = SubResource("CircleShape2D_v4npg")
 
 [node name="axe" type="Node2D" parent="."]
 show_behind_parent = true
+z_as_relative = false
+y_sort_enabled = true
 position = Vector2(2.32831e-09, 3.33333)
 rotation = -1.5817
 script = ExtResource("3_4mkdn")

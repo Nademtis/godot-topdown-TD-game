@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byvg1dyp7wc4i"
-path="res://.godot/imported/knight.png-b33800fb7ddfd7bcabc4517f1e9e68e8.ctex"
+uid="uid://bp82xe3kxij4s"
+path="res://.godot/imported/campfire3.png-6e51f47e9a2b4a652bb10e23e253bd78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/knight.png"
-dest_files=["res://.godot/imported/knight.png-b33800fb7ddfd7bcabc4517f1e9e68e8.ctex"]
+source_file="res://assets/world/camp/campfire3.png"
+dest_files=["res://.godot/imported/campfire3.png-6e51f47e9a2b4a652bb10e23e253bd78.ctex"]
 
 [params]
 
