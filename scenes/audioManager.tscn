@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://dludsjr3ewamu"]
 
 [ext_resource type="AudioStream" uid="uid://hf6x2necycsq" path="res://assets/audio/sfx/chop1.wav" id="1_5qtr1"]
-[ext_resource type="Script" path="res://scripts/audioManager.gd" id="1_8t23k"]
+[ext_resource type="Script" path="res://scripts/autoloadScripts/audioManager.gd" id="1_8t23k"]
 [ext_resource type="AudioStream" uid="uid://dbhs1ovx3ofwa" path="res://assets/audio/sfx/timber2.wav" id="2_betbq"]
 [ext_resource type="AudioStream" uid="uid://bm23io6yfxu08" path="res://assets/audio/sfx/tree_creek.wav" id="3_orrsu"]
 [ext_resource type="AudioStream" uid="uid://3llvgvrg7604" path="res://assets/audio/sfx/chop2.wav" id="5_ds0mm"]

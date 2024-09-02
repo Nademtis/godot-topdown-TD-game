@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 audio="*res://scenes/audioManager.tscn"
 levelManager="*res://scenes/level_manager.tscn"
+PlayerStats="*res://scripts/autoloadScripts/PlayerStats.gd"
 
 [display]
 

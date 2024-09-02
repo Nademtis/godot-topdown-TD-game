@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc5ru1ldu3rui"]
 
-[ext_resource type="Script" path="res://scripts/bush.gd" id="1_84en0"]
+[ext_resource type="Script" path="res://scripts/worldScripts/bush.gd" id="1_84en0"]
 [ext_resource type="Texture2D" uid="uid://b0mb1gm5iwmwa" path="res://assets/plants/bush4.png" id="2_telif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_140d0"]

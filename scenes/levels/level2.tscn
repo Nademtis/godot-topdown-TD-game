@@ -1,13 +1,12 @@
-[gd_scene load_steps=16 format=4 uid="uid://drl6oyscgipyr"]
+[gd_scene load_steps=15 format=4 uid="uid://drl6oyscgipyr"]
 
-[ext_resource type="Script" path="res://scripts/level.gd" id="1_yx0tr"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_y8ixa"]
 [ext_resource type="PackedScene" uid="uid://ddiyqdwvovurd" path="res://scenes/playerScenes/player.tscn" id="3_m4ovl"]
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="4_ok2sk"]
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="7_a2ge5"]
 [ext_resource type="Script" path="res://scripts/wave.gd" id="7_afoko"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_ej3ev"]
-[ext_resource type="Script" path="res://scripts/enemySpawner.gd" id="9_rxv1p"]
+[ext_resource type="Script" path="res://scripts/enemyScripts/enemySpawner.gd" id="9_rxv1p"]
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="10_uiwqe"]
 [ext_resource type="PackedScene" uid="uid://pg8rt4js4ahp" path="res://scenes/turretScenes/turret.tscn" id="12_ytk4w"]
 
@@ -42,7 +41,6 @@ _data = {
 point_count = 4
 
 [node name="main" type="Node"]
-script = ExtResource("1_yx0tr")
 
 [node name="UI" parent="." instance=ExtResource("2_y8ixa")]
 visible = false

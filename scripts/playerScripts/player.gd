@@ -1,7 +1,11 @@
 extends CharacterBody2D
 
+var stats : PlayerStats = PlayerStats
 
-@export var speed = 9*1000  # speed in pixels/sec
+var speed : int = PlayerStats.player_move_speed  # speed in pixels/sec
+var sprint_multiplier : float = stats.player_sprint_multiplier
+
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera = $Camera2D
 
@@ -39,7 +43,7 @@ func _process(delta):
 			stamina_drain_timer.start()
 		
 		is_sprinting = true
-		velocity = direction * speed * 1.3 * delta
+		velocity = direction * speed * sprint_multiplier * delta
 	else:
 		is_sprinting = false
 		velocity = direction * speed * delta

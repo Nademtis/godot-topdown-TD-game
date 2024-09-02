@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://mj5q7s0wwxqo"]
 
 [ext_resource type="Texture2D" uid="uid://catuxlrbteaxs" path="res://assets/Wagon.png" id="1_2fmqh"]
-[ext_resource type="Script" path="res://scripts/wagon.gd" id="1_l4q3l"]
+[ext_resource type="Script" path="res://scripts/worldScripts/wagon.gd" id="1_l4q3l"]
 [ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_53cgn"]
 
 [sub_resource type="Animation" id="Animation_51cbv"]

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://rwj5vmk2ulym" path="res://assets/tile_set_DEMOWater.png" id="6_ay2qc"]
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="7_ei87r"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_gvj4q"]
-[ext_resource type="Script" path="res://scripts/enemySpawner.gd" id="10_hwxot"]
+[ext_resource type="Script" path="res://scripts/enemyScripts/enemySpawner.gd" id="10_hwxot"]
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="11_dcb6m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11enx"]
