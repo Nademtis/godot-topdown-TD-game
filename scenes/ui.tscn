@@ -78,23 +78,41 @@ layout_mode = 2
 theme_override_constants/margin_left = 176
 theme_override_constants/margin_right = 96
 
-[node name="waveUIHBox" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+[node name="progressDot" type="ColorRect" parent="Control/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
+z_index = 1
+custom_minimum_size = Vector2(10, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="waveContainer" type="Control" parent="Control/MarginContainer/MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(300, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="waveUIHBox" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer/waveContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
+offset_right = 816.0
+offset_bottom = 10.0
 size_flags_vertical = 0
 
-[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveUIHBox"]
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveContainer/waveUIHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.320296, 0.546746, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveUIHBox"]
+[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveContainer/waveUIHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.847251, 0.0350515, 0.475035, 1)
 
-[node name="ColorRect3" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveUIHBox"]
+[node name="ColorRect3" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveContainer/waveUIHBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.681744, 0.393914, 0.0448697, 1)

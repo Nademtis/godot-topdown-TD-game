@@ -8,6 +8,7 @@ var amount_of_items = 0
 @onready var heart_3 = $Control/MarginContainer/VBoxContainer/Control/Container/heart3
 
 @onready var wave_uih_box: HBoxContainer = %waveUIHBox
+@onready var progress_dot: ColorRect = %progressDot
 
 func _ready():
 	self.visible = true

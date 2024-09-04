@@ -7,10 +7,17 @@ extends Node
 @onready var enemy_spawn_rate_timer: Timer = $enemySpawnRateTimer
 
 @onready var ui_wave_h_box : HBoxContainer = get_node("/root/main/UI").wave_uih_box
+@onready var progress_dot : ColorRect = get_node("/root/main/UI").progress_dot
+var scrollspeed : float = 0.15 #test
 
 @export var waves : Array[Wave]
 
 var current_wave_index : int = 0
+
+func _process(delta: float) -> void:
+	var oldPos = ui_wave_h_box.position
+	ui_wave_h_box.set_position(Vector2(oldPos.x - scrollspeed, oldPos.y))
+	pass
 
 func _ready() -> void:
 	if waves.is_empty():
@@ -70,7 +77,6 @@ func create_wave_indicator_ui():
 	for wave : Wave in waves:
 		total_duration += wave.wave_duration
 		
-	print('total duration of waves:'+ str(total_duration))
 	# Create ColorRects based on wave durations
 	for wave in waves:
 		wave.init_wave()
