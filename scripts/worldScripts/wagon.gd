@@ -1,17 +1,16 @@
 extends Node2D
 
-@export var wagon_storage : Array
+var wagon_storage : Array [String] = PlayerInventory.wagon_storage
 @export var required_logs : int
 @onready var label = $Label
 
 
 @onready var animation_player = $AnimationPlayer
 
-
 var ui : CanvasLayer
 
 var player_is_in_range = false
-var player_inventory_array
+var player_inventory : Array[String] = PlayerInventory.player_inventory
 
 func _ready():
 	if (!required_logs): #just in case i forgot to set requiered logs in inspector
@@ -25,11 +24,10 @@ func update_label():
 
 func _input(event):
 	if player_is_in_range && event.is_action_pressed("use"):
-		player_inventory_array = get_tree().root.get_node("main/Player/itemArea2D").inventory
-		for item in player_inventory_array:
-			player_inventory_array.erase(item)
+		for item in player_inventory:
+			player_inventory.erase(item)
 			wagon_storage.push_front(item)
-			ui.changeTxt(player_inventory_array)
+			ui.changeTxt(player_inventory)
 			update_label()
 			
 			animation_player.play("deposit")

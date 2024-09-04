@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=4 uid="uid://drl6oyscgipyr"]
+[gd_scene load_steps=16 format=4 uid="uid://drl6oyscgipyr"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_m0opi"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_y8ixa"]
 [ext_resource type="PackedScene" uid="uid://ddiyqdwvovurd" path="res://scenes/playerScenes/player.tscn" id="3_m4ovl"]
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="4_ok2sk"]
@@ -14,7 +15,7 @@
 script = ExtResource("7_afoko")
 slime_amount = 0
 bee_amount = 0
-wave_duration = 10.0
+wave_duration = 5.0
 
 [sub_resource type="Resource" id="Resource_tjsfy"]
 script = ExtResource("7_afoko")
@@ -41,9 +42,9 @@ _data = {
 point_count = 4
 
 [node name="main" type="Node"]
+script = ExtResource("1_m0opi")
 
 [node name="UI" parent="." instance=ExtResource("2_y8ixa")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_m4ovl")]
 z_index = 5

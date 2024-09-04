@@ -15,14 +15,12 @@ var mobs_left_in_wave : int
 
 func calculate_mob_numbers():
 	mobs_left_in_wave = slime_amount + bee_amount
-	print('mobs left: ' + str(mobs_left_in_wave))
 
 func init_wave():
 	calculate_mob_numbers()
 	total_amount_of_enemies = slime_amount + bee_amount
 	if total_amount_of_enemies > 0:
 		spawn_rate = wave_duration / total_amount_of_enemies
-		print(spawn_rate)
 	else:
 		spawn_rate = 0
 

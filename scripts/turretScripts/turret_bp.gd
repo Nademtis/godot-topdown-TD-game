@@ -8,7 +8,7 @@ var ui : CanvasLayer
 
 var player_is_in_range = false
 @export var item_cost_array : Array[String]
-var player_inventory_array
+var player_inventory : Array[String] = PlayerInventory.player_inventory
 
 func _ready():
 	item_cost_array = item_cost_array.duplicate()
@@ -27,13 +27,12 @@ func check_build_status():
 
 func _input(event):
 	if player_is_in_range && event.is_action_pressed("use"):
-		player_inventory_array = get_tree().root.get_node("main/Player/itemArea2D").inventory
-		for item in player_inventory_array:
+		for item in player_inventory:
 			if item_cost_array.has(item):
-				player_inventory_array.erase(item)
+				player_inventory.erase(item)
 				item_cost_array.erase(item)
 				check_build_status()
-				ui.changeTxt(player_inventory_array)
+				ui.changeTxt(player_inventory)
 				break
 
 func _on_area_2d_area_entered(area):

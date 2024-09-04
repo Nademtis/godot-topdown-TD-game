@@ -6,17 +6,18 @@ extends Node
 @onready var wave_duration_timer: Timer = $Timer
 @onready var enemy_spawn_rate_timer: Timer = $enemySpawnRateTimer
 
+@onready var ui_wave_h_box : HBoxContainer = get_node("/root/main/UI").wave_uih_box
+
 @export var waves : Array[Wave]
 
 var current_wave_index : int = 0
-enum WaveStatus {}
-
 
 func _ready() -> void:
 	if waves.is_empty():
 		print_debug('no waves in this level')
 	else:
 		enemy_spawn_rate_timer.timeout.connect(spawn_enemy)
+		call_deferred("create_wave_indicator_ui")
 		start_wave()
 		
 func start_wave():
@@ -24,7 +25,6 @@ func start_wave():
 	
 	if (waves.size() >= current_wave_index+1):
 		var wave : Wave = waves[current_wave_index]
-		wave.init_wave()
 		wave_duration_timer.wait_time = wave.wave_duration + 1 #plus 1 second to add a breathing room
 		wave_duration_timer.start()
 		
@@ -39,8 +39,6 @@ func start_wave():
 func next_wave():
 	enemy_spawn_rate_timer.stop()
 	if waves[current_wave_index].mobs_left_in_wave > 0:
-		print("whoops waiting for next wave, everything havent spawned")
-		print("mobs left based on spawner " + str(waves[current_wave_index].mobs_left_in_wave))
 		next_wave()
 	else:
 		print("swapping wave")
@@ -61,3 +59,34 @@ func spawn_enemy():
 	path_2d.add_child(pathFollow2D)
 	pathFollow2D.add_child(mob)
 	
+
+func create_wave_indicator_ui():
+	# Clear existing children in the HBoxContainer
+	for child in ui_wave_h_box.get_children():
+		child.queue_free()
+
+	# Calculate the total wave duration
+	var total_duration: float = 0
+	for wave : Wave in waves:
+		total_duration += wave.wave_duration
+		
+	print('total duration of waves:'+ str(total_duration))
+	# Create ColorRects based on wave durations
+	for wave in waves:
+		wave.init_wave()
+		var color_rect : ColorRect = ColorRect.new()
+		# Set the color based on wave difficulty (Example)
+		if wave.total_amount_of_enemies == 0:
+			color_rect.color = Color(0, 1, 0)  # Green
+		elif wave.total_amount_of_enemies > 10:  # Example condition
+			color_rect.color = Color(1, 0, 0)  # Red
+		else:
+			color_rect.color = Color(1, 1, 0)  # Yellow
+
+		# Calculate width proportional to wave duration
+		var proportion: float = wave.wave_duration / total_duration
+		var container_width: float = ui_wave_h_box.size.x
+		color_rect.set_custom_minimum_size(Vector2(container_width * proportion, 20))
+		
+		# Add the ColorRect to the HBoxContainer
+		ui_wave_h_box.add_child(color_rect)

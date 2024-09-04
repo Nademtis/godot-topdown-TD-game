@@ -72,3 +72,29 @@ theme_override_fonts/font = ExtResource("2_j4yfm")
 theme_override_font_sizes/font_size = 24
 text = "Logs: 0"
 uppercase = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 176
+theme_override_constants/margin_right = 96
+
+[node name="waveUIHBox" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveUIHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.320296, 0.546746, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveUIHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.847251, 0.0350515, 0.475035, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveUIHBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.681744, 0.393914, 0.0448697, 1)

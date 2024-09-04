@@ -181,7 +181,6 @@ one_shot = true
 
 [node name="itemArea2D" type="Area2D" parent="." groups=["player"]]
 script = ExtResource("3_f0pjc")
-inventory = Array[String](["Log", "Log", "Log", "Log", "Log", "Log", "Log", "Log"])
 
 [node name="itemCollisionShape2D" type="CollisionShape2D" parent="itemArea2D"]
 visible = false

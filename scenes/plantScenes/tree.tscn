@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://fot75imf8d7p" path="res://assets/plants/tree_new.png" id="3_bky7i"]
 [ext_resource type="Texture2D" uid="uid://bhvybbjp2oj0" path="res://assets/particle/leaf_particle2.png" id="4_6ohfs"]
 
+[sub_resource type="Gradient" id="Gradient_2t05q"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.403922)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qmcjj"]
 radius = 0.991224
 height = 12.1678
@@ -134,11 +137,29 @@ _data = {
 "hitRight": SubResource("Animation_d2rxw")
 }
 
-[sub_resource type="Gradient" id="Gradient_2t05q"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.403922)
-
 [node name="Tree1" type="Node2D"]
 script = ExtResource("1_xmeca")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 5
+y_sort_enabled = true
+texture_filter = 1
+position = Vector2(0, -28)
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 0.18
+texture = ExtResource("4_6ohfs")
+emission_shape = 2
+emission_sphere_radius = 15.56
+gravity = Vector2(0, 50)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+angular_velocity_min = -174.95
+angular_velocity_max = -53.83
+linear_accel_min = -11.21
+linear_accel_max = 26.17
+color_ramp = SubResource("Gradient_2t05q")
 
 [node name="topSprite2D" type="Sprite2D" parent="."]
 z_index = 1
@@ -168,25 +189,6 @@ shape = SubResource("CapsuleShape2D_qmcjj")
 libraries = {
 "": SubResource("AnimationLibrary_bq4d8")
 }
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -28)
-emitting = false
-amount = 5
-one_shot = true
-explosiveness = 0.18
-texture = ExtResource("4_6ohfs")
-emission_shape = 2
-emission_sphere_radius = 15.56
-gravity = Vector2(0, 50)
-initial_velocity_min = 1.0
-initial_velocity_max = 5.0
-angular_velocity_min = -174.95
-angular_velocity_max = -53.83
-linear_accel_min = -11.21
-linear_accel_max = 26.17
-color_ramp = SubResource("Gradient_2t05q")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
