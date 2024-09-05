@@ -8,7 +8,7 @@ extends Node
 
 @onready var ui_wave_h_box : HBoxContainer = get_node("/root/main/UI").wave_uih_box
 @onready var progress_dot : ColorRect = get_node("/root/main/UI").progress_dot
-var scrollspeed : float = 0.15 #test
+var scrollspeed : float = 0.12 #test
 
 @export var waves : Array[Wave]
 

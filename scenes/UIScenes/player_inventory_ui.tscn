@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2gcyfi3axbp0"]
+
+[ext_resource type="Texture2D" uid="uid://cr6c6s0jbfmos" path="res://assets/UI/playerInventorybackPanel.png" id="1_12jd5"]
+
+[node name="playerInventoryUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 122.0
+texture = ExtResource("1_12jd5")
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 4

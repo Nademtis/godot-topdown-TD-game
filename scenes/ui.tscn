@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_psa3m"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_j4yfm"]
-[ext_resource type="Texture2D" uid="uid://o70xrrpfj55s" path="res://assets/heart.png" id="3_0nxjb"]
+[ext_resource type="Texture2D" uid="uid://o70xrrpfj55s" path="res://assets/UI/heart.png" id="3_0nxjb"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_psa3m")
@@ -37,25 +37,18 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Container" type="Container" parent="Control/MarginContainer/VBoxContainer/Control"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 32.0
-offset_right = 192.0
-offset_bottom = 72.0
-
-[node name="heart1" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer/Control/Container"]
-position = Vector2(-129, 23)
+[node name="heart1" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer/Control"]
+position = Vector2(23, 55)
 scale = Vector2(3, 3)
 texture = ExtResource("3_0nxjb")
 
-[node name="heart2" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer/Control/Container"]
-position = Vector2(-78, 23)
+[node name="heart2" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer/Control"]
+position = Vector2(74, 55)
 scale = Vector2(3, 3)
 texture = ExtResource("3_0nxjb")
 
-[node name="heart3" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer/Control/Container"]
-position = Vector2(-27, 23)
+[node name="heart3" type="Sprite2D" parent="Control/MarginContainer/VBoxContainer/Control"]
+position = Vector2(125, 55)
 scale = Vector2(3, 3)
 texture = ExtResource("3_0nxjb")
 
@@ -72,6 +65,9 @@ theme_override_fonts/font = ExtResource("2_j4yfm")
 theme_override_font_sizes/font_size = 24
 text = "Logs: 0"
 uppercase = true
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer"]
 layout_mode = 2
@@ -103,16 +99,19 @@ offset_bottom = 10.0
 size_flags_vertical = 0
 
 [node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveContainer/waveUIHBox"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.320296, 0.546746, 0, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveContainer/waveUIHBox"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0.847251, 0.0350515, 0.475035, 1)
+color = Color(0.692691, 0.0674091, 0.0891397, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="Control/MarginContainer/MarginContainer/waveContainer/waveUIHBox"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.681744, 0.393914, 0.0448697, 1)

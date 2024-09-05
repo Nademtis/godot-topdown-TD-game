@@ -3,9 +3,9 @@ extends CanvasLayer
 @onready var inventory_amount_label = %score
 var amount_of_items = 0
 
-@onready var heart_1 = $Control/MarginContainer/VBoxContainer/Control/Container/heart1
-@onready var heart_2 = $Control/MarginContainer/VBoxContainer/Control/Container/heart2
-@onready var heart_3 = $Control/MarginContainer/VBoxContainer/Control/Container/heart3
+@onready var heart_1 = $Control/MarginContainer/VBoxContainer/Control/heart1
+@onready var heart_2 = $Control/MarginContainer/VBoxContainer/Control/heart2
+@onready var heart_3 = $Control/MarginContainer/VBoxContainer/Control/heart3
 
 @onready var wave_uih_box: HBoxContainer = %waveUIHBox
 @onready var progress_dot: ColorRect = %progressDot
