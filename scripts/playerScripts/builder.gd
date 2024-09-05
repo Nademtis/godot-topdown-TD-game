@@ -4,7 +4,8 @@ var trying_to_build = false
 const TURRET_BUILDABLE_HOVER = preload("res://scenes/turretScenes/turret_buildable_hover.tscn")
 const TURRET_BP = preload("res://scenes/turretScenes/turret_bp.tscn")
 
-@onready var TILEMAP_1: TileMapLayer = get_node_or_null("/root/main/tileMap_1")
+@onready var TILEMAP_1: TileMapLayer = get_node_or_null("/root/main/ground")
+
 var current_bp_hover = null
 
 func _process(_delta):

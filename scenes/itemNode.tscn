@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvdaqh67fnauj"]
+[gd_scene load_steps=9 format=3 uid="uid://dvdaqh67fnauj"]
 
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_67qmu"]
 [ext_resource type="Texture2D" uid="uid://cjh6p1p5fm57e" path="res://assets/log_new.png" id="2_ehi56"]
-[ext_resource type="Resource" uid="uid://bghtbm8ax3861" path="res://scenes/items/log.tres" id="2_mdwnk"]
 [ext_resource type="Texture2D" uid="uid://ereyb7dpbgwo" path="res://assets/log_shadow.png" id="3_2vcph"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h874m"]
@@ -24,7 +23,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LogShadow:self_modulate")
+tracks/1/path = NodePath("itemShadow:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -53,7 +52,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("LogShadow:self_modulate")
+tracks/1/path = NodePath("itemShadow:self_modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -89,7 +88,6 @@ _data = {
 
 [node name="ItemNode" type="Node2D"]
 script = ExtResource("1_67qmu")
-item_resource = ExtResource("2_mdwnk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
@@ -105,7 +103,7 @@ libraries = {
 "": SubResource("AnimationLibrary_y2wxa")
 }
 
-[node name="LogShadow" type="Sprite2D" parent="."]
+[node name="itemShadow" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.686275)
 texture = ExtResource("3_2vcph")
 

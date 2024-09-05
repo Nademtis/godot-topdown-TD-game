@@ -46,6 +46,7 @@ y_sort_enabled = true
 script = ExtResource("1_as477")
 
 [node name="UI" parent="." instance=ExtResource("2_2ny0x")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]
 position = Vector2(-8, 6)
@@ -287,16 +288,16 @@ position = Vector2(-100, 111)
 position = Vector2(-50, 96)
 
 [node name="Tree3" parent="playground" instance=ExtResource("8_dyu18")]
-position = Vector2(-89, -85)
+position = Vector2(-77, -95)
 
 [node name="Tree4" parent="playground" instance=ExtResource("8_dyu18")]
-position = Vector2(-64, -69)
+position = Vector2(-81, -38)
 
 [node name="Tree5" parent="playground" instance=ExtResource("8_dyu18")]
-position = Vector2(-35, -90)
+position = Vector2(-30, -65)
 
 [node name="Tree6" parent="playground" instance=ExtResource("8_dyu18")]
-position = Vector2(9, -70)
+position = Vector2(25, -70)
 
 [node name="Tree7" parent="playground" instance=ExtResource("8_dyu18")]
 position = Vector2(-251, -74)

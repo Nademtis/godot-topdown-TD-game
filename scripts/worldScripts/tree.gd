@@ -1,7 +1,7 @@
 extends Node2D
 
 var hp = 3
-@onready var log_path = preload("res://scenes/log.tscn")
+#@onready var log_path = preload("res://scenes/itemNode.tscn")
 @onready var animation_player = $AnimationPlayer
 @onready var top_sprite_2d = $topSprite2D
 
@@ -32,7 +32,7 @@ func take_damage():
 
 func die():
 	#spawn item
-	var log_item = log_path.instantiate()
+	var log_item : ItemNode = ItemSpawner.get_item(ItemSpawner.ITEM.LOG) #ITEM enum is not in scope. how to fix
 	var item_container = get_tree().root.get_node("main").get_node("Items")
 	log_item.position = position
 	

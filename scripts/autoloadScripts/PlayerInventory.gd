@@ -2,8 +2,7 @@ extends Node
 
 var player_inventory : Array[ItemResource] = []
 var wagon_storage : Array[ItemResource] = []
-const LOG = preload("res://scenes/log.tscn")
-
+var coin_amount : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#start_with_logs(2)
