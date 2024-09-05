@@ -1,10 +1,12 @@
 extends Node
 
-var player_inventory : Array[String] = []
-var wagon_storage : Array[String] = []
+var player_inventory : Array[ItemResource] = []
+var wagon_storage : Array[ItemResource] = []
+const LOG = preload("res://scenes/log.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	start_with_logs(10)
+	#start_with_logs(2)
 	pass # Replace with function body.
 
 
@@ -13,6 +15,7 @@ func _process(_delta: float) -> void:
 	pass
 	
 
-func start_with_logs (log_amout: int):
-	for i in log_amout:
+func start_with_logs (log_amount: int):
+	for i in log_amount:
+		#var item : Item = 
 		player_inventory.push_back("Log")

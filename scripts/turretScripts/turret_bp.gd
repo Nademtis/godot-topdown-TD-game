@@ -8,7 +8,7 @@ var ui : CanvasLayer
 
 var player_is_in_range = false
 @export var item_cost_array : Array[String]
-var player_inventory : Array[String] = PlayerInventory.player_inventory
+var player_inventory : Array[ItemResource] = PlayerInventory.player_inventory
 
 func _ready():
 	item_cost_array = item_cost_array.duplicate()

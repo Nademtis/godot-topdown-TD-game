@@ -10,6 +10,8 @@ var amount_of_items = 0
 @onready var wave_uih_box: HBoxContainer = %waveUIHBox
 @onready var progress_dot: ColorRect = %progressDot
 
+@onready var player_inventory_ui: Control = %playerInventoryUI
+
 func _ready():
 	self.visible = true
 
