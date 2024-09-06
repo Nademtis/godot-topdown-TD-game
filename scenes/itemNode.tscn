@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dvdaqh67fnauj"]
+[gd_scene load_steps=10 format=3 uid="uid://dvdaqh67fnauj"]
 
 [ext_resource type="Script" path="res://scripts/item.gd" id="1_67qmu"]
 [ext_resource type="Texture2D" uid="uid://cjh6p1p5fm57e" path="res://assets/log_new.png" id="2_ehi56"]
 [ext_resource type="Texture2D" uid="uid://ereyb7dpbgwo" path="res://assets/log_shadow.png" id="3_2vcph"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qqvt4"]
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h874m"]
 
@@ -86,8 +89,15 @@ _data = {
 "spawned": SubResource("Animation_s3kvc")
 }
 
-[node name="ItemNode" type="Node2D"]
+[node name="ItemNode" type="RigidBody2D"]
+mass = 20.0
+gravity_scale = 0.0
+lock_rotation = true
+linear_damp = 0.5
 script = ExtResource("1_67qmu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qqvt4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1

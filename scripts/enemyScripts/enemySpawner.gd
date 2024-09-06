@@ -1,7 +1,9 @@
 extends Node
 
 
-@onready var path_2d : Path2D = $Path2D
+@onready var path_2d_1 : Path2D = $Path2D1
+@onready var path_2d_2: Path2D = $Path2D2
+
 
 @onready var wave_duration_timer: Timer = $Timer
 @onready var enemy_spawn_rate_timer: Timer = $enemySpawnRateTimer
@@ -66,9 +68,13 @@ func spawn_enemy():
 	pathFollow2D.loop = false
 	pathFollow2D.rotates = false
 	
-	path_2d.add_child(pathFollow2D)
+	var ranf = randf()
+	if ranf > 0.5:
+		path_2d_1.add_child(pathFollow2D)
+	else:
+		path_2d_2.add_child(pathFollow2D)
 	pathFollow2D.add_child(mob)
-	
+
 
 func create_wave_indicator_ui():
 	# Clear existing children in the HBoxContainer

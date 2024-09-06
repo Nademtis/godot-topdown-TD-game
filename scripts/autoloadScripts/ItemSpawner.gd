@@ -13,6 +13,11 @@ enum ITEM {LOG, COIN}
 
 func get_item(item : ITEM) -> ItemNode:
 	var new_item : ItemNode = item_node.instantiate()
+	
+	var random_direction = Vector2(randf() * 2.0 - 1.0, randf() * 2.0 - 1.0).normalized()
+	var impulse = random_direction * 150  # Adjust for stronger or weaker ejection
+	new_item.apply_central_impulse(impulse)
+	
 	match item:
 		ITEM.LOG:
 			new_item.initialize(LOG_RESOURCE)

@@ -1,4 +1,4 @@
-extends Node
+extends RigidBody2D
 
 class_name ItemNode
 

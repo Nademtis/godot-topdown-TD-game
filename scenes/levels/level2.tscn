@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://drl6oyscgipyr"]
+[gd_scene load_steps=15 format=4 uid="uid://drl6oyscgipyr"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_m0opi"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_y8ixa"]
@@ -25,9 +25,15 @@ wave_duration = 15.0
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -119, -145, 0, 0, 0, 0, -120, -98, 0, 0, 0, 0, -118, -57, 0, 0, 0, 0, -118, -39, 0, 0, 0, 0, -118, 43, 0, 0, 0, 0, 106, 47)
+"points": PackedVector2Array(0, 0, 0, 0, -114.933, -150, 0, 0, 0, 0, -113.919, -134, 3.03693, -10.8627, -3.03693, 10.8627, -115.534, -114, 0, -26.5949, 0, 26.5949, -117, -97, 0, 0, 0, 0, -117.56, -86, 0, 0, 0, 0, -116, -66, 0, 0, 0, 0, -120, -51, 0, 0, 0, 0, -118, -39, 0, 0, 0, 0, -115, -27, 0, 0, 0, 0, -119, 4, 0, 0, 0, 0, -118.987, 43, 0, 0, 0, 0, -85, 40, 0, 0, 0, 0, -33, 45, 0, 0, 0, 0, 43, 42, 0, 0, 0, 0, 106, 47)
 }
-point_count = 6
+point_count = 15
+
+[sub_resource type="Curve2D" id="Curve2D_gwu6i"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -101, -178, 0, 0, 0, 0, -96, -111, 0, 0, 0, 0, -98, -77, 0, 0, 0, 0, -96, -22, 0, 0, 0, 0, -98, 24, 0, 0, 0, 0, -60, 36, 0, 0, 0, 0, -2, 33, 0, 0, 0, 0, 141, 25)
+}
+point_count = 8
 
 [node name="main" type="Node"]
 script = ExtResource("1_m0opi")
@@ -67,13 +73,14 @@ one_shot = true
 
 [node name="enemySpawnRateTimer" type="Timer" parent="EnemySpawner"]
 
-[node name="Path2D" type="Path2D" parent="EnemySpawner"]
-position = Vector2(38, -31)
+[node name="Path2D1" type="Path2D" parent="EnemySpawner"]
+position = Vector2(43, -22)
+scale = Vector2(0.986726, 1)
 curve = SubResource("Curve2D_rxvsi")
 
 [node name="Path2D2" type="Path2D" parent="EnemySpawner"]
-position = Vector2(22, -12)
-curve = SubResource("Curve2D_rxvsi")
+position = Vector2(1, -1)
+curve = SubResource("Curve2D_gwu6i")
 
 [node name="TreeContainer" type="Node" parent="."]
 

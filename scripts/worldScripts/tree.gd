@@ -39,6 +39,7 @@ func die():
 	#kill 
 	if item_container:
 		item_container.call_deferred("add_child", log_item)
+
 	else:
 		print("no item container in root")
 	call_deferred("queue_free") # call after a psysics/process frame 
