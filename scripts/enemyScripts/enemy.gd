@@ -15,7 +15,6 @@ func _ready():
 	animated_sprite.animation_finished.connect(kill)
 	
 func _process(delta):
-
 	if hp >= 1:
 		# for moving slime - uses pathfollow2d progress
 		get_parent().set_progress(get_parent().get_progress() + speed * delta)
@@ -59,15 +58,27 @@ func take_damage():
 			
 
 func die():
+	spawn_item()
 	get_tree().call_group("turrets", "_on_enemy_died", self)
 	speed = 0 # since we dead
 	
+	#play correct death anim based on direction
 	var firstLetter : String = animated_sprite.animation.substr(0, 1)
-	var death_animation : String = firstLetter + '_Death'
+	var death_animation : String = firstLetter + '_Death' 
 	animated_sprite.play(death_animation)
-	#animated_sprite.animation_finished.connect(kill)
-	#kill when done
 	
 func kill():
 	get_parent().queue_free() #should probably also kill the parent (pathfollow2d)
-	#queue_free()
+
+func spawn_item():
+	#print('mob is called: ' + str(self.name)) #might want to use name for spawnRate
+	var randNum = randf()
+	if (randNum > 0.50):
+		var coin_item  = ItemSpawner.get_item(ItemSpawner.ITEM.COIN)
+		var item_container = get_tree().root.get_node("main").get_node("Items")
+		coin_item.position = global_position
+
+		if item_container:
+			item_container.call_deferred("add_child", coin_item)
+	
+	

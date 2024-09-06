@@ -5,6 +5,7 @@ extends Node
 
 
 const LOG_RESOURCE = preload("res://scenes/items/log.tres")
+const COIN_RESOURCE = preload("res://scenes/items/coin.tres")
 
 enum ITEM {LOG, COIN}
 
@@ -15,5 +16,6 @@ func get_item(item : ITEM) -> ItemNode:
 	match item:
 		ITEM.LOG:
 			new_item.initialize(LOG_RESOURCE)
-			
+		ITEM.COIN:
+			new_item.initialize(COIN_RESOURCE)
 	return new_item

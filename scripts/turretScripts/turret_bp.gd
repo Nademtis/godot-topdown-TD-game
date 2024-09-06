@@ -7,7 +7,7 @@ extends Node2D
 var ui : CanvasLayer
 
 var player_is_in_range = false
-@export var item_cost_array : Array[String]
+@export var item_cost_array : Array[ItemResource]
 var player_inventory : Array[ItemResource] = PlayerInventory.player_inventory
 
 func _ready():
@@ -27,12 +27,12 @@ func check_build_status():
 
 func _input(event):
 	if player_is_in_range && event.is_action_pressed("use"):
-		for item in player_inventory:
-			if item_cost_array.has(item):
+		for item : ItemResource in player_inventory:
+			if item_cost_array.has(item): #TODO bug here after new item system lmao
 				player_inventory.erase(item)
 				item_cost_array.erase(item)
 				check_build_status()
-				ui.changeTxt(player_inventory)
+				ui.player_inventory_ui.update_inventory_UI()
 				break
 
 func _on_area_2d_area_entered(area):
@@ -40,7 +40,6 @@ func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
 		animation_player.play("blink_and_size")
 		player_is_in_range = true
-	
 
 func _on_area_2d_area_exited(area):
 	#label.visible = false

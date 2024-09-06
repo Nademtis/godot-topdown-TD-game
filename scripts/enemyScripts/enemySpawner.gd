@@ -20,11 +20,13 @@ func _process(delta: float) -> void:
 	pass
 
 func _ready() -> void:
+	print(waves)
 	if waves.is_empty():
 		print_debug('no waves in this level')
 	else:
 		enemy_spawn_rate_timer.timeout.connect(spawn_enemy)
 		call_deferred("create_wave_indicator_ui")
+		
 		start_wave()
 		
 func start_wave():
@@ -32,6 +34,7 @@ func start_wave():
 	
 	if (waves.size() >= current_wave_index+1):
 		var wave : Wave = waves[current_wave_index]
+		wave.init_wave()
 		wave_duration_timer.wait_time = wave.wave_duration + 1 #plus 1 second to add a breathing room
 		wave_duration_timer.start()
 		

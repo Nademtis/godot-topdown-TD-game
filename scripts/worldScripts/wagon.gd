@@ -1,6 +1,6 @@
 extends Node2D
 
-var wagon_storage : Array [String] = PlayerInventory.wagon_storage
+var wagon_storage : Array [ItemResource] = PlayerInventory.wagon_storage
 @export var required_logs : int
 @onready var label = $Label
 
@@ -10,7 +10,7 @@ var wagon_storage : Array [String] = PlayerInventory.wagon_storage
 var ui : CanvasLayer
 
 var player_is_in_range = false
-var player_inventory : Array[String] = PlayerInventory.player_inventory
+var player_inventory : Array[ItemResource] = PlayerInventory.player_inventory
 
 func _ready():
 	if (!required_logs): #just in case i forgot to set requiered logs in inspector
@@ -27,8 +27,10 @@ func _input(event):
 		for item in player_inventory:
 			player_inventory.erase(item)
 			wagon_storage.push_front(item)
-			ui.changeTxt(player_inventory)
+			
+			#updateUI
 			update_label()
+			ui.player_inventory_ui.update_inventory_UI()
 			
 			animation_player.play("deposit")
 			

@@ -11,7 +11,11 @@ func _ready() -> void:
 
 
 func update_inventory_UI():
-	var player_inventory : Array[ItemResource] = PlayerInventory.player_inventory
-	for i in range(min(player_inventory.size(), ui_panel_list.size())):
-		ui_panel_list[i].update(player_inventory[i])
-	pass
+	var player_inventory: Array[ItemResource] = PlayerInventory.player_inventory
+	for i in range(ui_panel_list.size()):
+		if i < player_inventory.size():
+			# Update the panel with the corresponding inventory item
+			ui_panel_list[i].update(player_inventory[i])
+		else:
+			# Clear or reset the panel if there's no corresponding inventory item
+			ui_panel_list[i].update(null)  # Or use an empty state if `null` isn't appropriate

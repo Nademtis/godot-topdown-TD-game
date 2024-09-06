@@ -15,9 +15,9 @@ var amount_of_items = 0
 func _ready():
 	self.visible = true
 
-func changeTxt(list:Array):
-	amount_of_items = str(list.size())
-	inventory_amount_label.text = "Logs: " + amount_of_items
+func change_coins_ui():
+	var amount_of_coins = PlayerInventory.coin_amount
+	inventory_amount_label.text = "Coins: " + str(amount_of_coins)
 	
 func update_ui_hp(new_health:int):
 	match new_health:
