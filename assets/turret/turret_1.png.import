@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rwj5vmk2ulym"
-path="res://.godot/imported/tile_set_DEMOWater.png-472f472def25842500e61fda168ff520.ctex"
+uid="uid://dvtygejvu5n2n"
+path="res://.godot/imported/turret_1.png-8f83736bd302ca7d298382e7c56ace64.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tile_set_DEMOWater.png"
-dest_files=["res://.godot/imported/tile_set_DEMOWater.png-472f472def25842500e61fda168ff520.ctex"]
+source_file="res://assets/turret/turret_1.png"
+dest_files=["res://.godot/imported/turret_1.png-8f83736bd302ca7d298382e7c56ace64.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bbgv0ojomnr3x"]
 
 [ext_resource type="Script" path="res://scenes/playerScenes/itemResource.gd" id="1_cit8k"]
-[ext_resource type="Texture2D" uid="uid://1wd4kxuc6i1o" path="res://assets/coin.png" id="2_xroju"]
+[ext_resource type="Texture2D" uid="uid://1wd4kxuc6i1o" path="res://assets/items/coin.png" id="2_xroju"]
 
 [resource]
 script = ExtResource("1_cit8k")

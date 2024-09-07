@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=3 uid="uid://ctv0kskr1ls36"]
 
 [ext_resource type="Script" path="res://scripts/turretScripts/arrow.gd" id="1_c4ega"]
-[ext_resource type="Texture2D" uid="uid://xr4vg1xdgmi7" path="res://assets/arrow_spritesheet.png" id="2_tu27r"]
+[ext_resource type="Texture2D" uid="uid://xr4vg1xdgmi7" path="res://assets/turret/arrow_spritesheet.png" id="2_tu27r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7mqf"]
 atlas = ExtResource("2_tu27r")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1wd4kxuc6i1o"
-path="res://.godot/imported/coin.png-f04b9cd408b88aba3ab0966b4da32df0.ctex"
+uid="uid://dpxqv47u2xlvp"
+path="res://.godot/imported/cave_small_open.png-e1c10f8fd051cfe1353830395110ae51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coin.png"
-dest_files=["res://.godot/imported/coin.png-f04b9cd408b88aba3ab0966b4da32df0.ctex"]
+source_file="res://assets/world/cave/cave_small_open.png"
+dest_files=["res://.godot/imported/cave_small_open.png-e1c10f8fd051cfe1353830395110ae51.ctex"]
 
 [params]
 

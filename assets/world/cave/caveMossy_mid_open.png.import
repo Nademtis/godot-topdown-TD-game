@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjh6p1p5fm57e"
-path="res://.godot/imported/log_new.png-39f911de32505882f13d12065e18de78.ctex"
+uid="uid://bb57ytx0plaf2"
+path="res://.godot/imported/caveMossy_mid_open.png-7adedc7b7f6c605da0d816da3aad5234.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/log_new.png"
-dest_files=["res://.godot/imported/log_new.png-39f911de32505882f13d12065e18de78.ctex"]
+source_file="res://assets/world/cave/caveMossy_mid_open.png"
+dest_files=["res://.godot/imported/caveMossy_mid_open.png-7adedc7b7f6c605da0d816da3aad5234.ctex"]
 
 [params]
 

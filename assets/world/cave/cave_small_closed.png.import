@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://xr4vg1xdgmi7"
-path="res://.godot/imported/arrow_spritesheet.png-fa7881a6006c0f3340a7df8b6a072b9a.ctex"
+uid="uid://c4w6qaphtehlh"
+path="res://.godot/imported/cave_small_closed.png-4c260bcbe85b87c16132bbfc8a04005e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/arrow_spritesheet.png"
-dest_files=["res://.godot/imported/arrow_spritesheet.png-fa7881a6006c0f3340a7df8b6a072b9a.ctex"]
+source_file="res://assets/world/cave/cave_small_closed.png"
+dest_files=["res://.godot/imported/cave_small_closed.png-4c260bcbe85b87c16132bbfc8a04005e.ctex"]
 
 [params]
 

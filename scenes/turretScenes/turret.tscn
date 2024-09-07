@@ -1,8 +1,8 @@
 [gd_scene load_steps=40 format=3 uid="uid://pg8rt4js4ahp"]
 
 [ext_resource type="Script" path="res://scripts/turretScripts/turret.gd" id="1_bdg1w"]
-[ext_resource type="Texture2D" uid="uid://dvtygejvu5n2n" path="res://assets/turret_1.png" id="2_amijv"]
-[ext_resource type="Texture2D" uid="uid://xr4vg1xdgmi7" path="res://assets/arrow_spritesheet.png" id="3_hcx2m"]
+[ext_resource type="Texture2D" uid="uid://dvtygejvu5n2n" path="res://assets/turret/turret_1.png" id="2_amijv"]
+[ext_resource type="Texture2D" uid="uid://xr4vg1xdgmi7" path="res://assets/turret/arrow_spritesheet.png" id="3_hcx2m"]
 [ext_resource type="Texture2D" uid="uid://c2cmlf3gb88it" path="res://assets/archer/1/D_Idle.png" id="3_qbb3v"]
 [ext_resource type="Texture2D" uid="uid://bf1xfcjciqdng" path="res://assets/archer/1/D_Attack.png" id="3_x48hr"]
 [ext_resource type="Texture2D" uid="uid://byn6tbcmdtyat" path="res://assets/archer/1/L_Attack.png" id="5_b17si"]

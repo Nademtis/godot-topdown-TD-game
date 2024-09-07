@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvtygejvu5n2n"
-path="res://.godot/imported/turret_1.png-9d6c330e955d4c89366d252983880850.ctex"
+uid="uid://dcmggvngx7mho"
+path="res://.godot/imported/cave_mid_open.png-9e1b97cd032a17def9f8f35226701aa5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/turret_1.png"
-dest_files=["res://.godot/imported/turret_1.png-9d6c330e955d4c89366d252983880850.ctex"]
+source_file="res://assets/world/cave/cave_mid_open.png"
+dest_files=["res://.godot/imported/cave_mid_open.png-9e1b97cd032a17def9f8f35226701aa5.ctex"]
 
 [params]
 

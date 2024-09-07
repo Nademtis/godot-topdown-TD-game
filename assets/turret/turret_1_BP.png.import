@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gq10e084guqo"
-path="res://.godot/imported/testWangTexture.png-cee198b3ced93dac99cb25c148ed2605.ctex"
+uid="uid://cbaev13fic4kd"
+path="res://.godot/imported/turret_1_BP.png-b3e79c709ba08aa2e945eb6262d08dc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/testWangTexture.png"
-dest_files=["res://.godot/imported/testWangTexture.png-cee198b3ced93dac99cb25c148ed2605.ctex"]
+source_file="res://assets/turret/turret_1_BP.png"
+dest_files=["res://.godot/imported/turret_1_BP.png-b3e79c709ba08aa2e945eb6262d08dc4.ctex"]
 
 [params]
 

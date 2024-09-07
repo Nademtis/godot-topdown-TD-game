@@ -1,10 +1,10 @@
 [gd_scene load_steps=29 format=3 uid="uid://ddiyqdwvovurd"]
 
 [ext_resource type="Script" path="res://scripts/playerScripts/player.gd" id="1_j72qj"]
-[ext_resource type="Texture2D" uid="uid://btglf3wbge7d5" path="res://assets/Guy_spritesheet.png" id="2_iwyve"]
+[ext_resource type="Texture2D" uid="uid://btglf3wbge7d5" path="res://assets/player/Guy_spritesheet.png" id="2_iwyve"]
 [ext_resource type="Script" path="res://scripts/playerScripts/axe.gd" id="3_4mkdn"]
 [ext_resource type="Script" path="res://scripts/playerScripts/inventory.gd" id="3_f0pjc"]
-[ext_resource type="Texture2D" uid="uid://drfcxp7ur5osv" path="res://assets/axe.png" id="3_s0mhs"]
+[ext_resource type="Texture2D" uid="uid://drfcxp7ur5osv" path="res://assets/player/axe.png" id="3_s0mhs"]
 [ext_resource type="Script" path="res://scripts/playerScripts/builder.gd" id="6_14108"]
 [ext_resource type="Script" path="res://scripts/playerScripts/StaminaController.gd" id="7_vsrvo"]
 

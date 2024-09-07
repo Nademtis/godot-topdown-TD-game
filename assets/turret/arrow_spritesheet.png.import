@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7c1k4lb2mk2b"
-path="res://.godot/imported/wagonPNGnew.png-d407861b453422735c0f4564edc8f562.ctex"
+uid="uid://xr4vg1xdgmi7"
+path="res://.godot/imported/arrow_spritesheet.png-b947c516ce05db1cfd58f281a8aae469.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wagonPNGnew.png"
-dest_files=["res://.godot/imported/wagonPNGnew.png-d407861b453422735c0f4564edc8f562.ctex"]
+source_file="res://assets/turret/arrow_spritesheet.png"
+dest_files=["res://.godot/imported/arrow_spritesheet.png-b947c516ce05db1cfd58f281a8aae469.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://rfcnnsrvc0aq"]
 
-[ext_resource type="Texture2D" uid="uid://4yauouo36v0j" path="res://assets/attack_anim.png" id="1_30gox"]
+[ext_resource type="Texture2D" uid="uid://4yauouo36v0j" path="res://assets/player/attack_anim.png" id="1_30gox"]
 [ext_resource type="Script" path="res://scripts/playerScripts/attack.gd" id="2_hag5q"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_216mp"]

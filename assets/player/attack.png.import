@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ereyb7dpbgwo"
-path="res://.godot/imported/log_shadow.png-480cef81b1a2a8112ff0d741968eeaab.ctex"
+uid="uid://cc20n8itg8tbf"
+path="res://.godot/imported/attack.png-717e9b9fc51e881ec183aa6ff3db4cfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/log_shadow.png"
-dest_files=["res://.godot/imported/log_shadow.png-480cef81b1a2a8112ff0d741968eeaab.ctex"]
+source_file="res://assets/player/attack.png"
+dest_files=["res://.godot/imported/attack.png-717e9b9fc51e881ec183aa6ff3db4cfb.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ck2dhy8jsvh8w"
-path="res://.godot/imported/tile_set_new_enemyPathTest.png-065d237ff0917d761fe3efa69c03e9e5.ctex"
+uid="uid://btglf3wbge7d5"
+path="res://.godot/imported/Guy_spritesheet.png-29338753c1a9f3e49aa76c3c4938b11a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tile_set_new_enemyPathTest.png"
-dest_files=["res://.godot/imported/tile_set_new_enemyPathTest.png-065d237ff0917d761fe3efa69c03e9e5.ctex"]
+source_file="res://assets/player/Guy_spritesheet.png"
+dest_files=["res://.godot/imported/Guy_spritesheet.png-29338753c1a9f3e49aa76c3c4938b11a.ctex"]
 
 [params]
 

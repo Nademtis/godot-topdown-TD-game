@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemResource" load_steps=3 format=3 uid="uid://bghtbm8ax3861"]
 
 [ext_resource type="Script" path="res://scenes/playerScenes/itemResource.gd" id="1_dd35g"]
-[ext_resource type="Texture2D" uid="uid://cjh6p1p5fm57e" path="res://assets/log_new.png" id="2_j8x8s"]
+[ext_resource type="Texture2D" uid="uid://cjh6p1p5fm57e" path="res://assets/items/log_new.png" id="2_j8x8s"]
 
 [resource]
 resource_name = "Log Resource"
