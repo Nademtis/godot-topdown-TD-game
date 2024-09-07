@@ -39,6 +39,7 @@ point_count = 8
 script = ExtResource("1_m0opi")
 
 [node name="UI" parent="." instance=ExtResource("2_y8ixa")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_m4ovl")]
 z_index = 5

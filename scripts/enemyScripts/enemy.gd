@@ -73,7 +73,7 @@ func kill():
 func spawn_item():
 	#print('mob is called: ' + str(self.name)) #might want to use name for spawnRate
 	var randNum = randf()
-	if (randNum > 0.50):
+	if (randNum > 0.90):
 		var coin_item  = ItemSpawner.get_item(ItemSpawner.ITEM.COIN)
 		var item_container = get_tree().root.get_node("main").get_node("Items")
 		coin_item.position = global_position
