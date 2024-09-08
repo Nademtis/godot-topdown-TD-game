@@ -33,7 +33,7 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]
 z_index = 10
-position = Vector2(-261, 1)
+position = Vector2(32, 54)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)
@@ -104,6 +104,9 @@ position = Vector2(-2, 77)
 [node name="spawnPoint4" type="Node2D" parent="Blacksmith"]
 position = Vector2(60, 45)
 
+[node name="upgradeNodeContainer" type="Node" parent="Blacksmith"]
+unique_name_in_owner = true
+
 [node name="Items" type="Node" parent="."]
 
 [node name="TreeContainer" type="Node" parent="."]
@@ -128,7 +131,7 @@ position = Vector2(51, 14)
 texture = ExtResource("6_nblf1")
 
 [node name="Campfire" parent="CampContainer" instance=ExtResource("7_e4a6i")]
-position = Vector2(7, 32)
+position = Vector2(-5, 42)
 
 [node name="worldAssets" type="Node2D" parent="."]
 y_sort_enabled = true

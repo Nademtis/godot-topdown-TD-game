@@ -11,17 +11,20 @@ var player_in_range : bool = false
 @onready var spawnPoint1 = $spawnPoint1
 @onready var spawnPoint2 = $spawnPoint2
 @onready var spawnPoint3 = $spawnPoint3
-
+@onready var upgradeNodeContainer = $upgradeNodeContainer
 @onready var timer: Timer = $Timer
 
 
 func _ready() -> void:
-	spawn_point_list = [spawnPoint1.position, spawnPoint2.position, spawnPoint3.position]
+	spawn_point_list = [spawnPoint1.global_position, spawnPoint2.global_position, spawnPoint3.global_position]
 	display_next_upgrades()
 	timer.start()
 
 
 func display_next_upgrades():
+	for child in upgradeNodeContainer.get_children(): #remove old upgradeNodes
+		child.queue_free()
+	
 	var upcoming_upgrades : Array[UpgradeResource] = PlayerStats.get_next_upgrades()
 	if upcoming_upgrades.size() <= 0:
 		print_debug('no more upgrades dude')
@@ -30,7 +33,7 @@ func display_next_upgrades():
 		var upgrade_node : UpgradeNode = UPGRADE_NODE.instantiate()
 		upgrade_node.set_upgrade_resource(upcoming_upgrades[i])
 		upgrade_node.position = spawn_point_list[i]
-		call_deferred("add_child", upgrade_node)
+		upgradeNodeContainer.call_deferred("add_child", upgrade_node)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

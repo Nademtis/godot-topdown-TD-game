@@ -48,12 +48,10 @@ func fill_upgrade_lists()->void:
 func apply_upgrade(upgrade: UpgradeResource) -> void:
 	match upgrade.upgrade_variable:
 		"player_move_speed":
-			player_move_speed += upgrade.upgrade_amount
-			print(upgrade_player_movespeed)
+			player_move_speed += int(upgrade.upgrade_amount)
 			upgrade_player_movespeed.erase(upgrade)
-			print(upgrade_player_movespeed)
 		"player_inventory_size":
-			player_inventory_size += upgrade.upgrade_amount
+			player_inventory_size += int(upgrade.upgrade_amount)
 	
 	#TODO remove this upgrade from the responding upgrade list
 	emit_signal("upgrade_applied")
@@ -91,6 +89,6 @@ func get_next_upgrades() -> Array[UpgradeResource]:
 	#TODO do this smarter - should maybe iterate through all upgrades and chose the cheapest ones
 	upgrades.push_front(upgrade_player_damage.front())
 	upgrades.push_front(upgrade_player_attackspeed.front())
-	upgrades.push_front(upgrade_player_movespeed.front())
+	upgrades.push_front(upgrade_player_movespeed.front()) #TODO error if empty, should check 
 	
 	return upgrades

@@ -25,9 +25,9 @@ wave_duration = 15.0
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -114.933, -150, 0, 0, 0, 0, -113.919, -134, 3.03693, -10.8627, -3.03693, 10.8627, -115.534, -114, 0, -26.5949, 0, 26.5949, -117, -97, 0, 0, 0, 0, -117.56, -86, 0, 0, 0, 0, -116, -66, 0, 0, 0, 0, -120, -51, 0, 0, 0, 0, -118, -39, 0, 0, 0, 0, -115, -27, 0, 0, 0, 0, -119, 4, 0, 0, 0, 0, -118.987, 43, 0, 0, 0, 0, -85, 40, 0, 0, 0, 0, -33, 45, 0, 0, 0, 0, 43, 42, 0, 0, 0, 0, 106, 47)
+"points": PackedVector2Array(0, 0, 0, 0, -114.933, -150, 0, 0, 0, 0, -113.919, -134, 0, -26.5949, 0, 26.5949, -117, -97, 0, 0, 0, 0, -116, -66, 0, 0, 0, 0, -120, -51, 0, 0, 0, 0, -118, -39, 0, 0, 0, 0, -115, -27, 0, 0, 0, 0, -119, 4, 0, 0, 0, 0, -118.987, 43, 0, 0, 0, 0, -85, 40, 0, 0, 0, 0, -33, 45, 0, 0, 0, 0, 43, 42, 0, 0, 0, 0, 106, 47)
 }
-point_count = 15
+point_count = 13
 
 [sub_resource type="Curve2D" id="Curve2D_gwu6i"]
 _data = {
@@ -77,10 +77,12 @@ one_shot = true
 position = Vector2(43, -22)
 scale = Vector2(0.986726, 1)
 curve = SubResource("Curve2D_rxvsi")
+metadata/_edit_lock_ = true
 
 [node name="Path2D2" type="Path2D" parent="EnemySpawner"]
 position = Vector2(1, -1)
 curve = SubResource("Curve2D_gwu6i")
+metadata/_edit_lock_ = true
 
 [node name="TreeContainer" type="Node" parent="."]
 

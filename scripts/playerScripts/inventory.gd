@@ -19,7 +19,7 @@ func _on_area_entered(area : Area2D):
 		if (itemNode.item_resource.name == 'coin'):
 			PlayerInventory.add_coin()
 			itemNode.picked_up()
-			ui.change_coins_ui()
+			ui.update_coins_ui()
 			
 		elif (PlayerInventory.player_inventory.size() < PlayerStats.player_inventory_size):
 			inventory.push_front(itemNode.item_resource)

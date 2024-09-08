@@ -110,9 +110,8 @@ y_sort_enabled = true
 z_as_relative = false
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_2mpi3")
-animation = &"smoking"
-autoplay = "smoking"
-frame_progress = 0.461533
+animation = &"fire"
+autoplay = "fire"
 offset = Vector2(0, -23)
 
 [node name="Area2D" type="StaticBody2D" parent="."]

@@ -16,7 +16,7 @@ var scrollspeed : float = 0.12 #test
 
 var current_wave_index : int = 0
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var oldPos = ui_wave_h_box.position
 	ui_wave_h_box.set_position(Vector2(oldPos.x - scrollspeed, oldPos.y))
 	pass
