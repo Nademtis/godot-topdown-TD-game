@@ -4,7 +4,7 @@ var trying_to_build = false
 const TURRET_BUILDABLE_HOVER = preload("res://scenes/turretScenes/turret_buildable_hover.tscn")
 const TURRET_BP = preload("res://scenes/turretScenes/turret_bp.tscn")
 
-@onready var TILEMAP_1: TileMapLayer = get_node_or_null("/root/main/ground")
+@onready var TILEMAP_1: TileMapLayer = get_node_or_null("/root/main/tilemaps/ground")
 
 var current_bp_hover = null
 
@@ -40,8 +40,11 @@ func snap_to_grid(snapPosition: Vector2) -> Vector2:
 func tile_under_mouse_is_buildable(mousePosition : Vector2) -> bool:
 	var tile = TILEMAP_1.local_to_map(mousePosition)
 	var tileData = TILEMAP_1.get_cell_tile_data(tile)
-	var tile_under_mouse_isBuildable = tileData.get_custom_data('isBuildable')
-	return tile_under_mouse_isBuildable
+	if tileData != null:
+		var tile_under_mouse_isBuildable = tileData.get_custom_data('isBuildable')
+		return tile_under_mouse_isBuildable
+	else:
+		return false
 
 func _input(event):
 	if event.is_action_pressed("1") && !trying_to_build:

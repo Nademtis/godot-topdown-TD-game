@@ -134,7 +134,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5wk2g"]
-radius = 5.0
+radius = 3.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v4npg"]
 radius = 13.0384
@@ -159,6 +159,7 @@ bg_color = Color(0.6, 1, 0.6, 1)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(0, -1)
 motion_mode = 1
 script = ExtResource("1_j72qj")
 stamina_drain_rate = 0.1
@@ -167,6 +168,7 @@ stamina_sprint_cost = 0.25
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_tymf2")
 animation = &"idle"
 autoplay = "idle"
@@ -180,6 +182,7 @@ shape = SubResource("CircleShape2D_5wk2g")
 one_shot = true
 
 [node name="itemArea2D" type="Area2D" parent="." groups=["player"]]
+position = Vector2(0, -2)
 script = ExtResource("3_f0pjc")
 
 [node name="itemCollisionShape2D" type="CollisionShape2D" parent="itemArea2D"]
@@ -191,11 +194,12 @@ shape = SubResource("CircleShape2D_v4npg")
 show_behind_parent = true
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(2.32831e-09, 3.33333)
+position = Vector2(-5, 1)
 rotation = -1.5817
 script = ExtResource("3_4mkdn")
 
 [node name="Sprite2D" type="Sprite2D" parent="axe"]
+visible = false
 position = Vector2(0.0218067, -1.99988)
 rotation = -0.785398
 texture = ExtResource("3_s0mhs")

@@ -1,6 +1,31 @@
-[gd_scene load_steps=10 format=3 uid="uid://kgfcsuen7f07"]
+[gd_scene load_steps=17 format=3 uid="uid://kgfcsuen7f07"]
 
 [ext_resource type="Texture2D" uid="uid://bp82xe3kxij4s" path="res://assets/world/camp/campfire3.png" id="1_2osju"]
+[ext_resource type="Texture2D" uid="uid://do8woopmde82g" path="res://assets/world/camp/campfire4.png" id="1_ng8nf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3paan"]
+atlas = ExtResource("1_ng8nf")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_low00"]
+atlas = ExtResource("1_ng8nf")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycmpi"]
+atlas = ExtResource("1_ng8nf")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07lur"]
+atlas = ExtResource("1_ng8nf")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3o1g"]
+atlas = ExtResource("1_ng8nf")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_401gx"]
+atlas = ExtResource("1_ng8nf")
+region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fyjdl"]
 atlas = ExtResource("1_2osju")
@@ -30,6 +55,29 @@ region = Rect2(160, 0, 32, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3paan")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_low00")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycmpi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_07lur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3o1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_401gx")
+}],
+"loop": true,
+"name": &"fire",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_fyjdl")
 }, {
 "duration": 1.0,
@@ -48,7 +96,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kijgb")
 }],
 "loop": true,
-"name": &"default",
+"name": &"smoking",
 "speed": 5.0
 }]
 
@@ -61,14 +109,14 @@ y_sort_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(0, -2)
 sprite_frames = SubResource("SpriteFrames_2mpi3")
-autoplay = "default"
-frame_progress = 0.0427955
+animation = &"smoking"
+autoplay = "smoking"
+frame_progress = 0.461533
 offset = Vector2(0, -23)
 
 [node name="Area2D" type="StaticBody2D" parent="."]
-position = Vector2(-1, -2)
+position = Vector2(-1, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, 2)
