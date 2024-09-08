@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqgct2s7rwyvs"]
+
+[ext_resource type="Texture2D" uid="uid://bmceyxf8vd4bo" path="res://assets/UI/upgrade_slot_axe.png" id="1_h0yai"]
+[ext_resource type="Script" path="res://scenes/blacksmith/upgradeNode.gd" id="1_npq64"]
+[ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ve8cs"]
+[ext_resource type="Texture2D" uid="uid://dfegkcbxdujyi" path="res://assets/items/coin_small.png" id="3_npfm1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpw54"]
+radius = 1.0
+
+[node name="upgradeNode" type="Node2D"]
+script = ExtResource("1_npq64")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h0yai")
+
+[node name="text" type="Node2D" parent="Sprite2D"]
+position = Vector2(-7, -8)
+scale = Vector2(0.3, 0.3)
+
+[node name="desc_Label" type="Label" parent="Sprite2D/text"]
+offset_left = -20.0
+offset_top = -6.66667
+offset_right = 68.0
+offset_bottom = 16.3333
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ve8cs")
+theme_override_font_sizes/font_size = 8
+text = "DAMAGE+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="price" type="Node2D" parent="."]
+
+[node name="coin" type="Sprite2D" parent="price"]
+position = Vector2(7, -17)
+texture = ExtResource("3_npfm1")
+
+[node name="price_Label" type="Label" parent="price"]
+offset_left = -26.0
+offset_top = -27.0
+offset_right = 14.0
+offset_bottom = -4.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ve8cs")
+theme_override_font_sizes/font_size = 8
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_mpw54")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

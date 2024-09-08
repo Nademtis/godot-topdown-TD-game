@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6qmbejvg4jv5"
-path="res://.godot/imported/tent.png-85069605a04a63c27134cdbada29062d.ctex"
+uid="uid://dg5xoc0dyg1sf"
+path="res://.godot/imported/anvil.png-eb88441e35d89a3902cf5d034913f625.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/camp/tent.png"
-dest_files=["res://.godot/imported/tent.png-85069605a04a63c27134cdbada29062d.ctex"]
+source_file="res://assets/world/anvil.png"
+dest_files=["res://.godot/imported/anvil.png-eb88441e35d89a3902cf5d034913f625.ctex"]
 
 [params]
 
