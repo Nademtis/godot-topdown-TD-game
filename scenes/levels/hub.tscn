@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://ccb4cskaic45c"]
+[gd_scene load_steps=24 format=4 uid="uid://ccb4cskaic45c"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_as477"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_2ny0x"]
@@ -19,26 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://b2v8v4uuicfd8" path="res://assets/world/log_pile1.png" id="20_r4lvn"]
 [ext_resource type="Texture2D" uid="uid://cf6tm5ae6bl27" path="res://assets/world/log_pile2.png" id="21_3makr"]
 [ext_resource type="Texture2D" uid="uid://cser3qthitikb" path="res://assets/world/camp/tent3.png" id="23_eofyx"]
-[ext_resource type="Texture2D" uid="uid://bmceyxf8vd4bo" path="res://assets/UI/upgrade_slot_axe.png" id="24_p3gab"]
-[ext_resource type="Script" path="res://scripts/blacksmith/upgradeResource.gd" id="25_iuws8"]
-[ext_resource type="Texture2D" uid="uid://bn3dam3ubm7ew" path="res://assets/UI/upgrade_slot_empty.png" id="25_nsbq1"]
-[ext_resource type="PackedScene" uid="uid://cqgct2s7rwyvs" path="res://scenes/blacksmith/upgradeNode.tscn" id="26_c7lfe"]
 [ext_resource type="Texture2D" uid="uid://dfv63etiif1a6" path="res://assets/world/bush/bush6.png" id="37_ikaae"]
 [ext_resource type="Texture2D" uid="uid://3gn7swuynay4" path="res://assets/world/bush/bush3.png" id="38_3vm2l"]
 [ext_resource type="Texture2D" uid="uid://cyywpj1udwxvr" path="res://assets/world/bush/bush5.png" id="39_eebhh"]
 [ext_resource type="Texture2D" uid="uid://w7thxb4va1ur" path="res://assets/world/bush/bush4.png" id="40_ywuav"]
-
-[sub_resource type="Resource" id="Resource_8nuoa"]
-script = ExtResource("25_iuws8")
-desc = "LMAO"
-price = 69
-texture = ExtResource("25_nsbq1")
-
-[sub_resource type="Resource" id="Resource_8ab2d"]
-script = ExtResource("25_iuws8")
-desc = "DAMAGE+"
-price = 5
-texture = ExtResource("24_p3gab")
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -49,7 +33,7 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]
 z_index = 10
-position = Vector2(-8, 6)
+position = Vector2(-261, 1)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)
@@ -103,7 +87,22 @@ tile_map_data = PackedByteArray("AAD///z/AQAAAAAAAAA=")
 tile_set = ExtResource("4_h70q4")
 
 [node name="Blacksmith" parent="." instance=ExtResource("5_n2bhi")]
-position = Vector2(-235, -24)
+position = Vector2(-236, -23)
+
+[node name="spawnPoint1" type="Node2D" parent="Blacksmith"]
+unique_name_in_owner = true
+position = Vector2(-74, 35)
+
+[node name="spawnPoint2" type="Node2D" parent="Blacksmith"]
+unique_name_in_owner = true
+position = Vector2(-46, 63)
+
+[node name="spawnPoint3" type="Node2D" parent="Blacksmith"]
+unique_name_in_owner = true
+position = Vector2(-2, 77)
+
+[node name="spawnPoint4" type="Node2D" parent="Blacksmith"]
+position = Vector2(60, 45)
 
 [node name="Items" type="Node" parent="."]
 
@@ -230,11 +229,3 @@ texture = ExtResource("21_3makr")
 position = Vector2(-277, -35)
 texture = ExtResource("23_eofyx")
 flip_h = true
-
-[node name="Upgrade" parent="." instance=ExtResource("26_c7lfe")]
-position = Vector2(-308, 15)
-upgrade_resource = SubResource("Resource_8nuoa")
-
-[node name="Upgrade2" parent="." instance=ExtResource("26_c7lfe")]
-position = Vector2(-280, 40)
-upgrade_resource = SubResource("Resource_8ab2d")

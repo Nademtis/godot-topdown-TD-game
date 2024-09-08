@@ -3,13 +3,11 @@ extends Node
 #class_name ItemSpawner
 @onready var item_node = preload("res://scenes/itemNode.tscn")
 
-
+#items
 const LOG_RESOURCE = preload("res://scenes/items/log.tres")
 const COIN_RESOURCE = preload("res://scenes/items/coin.tres")
 
 enum ITEM {LOG, COIN}
-
-
 
 func get_item(item : ITEM) -> ItemNode:
 	var new_item : ItemNode = item_node.instantiate()

@@ -1,14 +1,12 @@
 extends CharacterBody2D
 
-var stats : PlayerStats = PlayerStats
 
 var speed : int = PlayerStats.player_move_speed  # speed in pixels/sec
-var sprint_multiplier : float = stats.player_sprint_multiplier
+var sprint_multiplier : float = PlayerStats.player_sprint_multiplier
 
 
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var camera = $Camera2D
-
 
 @onready var stamina_controller = $StaminaController
 
@@ -25,6 +23,9 @@ var old_camera
 @export var zoom_speed = 0.05
 
 func _ready():
+	var upgrade_listener = get_node("/root/PlayerStats")
+	upgrade_listener.connect("upgrade_applied", player_was_upgraded)
+	
 	old_camera = camera.zoom
 	stamina_drain_timer.wait_time = stamina_drain_rate
 
@@ -76,6 +77,9 @@ func update_camera_zoom(_delta):
 	camera.zoom.x = lerp(camera.zoom.x, target_zoom.x, zoom_speed)
 	camera.zoom.y = lerp(camera.zoom.y, target_zoom.y, zoom_speed)
 
+func player_was_upgraded():
+	speed = PlayerStats.player_move_speed  # speed in pixels/sec
+	sprint_multiplier = PlayerStats.player_sprint_multiplier
 
 func _on_stamina_drain_timer_timeout():
 	stamina_controller.use_stamina(stamina_sprint_cost)

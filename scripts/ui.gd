@@ -14,8 +14,9 @@ var amount_of_items = 0
 
 func _ready():
 	self.visible = true
+	update_coins_ui()
 
-func change_coins_ui():
+func update_coins_ui():
 	var amount_of_coins = PlayerInventory.coin_amount
 	inventory_amount_label.text = "Coins: " + str(amount_of_coins)
 	
