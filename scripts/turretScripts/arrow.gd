@@ -19,6 +19,6 @@ func _process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("enemy"):
-		var enemy = area.get_parent()
-		enemy.take_damage()
+		var enemy : Enemy = area.get_parent()
+		enemy.take_damage_from_arrow()
 		queue_free()

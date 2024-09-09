@@ -131,7 +131,7 @@ position = Vector2(51, 14)
 texture = ExtResource("6_nblf1")
 
 [node name="Campfire" parent="CampContainer" instance=ExtResource("7_e4a6i")]
-position = Vector2(-5, 42)
+position = Vector2(-9, 42)
 
 [node name="worldAssets" type="Node2D" parent="."]
 y_sort_enabled = true

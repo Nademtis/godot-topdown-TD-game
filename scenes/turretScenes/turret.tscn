@@ -150,7 +150,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"d_attack",
-"speed": 10.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -190,7 +190,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"l_attack",
-"speed": 10.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -213,7 +213,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"r_attack",
-"speed": 10.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -236,7 +236,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"u_attack",
-"speed": 10.0
+"speed": 6.0
 }]
 
 [node name="turret" type="Node2D"]
@@ -327,10 +327,9 @@ region_rect = Rect2(192, 0, 48, 48)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="archer"]
 y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_vof1w")
-animation = &"u_attack"
+animation = &"d_idle"
 autoplay = "d_idle"
-frame = 3
-frame_progress = 0.611111
+frame_progress = 0.945186
 
 [connection signal="area_entered" from="rangeArea2D" to="." method="_on_range_area_2d_area_entered"]
 [connection signal="area_exited" from="rangeArea2D" to="." method="_on_range_area_2d_area_exited"]

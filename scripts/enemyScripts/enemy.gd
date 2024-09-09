@@ -1,6 +1,6 @@
 class_name Enemy extends Node2D
 
-@export var hp : int = 3
+@export var hp : float = 3
 @export var speed : float = 40 
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
@@ -46,10 +46,17 @@ func swap_movement_animation(new_pos : Vector2) -> void:
 	
 func enemy_hit(area):
 	if area.is_in_group("attack"):
-		take_damage()
+		take_damage_from_player()
 	pass # Replace with function body.
 
-func take_damage():
+func take_damage_from_player():
+		hp = hp - 1
+		animation_player.play("enemy_hit") #making red on hit
+		if hp < 1:
+			die()
+			area_2d.set_deferred("monitoring", false)
+			
+func take_damage_from_arrow():
 		hp = hp - 1
 		animation_player.play("enemy_hit") #making red on hit
 		if hp < 1:

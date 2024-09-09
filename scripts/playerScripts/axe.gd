@@ -3,15 +3,19 @@ extends Node2D
 @onready var player = $".."
 @onready var axe_sprite = $Sprite2D
 
-@onready var attack_cooldown_timer = $attackCooldownTimer
+#attack
+@onready var attack_cooldown_timer : Timer = $attackCooldownTimer
+@onready var ATTACK_SCENE = preload("res://scenes/playerScenes/attack.tscn")
 var can_attack = true
 
-@onready var stamina_controller = $"../StaminaController"
 @export var stamina_cost : int = 5
+@onready var stamina_controller = $"../StaminaController"
 
-#attack
-@onready var attackScene = preload("res://scenes/playerScenes/attack.tscn")
-
+func _ready() -> void:
+	var upgrade_listener = get_node("/root/PlayerStats")
+	upgrade_listener.connect("upgrade_applied", player_was_upgraded)
+	
+	attack_cooldown_timer.wait_time = PlayerStats.player_attack_speed
 
 func _input(event):
 	if event.is_action_pressed("click"):
@@ -21,7 +25,7 @@ func _input(event):
 
 func attack():
 	var point = get_global_mouse_position()
-	var attack_instance = attackScene.instantiate()
+	var attack_instance = ATTACK_SCENE.instantiate()
 	
 	var direction = point - global_position
 	var angle_radians = direction.angle()
@@ -38,3 +42,6 @@ func attack():
 
 func _on_attack_cooldown_timer_timeout():
 	can_attack = true
+
+func player_was_upgraded():
+	attack_cooldown_timer.wait_time = PlayerStats.player_attack_speed

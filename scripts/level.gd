@@ -9,10 +9,8 @@ func _ready():
 
 func take_damage():
 	current_hp -= 1
-	
 	if current_hp <= 0:
 		die()
-	
 	ui.update_ui_hp(current_hp)
 	
 func die():

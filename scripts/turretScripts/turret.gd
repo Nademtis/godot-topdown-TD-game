@@ -11,15 +11,17 @@ var canShoot = true
 @onready var d_attack_pos: Node2D = $archer/D_attackPos
 @onready var u_attack_pos: Node2D = $archer/U_attackPos
 
-
-
 func _ready() -> void:
+		attack_speed_timer.wait_time = PlayerStats.player_archer_attackspeed
+		
 		add_to_group("turrets")
 
 func _process(_delta):
 	if enemyArray.size() > 0 and canShoot:
+		animate_archer.speed_scale = 1.0 / PlayerStats.player_archer_attackspeed
 		attack()
 	if enemyArray.size() <= 0:
+		animate_archer.speed_scale = 1.0
 		animate_archer.play('d_idle')
 
 func attack():
