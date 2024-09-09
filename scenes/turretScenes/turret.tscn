@@ -329,7 +329,7 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_vof1w")
 animation = &"d_idle"
 autoplay = "d_idle"
-frame_progress = 0.945186
+frame_progress = 0.191123
 
 [connection signal="area_entered" from="rangeArea2D" to="." method="_on_range_area_2d_area_entered"]
 [connection signal="area_exited" from="rangeArea2D" to="." method="_on_range_area_2d_area_exited"]

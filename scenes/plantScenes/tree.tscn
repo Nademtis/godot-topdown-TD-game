@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bvpuhpb6jhnsw"]
+[gd_scene load_steps=15 format=3 uid="uid://bvpuhpb6jhnsw"]
 
 [ext_resource type="Script" path="res://scripts/worldScripts/tree.gd" id="1_xmeca"]
 [ext_resource type="Texture2D" uid="uid://dn7tln4oylgsa" path="res://assets/plants/tree_shaddow.png" id="2_5vrhv"]
@@ -137,6 +137,9 @@ _data = {
 "hitRight": SubResource("Animation_d2rxw")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fqmg"]
+radius = 7.0
+
 [node name="Tree1" type="Node2D"]
 script = ExtResource("1_xmeca")
 
@@ -168,11 +171,12 @@ texture = ExtResource("3_bky7i")
 offset = Vector2(0, -20)
 
 [node name="buttonSprite_2d" type="Sprite2D" parent="."]
+z_index = -1
 texture = ExtResource("2_pb5pg")
 
 [node name="shaddowSprite2D" type="Sprite2D" parent="."]
 self_modulate = Color(1, 1, 1, 0.686275)
-z_index = -1
+z_index = -2
 position = Vector2(0, 3)
 texture = ExtResource("2_5vrhv")
 
@@ -189,6 +193,12 @@ shape = SubResource("CapsuleShape2D_qmcjj")
 libraries = {
 "": SubResource("AnimationLibrary_bq4d8")
 }
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_5fqmg")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
