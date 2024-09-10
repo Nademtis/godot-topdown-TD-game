@@ -1,6 +1,6 @@
 extends Node
 
-const LEVEL_PATH = "res://scenes/levels/level"  # Base path for levels
+const LEVEL_PATH = "res://scenes/gameplay/levels/level"  # Base path for levels
 const LEVEL_EXTENSION = ".tscn"  # Scene file extension
 
 var current_scene = null
@@ -12,7 +12,7 @@ func _ready():
 
 # Call this function when a level is complete
 func level_complete():
-	var new_level_index = current_index +1
+	var new_level_index = current_index + 1
 	var new_level_path = LEVEL_PATH + str(new_level_index) + LEVEL_EXTENSION
 
 	if ResourceLoader.exists(new_level_path):

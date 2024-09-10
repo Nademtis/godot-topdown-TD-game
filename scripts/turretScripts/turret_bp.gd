@@ -28,7 +28,7 @@ func check_build_status():
 func _input(event):
 	if player_is_in_range && event.is_action_pressed("use"):
 		for item : ItemResource in player_inventory:
-			if item_cost_array.has(item): #TODO bug here after new item system lmao
+			if item_cost_array.has(item):
 				player_inventory.erase(item)
 				item_cost_array.erase(item)
 				check_build_status()

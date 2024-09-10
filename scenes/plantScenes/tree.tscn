@@ -164,21 +164,19 @@ linear_accel_min = -11.21
 linear_accel_max = 26.17
 color_ramp = SubResource("Gradient_2t05q")
 
+[node name="shaddowSprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.686275)
+z_as_relative = false
+position = Vector2(0, 3)
+texture = ExtResource("2_5vrhv")
+
+[node name="buttonSprite_2d" type="Sprite2D" parent="."]
+texture = ExtResource("2_pb5pg")
+
 [node name="topSprite2D" type="Sprite2D" parent="."]
-z_index = 1
 position = Vector2(0, -5)
 texture = ExtResource("3_bky7i")
 offset = Vector2(0, -20)
-
-[node name="buttonSprite_2d" type="Sprite2D" parent="."]
-z_index = -1
-texture = ExtResource("2_pb5pg")
-
-[node name="shaddowSprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.686275)
-z_index = -2
-position = Vector2(0, 3)
-texture = ExtResource("2_5vrhv")
 
 [node name="Area2D" type="Area2D" parent="." groups=["tree"]]
 visible = false

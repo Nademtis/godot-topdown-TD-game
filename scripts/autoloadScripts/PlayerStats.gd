@@ -29,7 +29,7 @@ func apply_upgrade(upgrade: UpgradeResource) -> void:
 		"player_move_speed":
 			player_move_speed += int(upgrade.upgrade_amount)
 			upgrade_player_movespeed.erase(upgrade)
-		"player_inventory_size":
+		"player_inventory_size": #TODO remove this upgrade from the responding upgrade list
 			player_inventory_size += int(upgrade.upgrade_amount)
 		"player_attack_damage":
 			player_attack_damage += upgrade.upgrade_amount
@@ -44,7 +44,6 @@ func apply_upgrade(upgrade: UpgradeResource) -> void:
 			player_archer_attackspeed -= upgrade.upgrade_amount
 			upgrade_archer_attackspeed.erase(upgrade)
 	
-	#TODO remove this upgrade from the responding upgrade list
 	emit_signal("upgrade_applied")
 
 #player Axe attack damage
