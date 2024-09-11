@@ -25,6 +25,10 @@ func level_complete():
 	pass
 
 func _deferred_goto_scene(new_level_path):
+	PlayerInventory.player_inventory.clear()
+	PlayerInventory.wagon_storage.clear()
+	
+	
 	current_scene.free()  # It is now safe to remove the current scene.
 	var s = ResourceLoader.load(new_level_path) # Load the new scene.
 	current_scene = s.instantiate() # Instance the new scene.
