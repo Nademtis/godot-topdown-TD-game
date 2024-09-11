@@ -6,12 +6,15 @@ const LEVEL_EXTENSION = ".tscn"  # Scene file extension
 var current_scene = null
 var current_index : int = 0
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 
 func _ready():
 	pass
 
 # Call this function when a level is complete
 func level_complete():
+	animation_player.play('fade_in')
 	var new_level_index = current_index + 1
 	var new_level_path = LEVEL_PATH + str(new_level_index) + LEVEL_EXTENSION
 

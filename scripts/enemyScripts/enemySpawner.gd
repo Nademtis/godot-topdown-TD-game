@@ -22,7 +22,6 @@ func _process(_delta: float) -> void:
 	pass
 
 func _ready() -> void:
-	print(waves)
 	if waves.is_empty():
 		print_debug('no waves in this level')
 	else:

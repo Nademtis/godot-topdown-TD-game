@@ -18,7 +18,7 @@ func get_item(item : ITEM) -> ItemNode:
 	
 	match item:
 		ITEM.LOG:
-			new_item.initialize(LOG_RESOURCE)
+			new_item.initialize(LOG_RESOURCE) #error here
 		ITEM.COIN:
 			new_item.initialize(COIN_RESOURCE)
 	return new_item

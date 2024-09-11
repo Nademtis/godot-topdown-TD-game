@@ -4,9 +4,10 @@ var player_inventory : Array[ItemResource] = []
 var wagon_storage : Array[ItemResource] = []
 var coin_amount : int
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#start_with_logs(2)
+	#start_with_logs(5)
 	start_with_coins(50)
 	pass # Replace with function body.
 
@@ -15,8 +16,9 @@ func add_coin():
 
 func start_with_logs (log_amount: int):
 	for i in log_amount:
+		pass
 		#var item : Item = 
-		player_inventory.push_back("Log")
+		#player_inventory.push_front(LOG_RESOURCE)
 		
 func start_with_coins (coin_amount_meme: int):
 	coin_amount = coin_amount_meme
