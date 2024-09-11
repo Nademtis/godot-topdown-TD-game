@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/plantScenes/treeSpawner.gd" id="1_pbbjl"]
 
-[node name="treeSpawner" type="Node"]
+[node name="treeSpawner" type="Node2D"]
 script = ExtResource("1_pbbjl")
 
 [node name="Timer" type="Timer" parent="."]

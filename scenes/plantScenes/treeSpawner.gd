@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 class_name TreeSpawner
 
 const TREE_SPAWN = preload("res://scenes/plantScenes/treeSpawn.tscn")
