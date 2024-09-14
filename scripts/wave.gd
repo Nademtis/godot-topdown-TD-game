@@ -2,8 +2,8 @@ extends Resource
 
 class_name Wave
 
-var SLIME = preload("res://scenes/slime.tscn")
-var BEE = preload("res://scenes/bee.tscn")
+var SLIME : PackedScene = preload("res://scenes/slime.tscn")
+var BEE : PackedScene = preload("res://scenes/bee.tscn")
 
 @export var slime_amount : int
 @export var bee_amount : int
@@ -13,8 +13,11 @@ var total_amount_of_enemies : int
 var spawn_rate : float
 var mobs_left_in_wave : int 
 
-func calculate_mob_numbers():
-	mobs_left_in_wave = slime_amount + bee_amount
+func _init(p_slime_amount: int, p_bee_amount: int, p_wave_duration: float):
+	slime_amount = p_slime_amount
+	bee_amount = p_bee_amount
+	wave_duration = p_wave_duration
+	init_wave()
 
 func init_wave():
 	calculate_mob_numbers()
@@ -23,6 +26,9 @@ func init_wave():
 		spawn_rate = wave_duration / total_amount_of_enemies
 	else:
 		spawn_rate = 0
+
+func calculate_mob_numbers():
+	mobs_left_in_wave = slime_amount + bee_amount
 
 func get_random_enemy_path() -> PackedScene:
 	var random = randf()

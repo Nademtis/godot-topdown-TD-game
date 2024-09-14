@@ -4,8 +4,13 @@ extends Node
 @export var current_hp : int = 3
 @onready var ui = $UI
 
+func init():
+	pass
+	#levelManager.set_current_level(self)
+
 func _ready():
-	levelManager.set_current_level(self)
+	#levelManager.set_current_level(self)
+	pass
 
 func take_damage():
 	current_hp -= 1

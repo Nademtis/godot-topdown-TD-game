@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cjh6p1p5fm57e" path="res://assets/items/log_new.png" id="2_j8x8s"]
 
 [resource]
-resource_name = "Log Resource"
 script = ExtResource("1_dd35g")
 name = "Log"
 texture = ExtResource("2_j8x8s")

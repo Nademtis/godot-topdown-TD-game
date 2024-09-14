@@ -12,7 +12,9 @@ extends Node
 @onready var progress_dot : ColorRect = get_node("/root/main/UI").progress_dot
 var scrollspeed : float = 0.12 #test
 
-@export var waves : Array[Wave]
+#@export var waves : Array[Wave]
+var waves : Array[Wave]
+
 
 var current_wave_index : int = 0
 
@@ -22,6 +24,16 @@ func _process(_delta: float) -> void:
 	pass
 
 func _ready() -> void:
+	levelManager.set_current_level(get_parent())
+	waves.clear()
+	waves = levelManager.get_current_level_wavelist()
+	var totalMobAmount = 0
+	for wave in waves:
+		totalMobAmount += wave.mobs_left_in_wave
+		
+	print('total Mobs in this ' + str(totalMobAmount))
+	print('this level has: ' + str(waves.size()) + ' waves')
+	
 	if waves.is_empty():
 		print_debug('no waves in this level')
 	else:
@@ -31,7 +43,7 @@ func _ready() -> void:
 		start_wave()
 		
 func start_wave():
-	print('wave started')
+	#print('wave started')
 	
 	if (waves.size() >= current_wave_index+1):
 		var wave : Wave = waves[current_wave_index]
@@ -52,7 +64,6 @@ func next_wave():
 	if waves[current_wave_index].mobs_left_in_wave > 0:
 		next_wave()
 	else:
-		print("swapping wave")
 		current_wave_index += 1
 		start_wave()
 

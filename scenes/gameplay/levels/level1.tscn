@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://m6cfur8wqxoa"]
+[gd_scene load_steps=15 format=4 uid="uid://m6cfur8wqxoa"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_hj6f4"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_qhpcl"]
@@ -6,46 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="4_fjegy"]
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="5_uvyud"]
 [ext_resource type="Script" path="res://scripts/enemyScripts/enemySpawner.gd" id="6_y6b0o"]
-[ext_resource type="Script" path="res://scripts/wave.gd" id="7_s7ouc"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_dgbwf"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_2aglk"]
 [ext_resource type="Texture2D" uid="uid://dpxqv47u2xlvp" path="res://assets/world/cave/cave_small_open.png" id="10_c3b2b"]
-
-[sub_resource type="Resource" id="Resource_em2jg"]
-script = ExtResource("7_s7ouc")
-slime_amount = 0
-bee_amount = 0
-wave_duration = 10.0
-
-[sub_resource type="Resource" id="Resource_ehs4i"]
-script = ExtResource("7_s7ouc")
-slime_amount = 10
-bee_amount = 15
-wave_duration = 20.0
-
-[sub_resource type="Resource" id="Resource_lkrb8"]
-script = ExtResource("7_s7ouc")
-slime_amount = 0
-bee_amount = 0
-wave_duration = 10.0
-
-[sub_resource type="Resource" id="Resource_bjcn5"]
-script = ExtResource("7_s7ouc")
-slime_amount = 20
-bee_amount = 20
-wave_duration = 30.0
-
-[sub_resource type="Resource" id="Resource_c6h41"]
-script = ExtResource("7_s7ouc")
-slime_amount = 5
-bee_amount = 5
-wave_duration = 10.0
-
-[sub_resource type="Resource" id="Resource_3lp11"]
-script = ExtResource("7_s7ouc")
-slime_amount = 30
-bee_amount = 15
-wave_duration = 40.0
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -131,7 +94,6 @@ tile_set = ExtResource("5_uvyud")
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("6_y6b0o")
-waves = Array[ExtResource("7_s7ouc")]([SubResource("Resource_em2jg"), SubResource("Resource_ehs4i"), SubResource("Resource_lkrb8"), SubResource("Resource_bjcn5"), SubResource("Resource_c6h41"), SubResource("Resource_3lp11")])
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 wait_time = 1.3

@@ -5,9 +5,7 @@ const LEVEL_EXTENSION = ".tscn"  # Scene file extension
 
 var current_scene = null
 var current_index : int = 0
-
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var animation_player: AnimationPlayer = $AnimationPlayer #used for scene transition
 
 func _ready():
 	pass
@@ -43,3 +41,46 @@ func set_current_level(level):
 	var file_name = level.scene_file_path #level1.tscn
 	var match = file_name.substr(5, file_name.length() - 10)
 	current_index = match.to_int()
+
+func get_current_level_wavelist():
+	#var wave_break_small : Wave = Wave.new(0,0,5)
+	#var wave_break_medium : Wave = Wave.new(0,0,10)
+	#var wave_break_large : Wave = Wave.new(0,0,15)
+	
+	var breaks = {
+		"small": Wave.new(0,0,5),
+		"medium":Wave.new(0,0,10),
+		"large": Wave.new(0,0,15)
+	}
+	
+	var wavelist : Array[Wave] = []
+	print_debug('fetches waveList with index: ' + str(current_index))
+	match current_index:
+		#slime, bee, duration
+		1:
+			var wave1 : Wave = breaks.large
+			var wave2 : Wave = Wave.new(5,5,20)
+			var wave3 : Wave = breaks.small
+			var wave4 : Wave = Wave.new(10,10,20)
+			var wave5 : Wave = breaks.small
+			var wave6 : Wave = Wave.new(15,15,20)
+			wavelist = [wave1, wave2, wave3, wave4, wave5, wave6]
+		2:
+			var wave1 : Wave = breaks.medium
+			var wave2 : Wave = Wave.new(10,10,20)
+			var wave3 : Wave = breaks.small
+			var wave4 : Wave = Wave.new(15,15,10)
+			var wave5 : Wave = Wave.new(20,20,15)
+			var wave6 : Wave = Wave.new(20,20,15)
+			wavelist = [wave1, wave2, wave3, wave4, wave5, wave6]
+		3:
+			var wave1 : Wave = breaks.small
+			var wave2 : Wave = Wave.new(10,10,15)
+			var wave3 : Wave = breaks.small
+			var wave4 : Wave = Wave.new(15,15,10)
+			var wave5 : Wave = Wave.new(20,20,15)
+			var wave6 : Wave = Wave.new(20,20,15)
+			wavelist = [wave1, wave2, wave3, wave4, wave5, wave6]
+	
+	return wavelist
+	#return level0_wavelist

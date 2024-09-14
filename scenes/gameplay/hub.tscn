@@ -232,3 +232,6 @@ texture = ExtResource("21_3makr")
 position = Vector2(-277, -35)
 texture = ExtResource("23_eofyx")
 flip_h = true
+
+[node name="Tree1" parent="." instance=ExtResource("8_dyu18")]
+position = Vector2(-154, -43)
