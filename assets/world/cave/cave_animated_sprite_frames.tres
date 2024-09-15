@@ -1,0 +1,158 @@
+[gd_resource type="SpriteFrames" load_steps=20 format=3 uid="uid://decbvu2uj6duj"]
+
+[ext_resource type="Texture2D" uid="uid://b82bnlsi5vojt" path="res://assets/world/cave/cave_small_opening_anim.png" id="1_jperf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swk3e"]
+atlas = ExtResource("1_jperf")
+region = Rect2(0, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwj1u"]
+atlas = ExtResource("1_jperf")
+region = Rect2(384, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xckwg"]
+atlas = ExtResource("1_jperf")
+region = Rect2(336, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3qxe"]
+atlas = ExtResource("1_jperf")
+region = Rect2(288, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc8r5"]
+atlas = ExtResource("1_jperf")
+region = Rect2(240, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su76j"]
+atlas = ExtResource("1_jperf")
+region = Rect2(192, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxv68"]
+atlas = ExtResource("1_jperf")
+region = Rect2(144, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7txym"]
+atlas = ExtResource("1_jperf")
+region = Rect2(96, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0foo2"]
+atlas = ExtResource("1_jperf")
+region = Rect2(48, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7mdh"]
+atlas = ExtResource("1_jperf")
+region = Rect2(0, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8gx6"]
+atlas = ExtResource("1_jperf")
+region = Rect2(48, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p5ix8"]
+atlas = ExtResource("1_jperf")
+region = Rect2(96, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_px5qv"]
+atlas = ExtResource("1_jperf")
+region = Rect2(144, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a24ur"]
+atlas = ExtResource("1_jperf")
+region = Rect2(192, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quj67"]
+atlas = ExtResource("1_jperf")
+region = Rect2(240, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8abk"]
+atlas = ExtResource("1_jperf")
+region = Rect2(288, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tvqp"]
+atlas = ExtResource("1_jperf")
+region = Rect2(336, 0, 48, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4woe8"]
+atlas = ExtResource("1_jperf")
+region = Rect2(384, 0, 48, 41)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swk3e")
+}],
+"loop": false,
+"name": &"cave_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwj1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xckwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3qxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc8r5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su76j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxv68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7txym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0foo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swk3e")
+}],
+"loop": false,
+"name": &"cave_closing",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uwj1u")
+}],
+"loop": true,
+"name": &"cave_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7mdh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8gx6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p5ix8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_px5qv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a24ur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quj67")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8abk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tvqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4woe8")
+}],
+"loop": false,
+"name": &"cave_opening",
+"speed": 7.0
+}]

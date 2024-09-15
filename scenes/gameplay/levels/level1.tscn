@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="4_fjegy"]
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="5_uvyud"]
 [ext_resource type="Script" path="res://scripts/enemyScripts/enemySpawner.gd" id="6_y6b0o"]
+[ext_resource type="SpriteFrames" uid="uid://decbvu2uj6duj" path="res://assets/world/cave/cave_animated_sprite_frames.tres" id="7_0nq5v"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_dgbwf"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_2aglk"]
-[ext_resource type="Texture2D" uid="uid://dpxqv47u2xlvp" path="res://assets/world/cave/cave_small_open.png" id="10_c3b2b"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_gb3jk"]
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
@@ -95,6 +95,12 @@ tile_set = ExtResource("5_uvyud")
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("6_y6b0o")
+
+[node name="Cave" type="AnimatedSprite2D" parent="EnemySpawner"]
+position = Vector2(-79, -180)
+sprite_frames = ExtResource("7_0nq5v")
+animation = &"cave_closed"
+autoplay = "cave_closed"
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 wait_time = 1.3
@@ -193,10 +199,6 @@ y_sort_enabled = true
 
 [node name="WorldAssetsContainer" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="CaveSmallOpen" type="Sprite2D" parent="WorldAssetsContainer"]
-position = Vector2(-79, -180)
-texture = ExtResource("10_c3b2b")
 
 [node name="Label" type="Label" parent="WorldAssetsContainer"]
 offset_left = -43.0

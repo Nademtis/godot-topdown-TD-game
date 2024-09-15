@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://b5fbjne4bgkl7"]
+[gd_scene load_steps=15 format=4 uid="uid://b5fbjne4bgkl7"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1ale8"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_mjpf8"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="4_e0dbu"]
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="5_52wxl"]
 [ext_resource type="Script" path="res://scripts/enemyScripts/enemySpawner.gd" id="6_s1r47"]
+[ext_resource type="SpriteFrames" uid="uid://decbvu2uj6duj" path="res://assets/world/cave/cave_animated_sprite_frames.tres" id="7_dt1hw"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_hrkl5"]
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="9_nkt7q"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_thsoo"]
@@ -89,6 +90,11 @@ tile_set = ExtResource("5_52wxl")
 
 [node name="EnemySpawner" type="Node" parent="."]
 script = ExtResource("6_s1r47")
+
+[node name="Cave" type="AnimatedSprite2D" parent="EnemySpawner"]
+position = Vector2(283, -536)
+sprite_frames = ExtResource("7_dt1hw")
+animation = &"cave_closed"
 
 [node name="Timer" type="Timer" parent="EnemySpawner"]
 wait_time = 1.3

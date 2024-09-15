@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+class_name Player
 
 var speed : int = PlayerStats.player_move_speed  # speed in pixels/sec
 var sprint_multiplier : float = PlayerStats.player_sprint_multiplier
@@ -23,10 +24,17 @@ var debug_pos_for_stuck : Vector2
 #for scene change safety
 var can_move = false
 @onready var can_move_timer: Timer = $canMoveTimer
+var camera_pos_before_cutscene
 
-#camera zoom
+#camera
 var old_camera
 @export var zoom_speed = 0.05
+
+var random_strength : float = 3.0 #smaller = smaller shake
+var shake_fade : float = 2.0 # smaller = longer shake
+var rng = RandomNumberGenerator.new()
+var shake_strength : float = 0.0
+
 
 func _ready():
 	
@@ -45,6 +53,9 @@ func _process(delta):
 	
 	if Input.is_action_pressed("stuck"):
 		global_position = debug_pos_for_stuck
+	
+	#handle camera shake
+	handle_camera_shake(delta)
 	
 	#handle sprinting
 	if Input.is_action_pressed("sprint") && stamina_controller.can_afford(stamina_sprint_cost):
@@ -98,3 +109,24 @@ func _on_stamina_drain_timer_timeout():
 func _on_can_move_timer_timeout() -> void:
 	can_move = true
 	pass # Replace with function body.
+
+func handle_camera_shake(delta: float):
+	if shake_strength > 0:
+		shake_strength = lerpf(shake_strength,0,shake_fade * delta)
+		camera.offset = random_offet()
+
+func random_offet() -> Vector2:
+	return Vector2(rng.randf_range(-shake_strength,shake_strength),rng.randf_range(-shake_strength,shake_strength))
+
+func apply_shake():
+	shake_strength = random_strength
+
+func cutscene_started():
+	camera_pos_before_cutscene = camera.global_position
+	apply_shake()
+	animated_sprite.play("idle")
+	can_move = false
+	
+func cutscene_ended():
+	camera.global_position = camera_pos_before_cutscene
+	can_move = true

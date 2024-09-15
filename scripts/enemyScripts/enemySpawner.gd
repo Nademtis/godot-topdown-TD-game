@@ -15,6 +15,12 @@ var scrollspeed : float = 0.12 #test for wave ui - not used currently
 #@export var waves : Array[Wave]
 var waves : Array[Wave]
 
+var cave_has_opened = false
+var cave_has_closed = false
+@onready var cave: AnimatedSprite2D = $Cave
+@onready var player: Player = $"../Player"
+
+
 var current_wave_index : int = 0
 
 func _process(_delta: float) -> void:
@@ -38,14 +44,18 @@ func _ready() -> void:
 	else:
 		enemy_spawn_rate_timer.timeout.connect(spawn_enemy)
 		call_deferred("create_wave_indicator_ui")
-		
 		start_wave()
 		
 func start_wave():
 	#print('wave started')
-	if (waves.size() >= current_wave_index+1):
+	if (waves.size() >= current_wave_index + 1):
 		var wave : Wave = waves[current_wave_index]
 		wave.init_wave()
+		
+		#check has_opened 
+		if  wave.total_amount_of_enemies > 0 && !cave_has_opened:
+			open_cave()
+		
 		wave_duration_timer.wait_time = wave.wave_duration + 1 #plus 1 second to add a breathing room
 		wave_duration_timer.start()
 		
@@ -57,6 +67,7 @@ func start_wave():
 			pass
 	else:
 		print("no more waves in this level")
+		close_cave()
 		
 func next_wave():
 	enemy_spawn_rate_timer.stop()
@@ -68,7 +79,6 @@ func next_wave():
 
 func _on_timer_timeout():
 	next_wave()
-
 
 func spawn_enemy():
 	var mobPath: PackedScene = waves[current_wave_index].get_random_enemy_path()
@@ -83,7 +93,6 @@ func spawn_enemy():
 	else:
 		path_2d_2.add_child(pathFollow2D)
 	pathFollow2D.add_child(mob)
-
 
 func create_wave_indicator_ui():
 	# Clear existing children in the HBoxContainer
@@ -114,3 +123,19 @@ func create_wave_indicator_ui():
 		
 		# Add the ColorRect to the HBoxContainer
 		ui_wave_h_box.add_child(color_rect)
+
+func open_cave():
+	cave_has_opened = true
+	print('open cave')
+	
+	player.cutscene_started()
+	player.camera.global_position = cave.global_position
+	cave.play("cave_opening")
+	await get_tree().create_timer(2.0).timeout
+	player.cutscene_ended()
+	
+func close_cave():
+	player.apply_shake()
+	cave.play("cave_closing")
+	cave_has_closed = true
+	print('close cave')

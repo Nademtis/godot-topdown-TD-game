@@ -61,33 +61,36 @@ func get_current_level_wavelist():
 	}
 	
 	var wavelist : Array[Wave] = []
-	print_debug('fetches waveList with index: ' + str(current_index))
+	#print_debug('fetches waveList with index: ' + str(current_index))
 	match current_index:
 		#slime, bee, duration
 		1:
-			var wave1 : Wave = breaks.large
-			var wave2 : Wave = Wave.new(5,5,20)
-			var wave3 : Wave = breaks.small
-			var wave4 : Wave = Wave.new(10,10,20)
-			var wave5 : Wave = breaks.small
-			var wave6 : Wave = Wave.new(15,15,20)
-			wavelist = [wave1, wave2, wave3, wave4, wave5, wave6]
+			wavelist = [
+			breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			Wave.new(10,10,20),
+			breaks.small,
+			Wave.new(15,15,20)
+			]
 		2:
-			var wave1 : Wave = breaks.medium
-			var wave2 : Wave = Wave.new(10,10,20)
-			var wave3 : Wave = breaks.small
-			var wave4 : Wave = Wave.new(15,15,10)
-			var wave5 : Wave = Wave.new(20,20,15)
-			var wave6 : Wave = Wave.new(20,20,15)
-			wavelist = [wave1, wave2, wave3, wave4, wave5, wave6]
+			wavelist = [
+			breaks.medium,
+			Wave.new(10,10,20),
+			breaks.small,
+			Wave.new(15,15,10),
+			Wave.new(20,20,15),
+			Wave.new(20,20,15),
+			]
 		3:
-			var wave1 : Wave = breaks.small
-			var wave2 : Wave = Wave.new(10,10,15)
-			var wave3 : Wave = breaks.small
-			var wave4 : Wave = Wave.new(15,15,10)
-			var wave5 : Wave = Wave.new(20,20,15)
-			var wave6 : Wave = Wave.new(20,20,15)
-			wavelist = [wave1, wave2, wave3, wave4, wave5, wave6]
+			wavelist = [
+			breaks.small,
+			Wave.new(10,10,15),
+			breaks.small,
+			Wave.new(15,15,10),
+			Wave.new(20,20,15),
+			Wave.new(20,20,15)
+			]
 	
 	return wavelist
 	#return level0_wavelist
