@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://catuxlrbteaxs" path="res://assets/world/Wagon.png" id="1_2fmqh"]
 [ext_resource type="Script" path="res://scripts/worldScripts/wagon.gd" id="1_l4q3l"]
-[ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_53cgn"]
+[ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_k4kwe"]
 
 [sub_resource type="Animation" id="Animation_51cbv"]
 length = 0.001
@@ -70,13 +70,15 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ltk1c")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -31.0
-offset_top = -27.0
-offset_right = 95.0
-offset_bottom = -4.0
-theme_override_fonts/font = ExtResource("3_53cgn")
+offset_left = -17.0
+offset_top = -35.0
+offset_right = 20.0
+offset_bottom = -12.0
+theme_override_fonts/font = ExtResource("3_k4kwe")
 theme_override_font_sizes/font_size = 8
-text = "LOGS: 5/20"
+text = "5/20"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

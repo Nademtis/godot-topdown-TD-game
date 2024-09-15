@@ -52,7 +52,7 @@ position_smoothing_speed = 8.0
 [node name="Wagon" parent="." instance=ExtResource("4_883w2")]
 z_index = 1
 position = Vector2(-200, 20)
-required_logs = 1
+required_logs = 30
 
 [node name="tilemaps" type="Node2D" parent="."]
 z_index = -1

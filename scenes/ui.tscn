@@ -98,6 +98,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 
 [node name="waveContainer" type="Control" parent="Control/MarginContainer/MarginContainer"]
+visible = false
 clip_contents = true
 custom_minimum_size = Vector2(300, 20)
 layout_mode = 2

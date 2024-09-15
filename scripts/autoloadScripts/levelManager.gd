@@ -5,7 +5,6 @@ const LEVEL_EXTENSION = ".tscn"  # Scene file extension
 
 const HUB = "res://scenes/gameplay/hub.tscn"
 
-
 var current_scene = null
 var current_index : int = 0
 var new_level_path: String
@@ -16,7 +15,7 @@ func _ready():
 
 # Call this function when a level is complete
 func level_complete():
-	animation_player.play('fade_in')
+	animation_player.play('fade_out')
 	var new_level_index = current_index + 1
 	new_level_path = LEVEL_PATH + str(new_level_index) + LEVEL_EXTENSION
 	
@@ -46,7 +45,7 @@ func _deferred_goto_scene(path):
 	if current_scene:
 		get_tree().root.add_child(current_scene)
 		get_tree().current_scene = current_scene
-	
+		animation_player.play('fade_in')
 
 func set_current_level(level):
 	current_scene = level

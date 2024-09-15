@@ -20,7 +20,7 @@ func _ready():
 	update_label()
 
 func update_label():
-	label.text = "LOGS: " + str(wagon_storage.size()) + "/" + str(required_logs)
+	label.text = str(wagon_storage.size()) + "/" + str(required_logs)
 
 func _input(event):
 	if player_is_in_range && event.is_action_pressed("use"):

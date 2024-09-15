@@ -10,11 +10,10 @@ extends Node
 
 @onready var ui_wave_h_box : HBoxContainer = get_node("/root/main/UI").wave_uih_box
 @onready var progress_dot : ColorRect = get_node("/root/main/UI").progress_dot
-var scrollspeed : float = 0.12 #test
+var scrollspeed : float = 0.12 #test for wave ui - not used currently
 
 #@export var waves : Array[Wave]
 var waves : Array[Wave]
-
 
 var current_wave_index : int = 0
 
@@ -44,7 +43,6 @@ func _ready() -> void:
 		
 func start_wave():
 	#print('wave started')
-	
 	if (waves.size() >= current_wave_index+1):
 		var wave : Wave = waves[current_wave_index]
 		wave.init_wave()
@@ -55,9 +53,10 @@ func start_wave():
 			enemy_spawn_rate_timer.wait_time = wave.spawn_rate
 			enemy_spawn_rate_timer.start()
 		else:
-			print('no enemies in this wave')
+			#break wave
+			pass
 	else:
-		print("no more levels")
+		print("no more waves in this level")
 		
 func next_wave():
 	enemy_spawn_rate_timer.stop()

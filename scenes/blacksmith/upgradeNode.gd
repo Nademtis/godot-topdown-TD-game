@@ -25,6 +25,7 @@ func set_upgrade_resource(p_upgrade_resource: UpgradeResource) -> void:
 
 func buy_upgrade():
 	if PlayerInventory.coin_amount >= upgrade_resource.price:
+		
 		PlayerStats.apply_upgrade(upgrade_resource)
 		queue_free()
 	else:

@@ -25,6 +25,7 @@ var player_archer_damage : float = 1.0 #1.0
 var player_archer_attackspeed : float = 0.7 # 0.7
 
 func apply_upgrade(upgrade: UpgradeResource) -> void:
+	PlayerInventory.coin_amount -= upgrade.price
 	match upgrade.upgrade_variable:
 		"player_move_speed":
 			player_move_speed += int(upgrade.upgrade_amount)
@@ -48,20 +49,20 @@ func apply_upgrade(upgrade: UpgradeResource) -> void:
 
 #player Axe attack damage
 var upgrade_player_damage : Array[UpgradeResource] = [
-	UpgradeResource.new(damage_string, 12, UPGRADE_SLOT_AXE, 'player_attack_damage', 1)
-	
+	UpgradeResource.new(damage_string, 12, UPGRADE_SLOT_AXE, 'player_attack_damage', 0.3),
+	UpgradeResource.new(damage_string, 15, UPGRADE_SLOT_AXE, 'player_attack_damage', 0.5)
 ]
 
 #player axe speed
 var upgrade_player_attackspeed : Array[UpgradeResource] = [
 	UpgradeResource.new(speed_string, 10, UPGRADE_SLOT_AXE, 'player_attack_speed', 0.1),
-	
+	UpgradeResource.new(speed_string, 13, UPGRADE_SLOT_AXE, 'player_attack_speed', 0.2),
 ]
 
 #player movespeed
 var upgrade_player_movespeed : Array[UpgradeResource] = [
-UpgradeResource.new(speed_string, 5, UPGRADE_SLOT_MOVESPEED, 'player_move_speed', 5000),
-UpgradeResource.new(speed_string, 15, UPGRADE_SLOT_MOVESPEED, 'player_move_speed', 5000),
+UpgradeResource.new(speed_string, 8, UPGRADE_SLOT_MOVESPEED, 'player_move_speed', 1500),
+UpgradeResource.new(speed_string, 25, UPGRADE_SLOT_MOVESPEED, 'player_move_speed', 2000),
 	
 ]
 
@@ -78,6 +79,7 @@ var upgrade_archer_damage : Array[UpgradeResource] = [
 #archer attack_speed
 var upgrade_archer_attackspeed : Array[UpgradeResource] = [
 	UpgradeResource.new(speed_string, 15, UPGRADE_SLOT_ARCHER, 'player_archer_attackspeed', 0.1),
+	UpgradeResource.new(speed_string, 25, UPGRADE_SLOT_ARCHER, 'player_archer_attackspeed', 0.2),
 ]
 
 func get_next_upgrades() -> Array[UpgradeResource]:

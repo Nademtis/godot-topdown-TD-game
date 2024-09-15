@@ -233,8 +233,13 @@ show_percentage = false
 wait_time = 0.25
 one_shot = true
 
+[node name="canMoveTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="staminaDrainTimer" to="." method="_on_stamina_drain_timer_timeout"]
 [connection signal="area_entered" from="itemArea2D" to="itemArea2D" method="_on_area_entered"]
 [connection signal="area_exited" from="itemArea2D" to="itemArea2D" method="_on_area_exited"]
 [connection signal="timeout" from="axe/attackCooldownTimer" to="axe" method="_on_attack_cooldown_timer_timeout"]
 [connection signal="timeout" from="StaminaController/regenerationCoolDownTimer" to="StaminaController" method="_on_regeneration_cool_down_timer_timeout"]
+[connection signal="timeout" from="canMoveTimer" to="." method="_on_can_move_timer_timeout"]

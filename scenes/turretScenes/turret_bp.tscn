@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/playerScenes/itemResource.gd" id="2_lrj7k"]
 [ext_resource type="Texture2D" uid="uid://cbaev13fic4kd" path="res://assets/turret/turret_1_BP.png" id="2_wrvqx"]
 [ext_resource type="Resource" uid="uid://bghtbm8ax3861" path="res://scenes/items/log.tres" id="3_ohftp"]
-[ext_resource type="FontFile" uid="uid://bsqeait2ck5tp" path="res://assets/fonts/PixelOperator8.ttf" id="3_pws46"]
+[ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_jwqlk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4hnf"]
 animations = [{
@@ -141,13 +141,13 @@ position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_st0ue")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -33.0
-offset_top = -25.0
-offset_right = 35.0
-offset_bottom = -2.0
-theme_override_fonts/font = ExtResource("3_pws46")
+offset_left = -38.0
+offset_top = -34.0
+offset_right = 39.0
+offset_bottom = -11.0
+theme_override_fonts/font = ExtResource("5_jwqlk")
 theme_override_font_sizes/font_size = 8
-text = "Put Logs: 3"
+text = "0/3"
 horizontal_alignment = 1
 vertical_alignment = 1
 

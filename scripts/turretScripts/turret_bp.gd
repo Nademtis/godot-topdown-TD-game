@@ -8,6 +8,7 @@ var ui : CanvasLayer
 
 var player_is_in_range = false
 @export var item_cost_array : Array[ItemResource]
+@export var build_cost : int = 3
 var player_inventory : Array[ItemResource] = PlayerInventory.player_inventory
 
 func _ready():
@@ -17,7 +18,8 @@ func _ready():
 	
 
 func check_build_status():
-	label.text = "Put Logs: " + str(item_cost_array.size())
+	var collected_items = build_cost - item_cost_array.size()
+	label.text = str(collected_items) + '/' + str(build_cost)  # Display build status
 	if item_cost_array.size() <= 0:
 		var turret = turret_path.instantiate()
 		var turretContainer = get_tree().root.get_node("main").get_node("TurretContainer")
