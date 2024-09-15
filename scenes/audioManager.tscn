@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dludsjr3ewamu"]
+[gd_scene load_steps=41 format=3 uid="uid://dludsjr3ewamu"]
 
 [ext_resource type="AudioStream" uid="uid://hf6x2necycsq" path="res://assets/audio/sfx/chop1.wav" id="1_5qtr1"]
 [ext_resource type="Script" path="res://scripts/autoloadScripts/audioManager.gd" id="1_8t23k"]
 [ext_resource type="AudioStream" uid="uid://dbhs1ovx3ofwa" path="res://assets/audio/sfx/timber2.wav" id="2_betbq"]
 [ext_resource type="AudioStream" uid="uid://bm23io6yfxu08" path="res://assets/audio/sfx/tree_creek.wav" id="3_orrsu"]
+[ext_resource type="AudioStream" uid="uid://t4iybmwffcj4" path="res://assets/audio/sfx/cave_moving2.wav" id="4_sevta"]
 [ext_resource type="AudioStream" uid="uid://3llvgvrg7604" path="res://assets/audio/sfx/chop2.wav" id="5_ds0mm"]
 [ext_resource type="AudioStream" uid="uid://dogk8op58vuhp" path="res://assets/audio/sfx/chop3.wav" id="6_y0gps"]
 [ext_resource type="AudioStream" uid="uid://cga8uhwvb773h" path="res://assets/audio/sfx/chop4.wav" id="7_2ux36"]
@@ -15,11 +16,29 @@
 [ext_resource type="AudioStream" uid="uid://bkqukn2gcbg38" path="res://assets/audio/sfx/bird2.wav" id="13_6v2xw"]
 [ext_resource type="AudioStream" uid="uid://b31bynwawy2fo" path="res://assets/audio/sfx/bird3.wav" id="14_2okh8"]
 [ext_resource type="AudioStream" uid="uid://dmesixvs8xk7v" path="res://assets/audio/sfx/bird4.wav" id="15_5mhui"]
+[ext_resource type="AudioStream" uid="uid://cre48i0le11ve" path="res://assets/audio/sfx/blacksmith1.wav" id="16_mmt1y"]
 [ext_resource type="AudioStream" uid="uid://djnovj7qosma7" path="res://assets/audio/music/intro.ogg" id="16_s8ycq"]
+[ext_resource type="AudioStream" uid="uid://b77cb688338qh" path="res://assets/audio/sfx/item/coin_dropped2.wav" id="16_yjdli"]
 [ext_resource type="AudioStream" uid="uid://dxgn5o3vrfuih" path="res://assets/audio/music/base_loop.ogg" id="17_3tar0"]
+[ext_resource type="AudioStream" uid="uid://bobdm5n6tf5vo" path="res://assets/audio/sfx/item/coin_dropped.wav" id="17_hq5qc"]
+[ext_resource type="AudioStream" uid="uid://nj8uexuibus4" path="res://assets/audio/sfx/turret/bow_load.wav" id="17_j57hd"]
+[ext_resource type="AudioStream" uid="uid://c4pypkngnkgi0" path="res://assets/audio/sfx/blacksmith2.wav" id="17_my25l"]
 [ext_resource type="AudioStream" uid="uid://75fbdr1axk5s" path="res://assets/audio/music/drum_1.ogg" id="18_uvrpp"]
+[ext_resource type="AudioStream" uid="uid://7d50yah83t8s" path="res://assets/audio/sfx/item/coin_pickup2.wav" id="18_ydcx1"]
+[ext_resource type="AudioStream" uid="uid://d1tlighi8uy4w" path="res://assets/audio/sfx/turret/bow_shoot1.wav" id="18_yo2d7"]
 [ext_resource type="AudioStream" uid="uid://dtqw1m3pneex0" path="res://assets/audio/music/drum_2.ogg" id="19_6257e"]
+[ext_resource type="AudioStream" uid="uid://bpevs7r3nmkah" path="res://assets/audio/sfx/turret/bow_shoot2.wav" id="19_d60kg"]
+[ext_resource type="AudioStream" uid="uid://d0in42s6teii2" path="res://assets/audio/sfx/item/coin_pickup.wav" id="19_y3fmj"]
+[ext_resource type="AudioStream" uid="uid://chq8c3jdw0ey6" path="res://assets/audio/sfx/turret/bow_shoot3.wav" id="20_3mt6u"]
 [ext_resource type="AudioStream" uid="uid://dph7by2ubefgu" path="res://assets/audio/music/intensity_1.ogg" id="20_g47lx"]
+[ext_resource type="AudioStream" uid="uid://b4rwonv05m37x" path="res://assets/audio/sfx/item/log_pickup.wav" id="20_td050"]
+[ext_resource type="AudioStream" uid="uid://b3xctuxi5kepw" path="res://assets/audio/sfx/turret/hammer1.wav" id="21_mdjix"]
+[ext_resource type="AudioStream" uid="uid://676qorg7gjri" path="res://assets/audio/sfx/turret/hammer2.wav" id="22_773wy"]
+[ext_resource type="AudioStream" uid="uid://c8jo3e4430fgr" path="res://assets/audio/sfx/turret/hammer3.wav" id="23_qa6bh"]
+[ext_resource type="AudioStream" uid="uid://ll5heg7h34bm" path="res://assets/audio/sfx/enemy/bee_death.wav" id="26_krgjh"]
+[ext_resource type="AudioStream" uid="uid://bci7w6m8q6qso" path="res://assets/audio/sfx/enemy/bee_hit.wav" id="27_xrhw0"]
+[ext_resource type="AudioStream" uid="uid://bgbcw6p4rdjdd" path="res://assets/audio/sfx/enemy/slime_death.mp3" id="28_wqdng"]
+[ext_resource type="AudioStream" uid="uid://bd5v37ai5ras2" path="res://assets/audio/sfx/enemy/slime_hit.wav" id="29_qf7kj"]
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_bl8ew"]
 stream_count = 4
@@ -44,6 +63,12 @@ bus = &"SFX"
 [node name="tree_creek" type="AudioStreamPlayer" parent="Tree"]
 stream = ExtResource("3_orrsu")
 bus = &"SFX"
+
+[node name="Cave" type="Node" parent="."]
+
+[node name="CaveMoving2" type="AudioStreamPlayer" parent="Cave"]
+stream = ExtResource("4_sevta")
+volume_db = -8.0
 
 [node name="Player" type="Node" parent="."]
 
@@ -104,10 +129,65 @@ bus = &"Environment"
 stream = ExtResource("15_5mhui")
 bus = &"Environment"
 
+[node name="Turret" type="Node" parent="."]
+
+[node name="bow_load" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("17_j57hd")
+
+[node name="bow_shoot1" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("18_yo2d7")
+
+[node name="bow_shoot2" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("19_d60kg")
+
+[node name="bow_shoot3" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("20_3mt6u")
+
+[node name="hammer1" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("21_mdjix")
+volume_db = -12.0
+
+[node name="hammer2" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("22_773wy")
+volume_db = -12.0
+
+[node name="hammer3" type="AudioStreamPlayer" parent="Turret"]
+stream = ExtResource("23_qa6bh")
+volume_db = -12.0
+
+[node name="Hub" type="Node" parent="."]
+
+[node name="Blacksmith1" type="AudioStreamPlayer" parent="Hub"]
+stream = ExtResource("16_mmt1y")
+
+[node name="Blacksmith2" type="AudioStreamPlayer" parent="Hub"]
+stream = ExtResource("17_my25l")
+
+[node name="Item" type="Node" parent="."]
+
+[node name="CoinDropped2" type="AudioStreamPlayer" parent="Item"]
+stream = ExtResource("16_yjdli")
+
+[node name="CoinDropped" type="AudioStreamPlayer" parent="Item"]
+stream = ExtResource("17_hq5qc")
+
+[node name="CoinPickup2" type="AudioStreamPlayer" parent="Item"]
+stream = ExtResource("18_ydcx1")
+volume_db = -10.0
+
+[node name="CoinPickup" type="AudioStreamPlayer" parent="Item"]
+stream = ExtResource("19_y3fmj")
+volume_db = -10.0
+
+[node name="LogPickup" type="AudioStreamPlayer" parent="Item"]
+stream = ExtResource("20_td050")
+volume_db = -20.0
+
 [node name="Music" type="Node" parent="."]
 
-[node name="musicIntro" type="AudioStreamPlayer2D" parent="Music"]
+[node name="musicIntro" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("16_s8ycq")
+volume_db = -6.0
 autoplay = true
 bus = &"Music"
 
@@ -116,5 +196,23 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamSynchronized_bl8ew")
 volume_db = -4.634
 bus = &"Music"
+
+[node name="enemy" type="Node" parent="."]
+
+[node name="BeeDeath" type="AudioStreamPlayer" parent="enemy"]
+stream = ExtResource("26_krgjh")
+volume_db = -13.0
+
+[node name="BeeHit" type="AudioStreamPlayer" parent="enemy"]
+stream = ExtResource("27_xrhw0")
+volume_db = -13.0
+
+[node name="SlimeDeath" type="AudioStreamPlayer" parent="enemy"]
+stream = ExtResource("28_wqdng")
+volume_db = -13.0
+
+[node name="SlimeHit" type="AudioStreamPlayer" parent="enemy"]
+stream = ExtResource("29_qf7kj")
+volume_db = -13.0
 
 [connection signal="finished" from="Music/musicIntro" to="." method="_on_music_intro_finished"]

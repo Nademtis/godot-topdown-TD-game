@@ -50,19 +50,24 @@ func enemy_hit(area):
 	pass # Replace with function body.
 
 func take_damage_from_player():
-		hp = hp - 1
+		hp = hp - PlayerStats.player_attack_damage
 		animation_player.play("enemy_hit") #making red on hit
-		if hp < 1:
+		if hp <= 0:
+			audio.enemy_death(self)
 			die()
 			area_2d.set_deferred("monitoring", false)
-			
+		else:
+			audio.enemy_hit(self)
+
 func take_damage_from_arrow():
-		hp = hp - 1
+		hp = hp - PlayerStats.player_archer_damage
 		animation_player.play("enemy_hit") #making red on hit
-		if hp < 1:
+		if hp <= 0:
+			audio.enemy_death(self)
 			die()
 			area_2d.set_deferred("monitoring", false)
-			
+		else:
+			audio.enemy_hit(self)
 
 func die():
 	spawn_item()

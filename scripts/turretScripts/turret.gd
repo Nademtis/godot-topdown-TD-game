@@ -34,6 +34,7 @@ func attack():
 		enemyArray.pop_back()
 
 func attack_anim(enemy_pos : Vector2) -> void:
+	audio.turret_load()
 	var direction = (enemy_pos - global_position).normalized()
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -61,6 +62,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			'u_attack':
 				arrow.global_position = u_attack_pos.position
 		add_child(arrow)
+		audio.turret_shoot()
 	else:
 		# If the target is invalid, remove it from the array
 		if enemyArray.size() > 0:

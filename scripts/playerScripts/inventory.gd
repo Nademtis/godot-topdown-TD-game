@@ -21,11 +21,12 @@ func _on_area_entered(area : Area2D):
 			PlayerInventory.add_coin()
 			itemNode.picked_up()
 			ui.update_coins_ui()
+			audio.item_coin_pickup()
 			
 		elif (PlayerInventory.player_inventory.size() < PlayerStats.player_inventory_size):
+			audio.item_log_pickup()
 			inventory.push_front(itemNode.item_resource)
 			itemNode.picked_up() # removes item drop
-			
 			#inform UI
 			ui.player_inventory_ui.update_inventory_UI()
 	

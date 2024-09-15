@@ -33,6 +33,7 @@ y_sort_enabled = true
 script = ExtResource("1_as477")
 
 [node name="UI" parent="." instance=ExtResource("2_2ny0x")]
+unique_name_in_owner = true
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]

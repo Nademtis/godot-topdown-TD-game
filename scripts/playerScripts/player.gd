@@ -30,7 +30,7 @@ var camera_pos_before_cutscene
 var old_camera
 @export var zoom_speed = 0.05
 
-var random_strength : float = 3.0 #smaller = smaller shake
+var random_strength : float = 5.0 #smaller = smaller shake
 var shake_fade : float = 2.0 # smaller = longer shake
 var rng = RandomNumberGenerator.new()
 var shake_strength : float = 0.0

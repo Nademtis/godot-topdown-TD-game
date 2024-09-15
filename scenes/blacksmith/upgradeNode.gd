@@ -6,11 +6,14 @@ var upgrade_resource : UpgradeResource = null
 @onready var desc_label: Label = $Sprite2D/text/desc_Label
 @onready var price_label: Label = $price/price_Label
 @onready var upgrade_slot_sprite_2d: Sprite2D = $Sprite2D
+@onready var ui: CanvasLayer
 
 #func _init(p_upgrade_resource : UpgradeResource)->void:
 	#upgrade_resource = p_upgrade_resource
 
 func _ready() -> void:
+	
+	
 	if !upgrade_resource:
 		print_debug('upgradeResource not set - killing upgrade')
 		queue_free()
@@ -27,6 +30,8 @@ func buy_upgrade():
 	if PlayerInventory.coin_amount >= upgrade_resource.price:
 		
 		PlayerStats.apply_upgrade(upgrade_resource)
+		audio.item_coin_pickup()
+		get_parent().get_parent().get_parent().get_node("UI").update_coins_ui()
 		queue_free()
 	else:
 		print('not enough money')

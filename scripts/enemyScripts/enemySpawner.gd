@@ -126,7 +126,7 @@ func create_wave_indicator_ui():
 
 func open_cave():
 	cave_has_opened = true
-	print('open cave')
+	audio.cave_moving()
 	
 	player.cutscene_started()
 	player.camera.global_position = cave.global_position
@@ -135,6 +135,7 @@ func open_cave():
 	player.cutscene_ended()
 	
 func close_cave():
+	audio.cave_moving()
 	player.apply_shake()
 	cave.play("cave_closing")
 	cave_has_closed = true

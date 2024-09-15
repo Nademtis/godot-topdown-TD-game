@@ -31,6 +31,7 @@ func _input(event):
 			#updateUI
 			update_label()
 			ui.player_inventory_ui.update_inventory_UI()
+			audio.item_log_pickup()
 			
 			animation_player.play("deposit")
 			

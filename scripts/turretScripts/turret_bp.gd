@@ -34,7 +34,11 @@ func _input(event):
 				player_inventory.erase(item)
 				item_cost_array.erase(item)
 				check_build_status()
+				
+				#ui and sfx
 				ui.player_inventory_ui.update_inventory_UI()
+				audio.hammer()
+				
 				break
 
 func _on_area_2d_area_entered(area):
