@@ -34,7 +34,7 @@ func _input(event):
 			
 			animation_player.play("deposit")
 			
-			if (wagon_storage.size() == required_logs): #WIN
+			if (wagon_storage.size() >= required_logs): #WIN
 				level_complete()
 			break
 			

@@ -8,7 +8,7 @@ var coin_amount : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#start_with_logs(5)
-	start_with_coins(50)
+	#start_with_coins(50)
 	pass # Replace with function body.
 
 func add_coin():

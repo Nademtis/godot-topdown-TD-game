@@ -2,7 +2,8 @@ extends Area2D
 
 var inventory : Array[ItemResource] = PlayerInventory.player_inventory
 
-var ui : CanvasLayer
+@onready var ui: CanvasLayer
+
 
 func _ready():
 	ui = get_tree().root.get_node("main/UI")

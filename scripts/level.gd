@@ -2,7 +2,7 @@ extends Node
 
 @export var hp : int = 3
 @export var current_hp : int = 3
-@onready var ui = $UI
+@onready var ui : CanvasLayer = $UI
 
 func init():
 	pass
