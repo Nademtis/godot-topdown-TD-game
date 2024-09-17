@@ -20,7 +20,12 @@ func _ready():
 	update_label()
 
 func update_label():
-	label.text = str(wagon_storage.size()) + "/" + str(required_logs)
+	if required_logs != 0:
+		#for levels where there is required amount
+		label.text = str(wagon_storage.size()) + "/" + str(required_logs)
+	else:
+		#for levels where levels ends when no more waves
+		label.text = str(wagon_storage.size())
 
 func _input(event):
 	if player_is_in_range && event.is_action_pressed("use"):
@@ -35,8 +40,10 @@ func _input(event):
 			
 			animation_player.play("deposit")
 			
-			if (wagon_storage.size() >= required_logs): #WIN
-				level_complete()
+			print('wagon size: ' + str(wagon_storage.size()))
+			
+			if required_logs!= 0 && wagon_storage.size() >= required_logs: #WIN
+				level_complete() #old 
 			break
 			
 func level_complete():

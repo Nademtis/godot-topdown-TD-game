@@ -2,6 +2,7 @@ extends Node
 
 var player_inventory : Array[ItemResource] = []
 var wagon_storage : Array[ItemResource] = []
+var hub_storage : Array[ItemResource] = []
 var coin_amount : int
 
 
@@ -22,3 +23,11 @@ func start_with_logs (log_amount: int):
 		
 func start_with_coins (coin_amount_meme: int):
 	coin_amount = coin_amount_meme
+
+func return_to_hub():
+	#put stuff from wagon into hub_storage
+	print('you return home with: ' + str(wagon_storage.size()) + ' logs')
+	hub_storage.append_array(wagon_storage)
+	wagon_storage.clear()
+	player_inventory.clear()
+	

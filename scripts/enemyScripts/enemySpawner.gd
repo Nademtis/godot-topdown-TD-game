@@ -9,10 +9,14 @@ extends Node
 @onready var enemy_spawn_rate_timer: Timer = $enemySpawnRateTimer
 
 @onready var ui_wave_h_box : HBoxContainer = get_node("/root/main/UI").wave_uih_box
-@onready var progress_dot : ColorRect = get_node("/root/main/UI").progress_dot
+#@onready var progress_dot : ColorRect = get_node("/root/main/UI").progress_dot # not used
+@onready var ui : MainUI = get_node("/root/main/UI")
+
+var level_complete_timer : Timer = Timer.new()
+var amount_of_time_before_hub : float = 5
+
 var scrollspeed : float = 0.12 #test for wave ui - not used currently
 
-#@export var waves : Array[Wave]
 var waves : Array[Wave]
 
 var cave_has_opened = false
@@ -32,12 +36,12 @@ func _ready() -> void:
 	levelManager.set_current_level(get_parent())
 	waves.clear()
 	waves = levelManager.get_current_level_wavelist()
-	var totalMobAmount = 0
-	for wave in waves:
-		totalMobAmount += wave.mobs_left_in_wave
+	#var totalMobAmount = 0
+	#for wave in waves:
+	#	totalMobAmount += wave.mobs_left_in_wave
 		
-	print('total Mobs in this ' + str(totalMobAmount))
-	print('this level has: ' + str(waves.size()) + ' waves')
+	#print('total Mobs in this ' + str(totalMobAmount))
+	#print('this level has: ' + str(waves.size()) + ' waves')
 	
 	if waves.is_empty():
 		print_debug('no waves in this level')
@@ -66,8 +70,8 @@ func start_wave():
 			#break wave
 			pass
 	else:
-		print("no more waves in this level")
 		close_cave()
+		level_complete()
 		
 func next_wave():
 	enemy_spawn_rate_timer.stop()
@@ -123,6 +127,27 @@ func create_wave_indicator_ui():
 		
 		# Add the ColorRect to the HBoxContainer
 		ui_wave_h_box.add_child(color_rect)
+
+func level_complete():
+	#this should only happen when all the mobs have been killed
+	ui.show_level_complete_ui(amount_of_time_before_hub)
+	level_complete_timer.wait_time = 1
+	add_child(level_complete_timer)
+	level_complete_timer.start()
+	start_level_complete_countdown()
+
+func start_level_complete_countdown():
+	if amount_of_time_before_hub > 0:
+		# Update the UI label
+		ui.update_level_complete_label(amount_of_time_before_hub)
+		# Decrement the remaining time
+		amount_of_time_before_hub -= 1.0
+		# Call this function again after 1 second (the timer’s wait_time)
+		await level_complete_timer.timeout #error here
+		start_level_complete_countdown()  # Repeat until time is up
+	else:
+		# When countdown finishes, call the LevelManager to handle the transition
+		levelManager.level_complete()
 
 func open_cave():
 	cave_has_opened = true

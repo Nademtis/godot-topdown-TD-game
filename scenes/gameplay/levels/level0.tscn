@@ -181,7 +181,7 @@ offset_right = 66.0
 offset_bottom = -58.0
 theme_override_fonts/font = ExtResource("10_yo0ah")
 theme_override_font_sizes/font_size = 8
-text = "Left Mouse
+text = "Left Click
 "
 
 [node name="Label2" type="Label" parent="WorldAssetsContainer"]

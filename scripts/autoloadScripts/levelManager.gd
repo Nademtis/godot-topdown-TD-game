@@ -15,6 +15,7 @@ func _ready():
 
 # Call this function when a level is complete
 func level_complete():
+	PlayerInventory.return_to_hub()
 	animation_player.play('fade_out')
 	var new_level_index = current_index + 1
 	new_level_path = LEVEL_PATH + str(new_level_index) + LEVEL_EXTENSION
@@ -23,8 +24,6 @@ func level_complete():
 
 
 func start_next_level():
-	PlayerInventory.player_inventory.clear()
-	PlayerInventory.wagon_storage.clear()
 	if ResourceLoader.exists(new_level_path):
 		var new_scene = ResourceLoader.load(new_level_path)
 		if new_scene:

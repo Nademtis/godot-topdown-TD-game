@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+class_name MainUI
+
 @onready var inventory_amount_label = %score
 var amount_of_items = 0
 
@@ -12,9 +14,22 @@ var amount_of_items = 0
 
 @onready var player_inventory_ui: Control = %playerInventoryUI
 
+@onready var level_complete_label: Label = $Control/MarginContainer/levelCompleteLabel
+
 func _ready():
 	self.visible = true
 	update_coins_ui()
+	level_complete_label.visible = false #only show when level is complete
+
+
+func show_level_complete_ui(amount_of_seconds_left: float):
+	level_complete_label.visible = true
+	update_level_complete_label(amount_of_seconds_left)
+
+func update_level_complete_label(amount_of_seconds_left: float):
+	var text : String = "Level complete\nReturning home in: "
+	level_complete_label.text = text + str(int(amount_of_seconds_left))
+	
 
 func update_coins_ui():
 	var amount_of_coins = PlayerInventory.coin_amount
