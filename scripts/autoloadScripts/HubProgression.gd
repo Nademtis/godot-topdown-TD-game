@@ -21,5 +21,8 @@ var hub_upgrade_status = {
 
 func hub_upgrade_finished(hub_upgrade : HUB_UPGRADE) -> void:
 	hub_upgrade_status[hub_upgrade] = true
+	var main : Level = get_tree().current_scene
+	main.update_hub_upgrade_nodes()
 	#unlock next buildable
+	#spawn the node in the scene
 	pass

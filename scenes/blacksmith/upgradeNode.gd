@@ -12,8 +12,6 @@ var upgrade_resource : UpgradeResource = null
 	#upgrade_resource = p_upgrade_resource
 
 func _ready() -> void:
-	
-	
 	if !upgrade_resource:
 		print_debug('upgradeResource not set - killing upgrade')
 		queue_free()

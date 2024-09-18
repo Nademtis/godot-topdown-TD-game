@@ -29,6 +29,8 @@ radius = 33.0151
 [node name="main" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_as477")
+hp = null
+current_hp = null
 
 [node name="UI" parent="." instance=ExtResource("2_2ny0x")]
 unique_name_in_owner = true
@@ -109,18 +111,18 @@ tile_set = ExtResource("4_h70q4")
 metadata/_edit_lock_ = true
 
 [node name="HubContainer" type="Node2D" parent="."]
+position = Vector2(-236, -23)
 
 [node name="playerCampfire" parent="HubContainer" instance=ExtResource("7_e4a6i")]
-position = Vector2(-14, 37)
+position = Vector2(227, 65)
 
 [node name="playerTent" type="Sprite2D" parent="HubContainer"]
 z_as_relative = false
 y_sort_enabled = true
-position = Vector2(63, 23)
+position = Vector2(287, 37)
 texture = ExtResource("6_nblf1")
 
 [node name="Blacksmith" parent="HubContainer" instance=ExtResource("5_n2bhi")]
-position = Vector2(-226, -30)
 
 [node name="Items" type="Node" parent="."]
 

@@ -17,8 +17,9 @@ var player_in_range : bool = false
 
 func _ready() -> void:
 	spawn_point_list = [spawnPoint1.global_position, spawnPoint2.global_position, spawnPoint3.global_position]
-	display_next_upgrades()
-	timer.start()
+	if (HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BLACKSMITH_TENT] == true):
+		display_next_upgrades()
+		timer.start()
 
 
 func display_next_upgrades():

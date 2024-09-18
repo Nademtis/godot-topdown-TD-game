@@ -4,10 +4,11 @@
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_yvp1i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7f3l"]
-radius = 6.0
+radius = 19.0
 
 [sub_resource type="Animation" id="Animation_2gen7"]
 resource_name = "blink_alpha"
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,7 +19,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.470588)]
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0.313726)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -62,6 +63,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_wamxe"]
 resource_name = "blink_and_size"
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -84,7 +86,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.713726)]
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0.313726)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cmjfl"]
@@ -106,9 +108,9 @@ shape = SubResource("CircleShape2D_s7f3l")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -38.0
-offset_top = -35.0
+offset_top = -28.0
 offset_right = 39.0
-offset_bottom = -12.0
+offset_bottom = -5.0
 theme_override_fonts/font = ExtResource("2_yvp1i")
 theme_override_font_sizes/font_size = 8
 text = "0/3"
@@ -119,6 +121,7 @@ vertical_alignment = 1
 libraries = {
 "": SubResource("AnimationLibrary_cmjfl")
 }
+autoplay = "blink_alpha"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
