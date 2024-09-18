@@ -133,6 +133,7 @@ bus = &"Environment"
 
 [node name="bow_load" type="AudioStreamPlayer" parent="Turret"]
 stream = ExtResource("17_j57hd")
+volume_db = -6.0
 
 [node name="bow_shoot1" type="AudioStreamPlayer" parent="Turret"]
 stream = ExtResource("18_yo2d7")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="FirstTopDown"
-run/main_scene="res://scenes/gameplay/levels/level1.tscn"
+run/main_scene="res://scenes/gameplay/levels/level0.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,6 +22,7 @@ levelManager="*res://scenes/level_manager.tscn"
 PlayerStats="*res://scripts/autoloadScripts/PlayerStats.gd"
 PlayerInventory="*res://scripts/autoloadScripts/PlayerInventory.gd"
 ItemSpawner="*res://scripts/autoloadScripts/ItemSpawner.gd"
+HubProgression="*res://scripts/autoloadScripts/HubProgression.gd"
 
 [display]
 

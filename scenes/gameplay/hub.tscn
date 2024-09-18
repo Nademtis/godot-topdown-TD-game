@@ -110,25 +110,40 @@ tile_map_data = PackedByteArray("AAD///z/AQAAAAAAAAA=")
 tile_set = ExtResource("4_h70q4")
 metadata/_edit_lock_ = true
 
-[node name="Blacksmith" parent="." instance=ExtResource("5_n2bhi")]
+[node name="HubContainer" type="Node2D" parent="."]
 position = Vector2(-236, -23)
 
-[node name="spawnPoint1" type="Node2D" parent="Blacksmith"]
+[node name="playerCampfire" parent="HubContainer" instance=ExtResource("7_e4a6i")]
+position = Vector2(227, 65)
+
+[node name="playerTent" type="Sprite2D" parent="HubContainer"]
+z_as_relative = false
+y_sort_enabled = true
+position = Vector2(287, 37)
+texture = ExtResource("6_nblf1")
+
+[node name="Blacksmith" parent="HubContainer" instance=ExtResource("5_n2bhi")]
+
+[node name="Anvil" type="Sprite2D" parent="HubContainer/Blacksmith"]
+position = Vector2(2, 20)
+texture = ExtResource("19_de476")
+
+[node name="spawnPoint1" type="Node2D" parent="HubContainer/Blacksmith"]
 unique_name_in_owner = true
 position = Vector2(-74, 35)
 
-[node name="spawnPoint2" type="Node2D" parent="Blacksmith"]
+[node name="spawnPoint2" type="Node2D" parent="HubContainer/Blacksmith"]
 unique_name_in_owner = true
 position = Vector2(-46, 63)
 
-[node name="spawnPoint3" type="Node2D" parent="Blacksmith"]
+[node name="spawnPoint3" type="Node2D" parent="HubContainer/Blacksmith"]
 unique_name_in_owner = true
 position = Vector2(-2, 77)
 
-[node name="spawnPoint4" type="Node2D" parent="Blacksmith"]
+[node name="spawnPoint4" type="Node2D" parent="HubContainer/Blacksmith"]
 position = Vector2(60, 45)
 
-[node name="upgradeNodeContainer" type="Node" parent="Blacksmith"]
+[node name="upgradeNodeContainer" type="Node" parent="HubContainer/Blacksmith"]
 unique_name_in_owner = true
 
 [node name="Items" type="Node" parent="."]
@@ -144,18 +159,6 @@ position = Vector2(-28, -100)
 [node name="BPcontainer" type="Node" parent="."]
 
 [node name="TreeSpawnContainer" type="Node" parent="."]
-
-[node name="CampContainer" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="tent" type="Sprite2D" parent="CampContainer"]
-z_as_relative = false
-y_sort_enabled = true
-position = Vector2(51, 14)
-texture = ExtResource("6_nblf1")
-
-[node name="Campfire" parent="CampContainer" instance=ExtResource("7_e4a6i")]
-position = Vector2(-9, 42)
 
 [node name="worldAssets" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -235,10 +238,6 @@ texture = ExtResource("8_klcai")
 [node name="Bush15" type="Sprite2D" parent="worldAssets"]
 position = Vector2(-109, -65)
 texture = ExtResource("8_klcai")
-
-[node name="Anvil" type="Sprite2D" parent="worldAssets"]
-position = Vector2(-234, -3)
-texture = ExtResource("19_de476")
 
 [node name="LogPile1" type="Sprite2D" parent="worldAssets"]
 position = Vector2(-216, -50)
