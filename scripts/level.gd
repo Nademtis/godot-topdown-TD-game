@@ -42,40 +42,42 @@ func update_hub_upgrade_nodes() -> void:
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE] == false:
 		var log = ItemSpawner.LOG_RESOURCE
 		var p_item_cost_array : Array[ItemResource] = [log, log, log]
-		var blueprint : BuildableObject = BUILDABLE_OBJECT.instantiate()
-		blueprint.initialize(HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE, p_item_cost_array, CAMPFIRE_TURNED_OFF)
-		blueprint.global_position = spawn_position[HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE]
-		hub_container.add_child(blueprint)
+		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE, CAMPFIRE_TURNED_OFF)
 		return
 	else:
 		player_campfire.position = spawn_position[HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE]
 		player_campfire.visible = true
 		player_campfire.set_process(true)
-		#hub_container.add_child(player_campfire)
-		#enable campfire
 		
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.PLAYER_TENT] == false:
 		var log = ItemSpawner.LOG_RESOURCE
 		var p_item_cost_array : Array[ItemResource] = [log, log, log, log, log]
-		var blueprint : BuildableObject = BUILDABLE_OBJECT.instantiate()
-		blueprint.initialize(HubProgression.HUB_UPGRADE.PLAYER_TENT, p_item_cost_array, TENT_PLAYER)
-		blueprint.global_position = spawn_position[HubProgression.HUB_UPGRADE.PLAYER_TENT]
-		hub_container.add_child(blueprint)
+		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.PLAYER_TENT, TENT_PLAYER)
 		return
+	else:
+		player_tent.position = spawn_position[HubProgression.HUB_UPGRADE.PLAYER_TENT]
+		player_tent.visible = true
+		player_tent.set_process(true)
+		
+		#TODO make bridge
+		#TODO make 
+
+func display_blueprint(p_item_cost_array : Array[ItemResource], upgrade : HubProgression.HUB_UPGRADE, texture : Texture2D) -> void:
+	var blueprint : BuildableObject = BUILDABLE_OBJECT.instantiate()
+	blueprint.initialize(upgrade, p_item_cost_array, texture)
+	blueprint.global_position = spawn_position[upgrade]
+	hub_container.add_child(blueprint)
+
 
 func disable_all_nodes() -> void:
 	disable_node(blacksmith)
 	disable_node(player_campfire)
 	disable_node(player_tent)
-	
 
 func disable_node(node : Node2D) -> void:
-	#disable the node, since it's not unlocked yet
-	#node.queue_free()
 	node.visible = false
 	node.set_process(false)
 	node.position = Vector2(node.position.x + 1000, node.position.y + 1000)
-	#node.ProcessMode.PROCESS_MODE_DISABLED
 
 func set_spawn_position_of_nodes() -> void:
 	spawn_position = {

@@ -9,7 +9,6 @@ var player_is_in_range = false
 
 var temp_texture
 
-
 var hub_upgrade : HubProgression.HUB_UPGRADE
 var item_cost_array : Array[ItemResource]
 var build_cost : int
@@ -35,7 +34,6 @@ func _input(event):
 				#ui and sfx
 				#ui.player_inventory_ui.update_inventory_UI()
 				audio.hammer()
-				
 				break
 
 func check_build_status():
