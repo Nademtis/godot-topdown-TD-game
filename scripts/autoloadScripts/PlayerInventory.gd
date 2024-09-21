@@ -5,10 +5,8 @@ var wagon_storage : Array[ItemResource] = []
 var hub_storage : Array[ItemResource] = []
 var coin_amount : int
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#debug_start_with_logs_hub(15)
+	debug_start_with_logs_hub(50)
 	#debug_start_with_coins(50)
 	pass
 

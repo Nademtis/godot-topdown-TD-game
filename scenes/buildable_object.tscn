@@ -6,9 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7f3l"]
 radius = 19.0
 
-[sub_resource type="Animation" id="Animation_2gen7"]
-resource_name = "blink_alpha"
-loop_mode = 2
+[sub_resource type="Animation" id="Animation_viu8s"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -16,10 +15,10 @@ tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0.313726)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -34,8 +33,9 @@ tracks/1/keys = {
 "values": [Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_viu8s"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_2gen7"]
+resource_name = "blink_alpha"
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,10 +43,10 @@ tracks/0/path = NodePath("Sprite2D:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.54902), Color(1, 1, 1, 0.313726)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
