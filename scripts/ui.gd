@@ -14,22 +14,30 @@ var amount_of_items = 0
 
 @onready var player_inventory_ui: Control = %playerInventoryUI
 
-@onready var level_complete_label: Label = $Control/MarginContainer/levelCompleteLabel
+@onready var ui_level_complete_warning: Control = $Control/MarginContainer/UiLevelCompleteWarning
+@onready var level_complete_countdown_label : Label
 
 func _ready():
 	self.visible = true
 	update_coins_ui()
-	level_complete_label.visible = false #only show when level is complete
-
+	ui_level_complete_warning.visible = false
+	
+	level_complete_countdown_label = ui_level_complete_warning.get_node("countdown")
 
 func show_level_complete_ui(amount_of_seconds_left: float):
-	level_complete_label.visible = true
+	ui_level_complete_warning.visible = true
 	update_level_complete_label(amount_of_seconds_left)
 
 func update_level_complete_label(amount_of_seconds_left: float):
-	var text : String = "Level complete\nReturning home in: "
-	level_complete_label.text = text + str(int(amount_of_seconds_left))
+	level_complete_countdown_label.text = str(int(amount_of_seconds_left))
+	level_complete_countdown_label.scale = Vector2(1, 1)
 	
+	# Create a new tween and animate the scale
+	var tween = get_tree().create_tween()
+	# Tween the scale to 1.2 (grow the label)
+	tween.tween_property(level_complete_countdown_label, "scale", Vector2(1.2, 1.2), 0.3)
+	# Add a follow-up tween to shrink it back to 1.0 after the initial tween completes
+	tween.tween_property(level_complete_countdown_label, "scale", Vector2(1, 1), 0.3).set_delay(0.3)
 
 func update_coins_ui():
 	var amount_of_coins = PlayerInventory.coin_amount

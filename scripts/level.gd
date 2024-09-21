@@ -44,7 +44,7 @@ func init_hub():
 	
 	
 func update_hub_upgrade_nodes() -> void:
-	check_bridge_collider() #TODO uncomment
+	check_bridge_collider()
 	
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE] == false:
 		var log = ItemSpawner.LOG_RESOURCE
@@ -132,6 +132,6 @@ func take_damage():
 	ui.update_ui_hp(current_hp)
 	
 func die():
-	#null
-	print_debug("die() is turned off")
+	PlayerInventory.player_inventory.clear()
+	PlayerInventory.wagon_storage.clear()
 	get_tree().reload_current_scene()

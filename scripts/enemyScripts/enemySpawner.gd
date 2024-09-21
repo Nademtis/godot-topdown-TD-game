@@ -13,7 +13,7 @@ extends Node
 @onready var ui : MainUI = get_node("/root/main/UI")
 
 var level_complete_timer : Timer = Timer.new()
-var amount_of_time_before_hub : float = 5
+var amount_of_time_before_hub : float =  10
 
 var scrollspeed : float = 0.12 #test for wave ui - not used currently
 
@@ -143,8 +143,8 @@ func start_level_complete_countdown():
 		# Decrement the remaining time
 		amount_of_time_before_hub -= 1.0
 		# Call this function again after 1 second (the timer’s wait_time)
-		await level_complete_timer.timeout #error here
-		start_level_complete_countdown()  # Repeat until time is up
+		await level_complete_timer.timeout
+		start_level_complete_countdown()
 	else:
 		# When countdown finishes, call the LevelManager to handle the transition
 		levelManager.level_complete()
