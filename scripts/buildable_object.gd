@@ -14,21 +14,23 @@ var temp_optional_deposit_coll : CollisionShape2D #for big objects like bridge t
 
 var hub_upgrade : HubProgression.HUB_UPGRADE
 var item_cost_array : Array[ItemResource]
-var build_cost : int
+var total_build_cost : int
 
 func _ready() -> void:
 	sprite_2d.texture = temp_texture
-	label.text = str(0) + '/' + str(build_cost)  # Display build status
+	label.text = str(0) + '/' + str(total_build_cost)  # Display build status
 	if temp_optional_deposit_coll != null:
-		#area_2d.remove_child(collision_shape_2d)
 		temp_optional_deposit_coll.reparent(area_2d)
 		pass
 
 func initialize(p_hub_upgrade: HubProgression.HUB_UPGRADE, p_item_cost_array: Array[ItemResource], p_texture : Texture2D, p_collision_shape: CollisionShape2D = null) -> void:
 	hub_upgrade = p_hub_upgrade
-	item_cost_array = p_item_cost_array
 	temp_texture = p_texture #todo find better solutiona
-	build_cost = p_item_cost_array.size()
+	total_build_cost = p_item_cost_array.size()
+	
+	item_cost_array = p_item_cost_array
+	
+	
 	
 	if p_collision_shape != null: #optional shape for wierd object like bridge and that
 		temp_optional_deposit_coll = p_collision_shape
@@ -47,13 +49,9 @@ func _input(event):
 				break
 
 func check_build_status():
-	var collected_items = build_cost - item_cost_array.size()
-	label.text = str(collected_items) + '/' + str(build_cost)  # Display build status
+	var collected_items = total_build_cost - item_cost_array.size()
+	label.text = str(collected_items) + '/' + str(total_build_cost)  # Display build status
 	if item_cost_array.size() <= 0:
-		#var turret = turret_path.instantiate()
-		#var turretContainer = get_tree().root.get_node("main").get_node("TurretContainer")
-		#turret.global_position = global_position
-		#turretContainer.add_child(turret)
 		HubProgression.hub_upgrade_finished(hub_upgrade)
 		queue_free()
 
