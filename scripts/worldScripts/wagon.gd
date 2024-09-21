@@ -40,7 +40,7 @@ func _input(event):
 			
 			animation_player.play("deposit")
 			
-			print('wagon size: ' + str(wagon_storage.size()))
+			#print('wagon size: ' + str(wagon_storage.size()))
 			
 			if required_logs!= 0 && wagon_storage.size() >= required_logs: #WIN
 				level_complete() #old 

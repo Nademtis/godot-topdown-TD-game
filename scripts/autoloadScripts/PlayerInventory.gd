@@ -6,9 +6,9 @@ var hub_storage : Array[ItemResource] = []
 var coin_amount : int
 
 func _ready() -> void:
-	debug_start_with_logs_hub(50)
-	debug_start_with_logs_player(50)
-	debug_start_with_coins(50)
+	#debug_start_with_logs_hub(50)
+	#debug_start_with_logs_player(50)
+	#debug_start_with_coins(50)
 	pass
 
 func add_coin():

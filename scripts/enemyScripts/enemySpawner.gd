@@ -129,12 +129,14 @@ func create_wave_indicator_ui():
 		ui_wave_h_box.add_child(color_rect)
 
 func level_complete():
-	#this should only happen when all the mobs have been killed
-	if path_2d_1.get_children().size() > 0 && path_2d_2.get_children().size():
-		print("waiting for enemies to die")
+	var amount_of_enemies_left : int = path_2d_1.get_children().size() + path_2d_2.get_children().size()
+
+	if amount_of_enemies_left > 0:
+		print_debug('waiting since: ' + str(amount_of_enemies_left))
 		await get_tree().create_timer(1.0).timeout
 		level_complete()
 	else:
+		print_debug('continuing since: ' + str(amount_of_enemies_left))
 		ui.show_level_complete_ui(amount_of_time_before_hub)
 		level_complete_timer.wait_time = 1
 		add_child(level_complete_timer)
@@ -145,16 +147,12 @@ func start_level_complete_countdown():
 	if amount_of_time_before_hub > 0:
 		# Update the UI label
 		ui.update_level_complete_label(amount_of_time_before_hub)
-		# Decrement the remaining time
 		amount_of_time_before_hub -= 1.0
-		# Call this function again after 1 second (the timer’s wait_time)
 		await level_complete_timer.timeout
 		start_level_complete_countdown()
 	else:
-		# When countdown finishes, call the LevelManager to handle the transition
 		player.cutscene_started(false)
 		ui.display_level_complete_screen()
-		#levelManager.level_complete()
 
 func open_cave():
 	cave_has_opened = true

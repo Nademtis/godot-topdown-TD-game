@@ -29,7 +29,7 @@ func init_wave():
 
 func calculate_mob_numbers():
 	mobs_left_in_wave = slime_amount + bee_amount
-	print("mobs left " + str(mobs_left_in_wave))
+	#print("mobs left " + str(mobs_left_in_wave))
 
 func get_random_enemy_path() -> PackedScene:
 	var random = randf()

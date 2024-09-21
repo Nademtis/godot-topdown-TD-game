@@ -47,9 +47,7 @@ func update_hub_upgrade_nodes() -> void:
 	check_bridge_collider()
 	
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE] == false:
-		var log = ItemSpawner.LOG_RESOURCE
-		var p_item_cost_array : Array[ItemResource] = [log, log, log]
-		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE, CAMPFIRE_TURNED_OFF)
+		display_blueprint(HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE, CAMPFIRE_TURNED_OFF)
 		return
 	else:
 		player_campfire.position = spawn_position[HubProgression.HUB_UPGRADE.PLAYER_CAMPFIRE]
@@ -57,9 +55,7 @@ func update_hub_upgrade_nodes() -> void:
 		player_campfire.set_process(true)
 		
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.PLAYER_TENT] == false:
-		var log = ItemSpawner.LOG_RESOURCE
-		var p_item_cost_array : Array[ItemResource] = [log, log, log, log, log]
-		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.PLAYER_TENT, TENT_PLAYER)
+		display_blueprint(HubProgression.HUB_UPGRADE.PLAYER_TENT, TENT_PLAYER)
 		return
 	else:
 		player_tent.position = spawn_position[HubProgression.HUB_UPGRADE.PLAYER_TENT]
@@ -67,10 +63,8 @@ func update_hub_upgrade_nodes() -> void:
 		player_tent.set_process(true)
 		
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BRIDGE1] == false:
-		var log = ItemSpawner.LOG_RESOURCE
-		var p_item_cost_array : Array[ItemResource] = [log, log, log, log, log]
 		var depositArea : CollisionShape2D = get_node_or_null("BuildAreaContainer/bridgeDepositShape")
-		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.BRIDGE1, BRIDGE_MOCK, depositArea)
+		display_blueprint(HubProgression.HUB_UPGRADE.BRIDGE1, BRIDGE_MOCK, depositArea)
 		return
 	else:
 		bridge1.position = spawn_position[HubProgression.HUB_UPGRADE.BRIDGE1]
@@ -78,23 +72,21 @@ func update_hub_upgrade_nodes() -> void:
 		bridge1.set_process(true)
 		
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BLACKSMITH_TENT] == false:
-		var log = ItemSpawner.LOG_RESOURCE
-		var p_item_cost_array : Array[ItemResource] = [log, log, log, log, log, log]
-		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.BLACKSMITH_TENT, TENT_PLAYER)
+		display_blueprint(HubProgression.HUB_UPGRADE.BLACKSMITH_TENT, TENT_PLAYER)
 		return
 	else:
 		blacksmith.position = spawn_position[HubProgression.HUB_UPGRADE.BLACKSMITH_TENT]
 		blacksmith.visible = true
 		blacksmith.set_process(true)
 
-func display_blueprint(p_item_cost_array : Array[ItemResource], upgrade : HubProgression.HUB_UPGRADE, texture : Texture2D,  p_collision_shape: CollisionShape2D = null) -> void:
+func display_blueprint(upgrade : HubProgression.HUB_UPGRADE, texture : Texture2D,  p_collision_shape: CollisionShape2D = null) -> void:
 	var blueprint : BuildableObject = BUILDABLE_OBJECT.instantiate()
 	
 	#optional coll shape for wierd buildings like bridge
 	if p_collision_shape == null:
-		blueprint.initialize(upgrade, p_item_cost_array, texture)
+		blueprint.initialize(upgrade, texture)
 	else:
-		blueprint.initialize(upgrade, p_item_cost_array, texture, p_collision_shape)
+		blueprint.initialize(upgrade, texture, p_collision_shape)
 
 	blueprint.global_position = spawn_position[upgrade]
 	hub_container.add_child(blueprint)
@@ -103,11 +95,9 @@ func check_bridge_collider() -> void:
 	var rightTile : Vector2i = Vector2i(-11,-1)
 	var leftTile : Vector2i = Vector2i(-14,-1)
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BRIDGE1]:
-		print("collisions disabled")
 		ground.set_cell(rightTile, 0, Vector2i(0, 1), 1)
 		ground.set_cell(leftTile, 0, Vector2i(2, 1), 1)
 	else:
-		print("collisions enabled")
 		ground.set_cell(rightTile, 0, Vector2i(0, 1), 0)
 		ground.set_cell(leftTile, 0, Vector2i(2, 1), 0)
 		

@@ -13,29 +13,27 @@ var temp_texture: Texture2D #for the texture
 var temp_optional_deposit_coll : CollisionShape2D #for big objects like bridge this is sent as optional parameter
 
 var hub_upgrade : HubProgression.HUB_UPGRADE
-var item_cost_array : Array[ItemResource]
 var total_build_cost : int
 
 func _ready() -> void:
 	sprite_2d.texture = temp_texture
-	label.text = str(0) + '/' + str(total_build_cost)  # Display build status
+	var original_build_cost_length = HubProgression.build_recipe_original_price[hub_upgrade]
+	var deposited_amount = original_build_cost_length - total_build_cost
+	label.text = str(deposited_amount) + '/' + str(original_build_cost_length)  # Display build status
 	if temp_optional_deposit_coll != null:
 		temp_optional_deposit_coll.reparent(area_2d)
 		pass
 
-func initialize(p_hub_upgrade: HubProgression.HUB_UPGRADE, p_item_cost_array: Array[ItemResource], p_texture : Texture2D, p_collision_shape: CollisionShape2D = null) -> void:
+func initialize(p_hub_upgrade: HubProgression.HUB_UPGRADE, p_texture : Texture2D, p_collision_shape: CollisionShape2D = null) -> void:
 	hub_upgrade = p_hub_upgrade
 	temp_texture = p_texture #todo find better solutiona
-	total_build_cost = p_item_cost_array.size()
+	total_build_cost = HubProgression.build_recipe_dic[hub_upgrade].size()
 	
-	item_cost_array = p_item_cost_array
-	
-	
-	
-	if p_collision_shape != null: #optional shape for wierd object like bridge and that
+	if p_collision_shape != null: #optional shape for wierd objects like bridge
 		temp_optional_deposit_coll = p_collision_shape
 
 func _input(event):
+	var item_cost_array = HubProgression.build_recipe_dic[hub_upgrade]
 	if player_is_in_range && event.is_action_pressed("use"):
 		for item : ItemResource in PlayerInventory.hub_storage:
 			if item_cost_array.has(item):
@@ -49,9 +47,11 @@ func _input(event):
 				break
 
 func check_build_status():
-	var collected_items = total_build_cost - item_cost_array.size()
-	label.text = str(collected_items) + '/' + str(total_build_cost)  # Display build status
-	if item_cost_array.size() <= 0:
+	var original_price: int = HubProgression.build_recipe_original_price[hub_upgrade]
+	var price_left : int = HubProgression.build_recipe_dic[hub_upgrade].size()
+	
+	label.text = str(original_price - price_left) + '/' + str(original_price)  # Display build status
+	if HubProgression.build_recipe_dic[hub_upgrade].size() <= 0:
 		HubProgression.hub_upgrade_finished(hub_upgrade)
 		queue_free()
 

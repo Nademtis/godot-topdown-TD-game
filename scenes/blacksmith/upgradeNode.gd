@@ -6,7 +6,7 @@ var upgrade_resource : UpgradeResource = null
 @onready var desc_label: Label = $Sprite2D/text/desc_Label
 @onready var price_label: Label = $price/price_Label
 @onready var upgrade_slot_sprite_2d: Sprite2D = $Sprite2D
-@onready var ui: CanvasLayer
+#@onready var ui: CanvasLayer
 
 #func _init(p_upgrade_resource : UpgradeResource)->void:
 	#upgrade_resource = p_upgrade_resource
