@@ -77,7 +77,15 @@ func update_hub_upgrade_nodes() -> void:
 		bridge1.visible = true
 		bridge1.set_process(true)
 		
-		#TODO make blacksmith
+	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BLACKSMITH_TENT] == false:
+		var log = ItemSpawner.LOG_RESOURCE
+		var p_item_cost_array : Array[ItemResource] = [log, log, log, log, log, log]
+		display_blueprint(p_item_cost_array, HubProgression.HUB_UPGRADE.BLACKSMITH_TENT, TENT_PLAYER)
+		return
+	else:
+		blacksmith.position = spawn_position[HubProgression.HUB_UPGRADE.BLACKSMITH_TENT]
+		blacksmith.visible = true
+		blacksmith.set_process(true)
 
 func display_blueprint(p_item_cost_array : Array[ItemResource], upgrade : HubProgression.HUB_UPGRADE, texture : Texture2D,  p_collision_shape: CollisionShape2D = null) -> void:
 	var blueprint : BuildableObject = BUILDABLE_OBJECT.instantiate()
@@ -96,12 +104,12 @@ func check_bridge_collider() -> void:
 	var leftTile : Vector2i = Vector2i(-14,-1)
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BRIDGE1]:
 		print("collisions disabled")
-		ground.set_cell(rightTile, 0, Vector2i(0,1), 1)
-		ground.set_cell(leftTile, 0, Vector2i(2,1), 1)
+		ground.set_cell(rightTile, 0, Vector2i(0, 1), 1)
+		ground.set_cell(leftTile, 0, Vector2i(2, 1), 1)
 	else:
 		print("collisions enabled")
-		ground.set_cell(rightTile, 0, Vector2i(0,1), 0)
-		ground.set_cell(leftTile, 0, Vector2i(2,1), 0)
+		ground.set_cell(rightTile, 0, Vector2i(0, 1), 0)
+		ground.set_cell(leftTile, 0, Vector2i(2, 1), 0)
 		
 	
 

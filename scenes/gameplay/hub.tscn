@@ -40,7 +40,7 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]
 z_index = 10
-position = Vector2(21, 60)
+position = Vector2(-495, -40)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)
@@ -121,7 +121,7 @@ position = Vector2(63, 23)
 texture = ExtResource("6_nblf1")
 
 [node name="Blacksmith" parent="HubContainer" instance=ExtResource("5_n2bhi")]
-position = Vector2(-226, -30)
+position = Vector2(-532, -136)
 
 [node name="BridgeMock" type="Sprite2D" parent="HubContainer"]
 position = Vector2(-385, -16)

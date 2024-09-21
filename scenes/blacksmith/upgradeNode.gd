@@ -29,7 +29,8 @@ func buy_upgrade():
 		
 		PlayerStats.apply_upgrade(upgrade_resource)
 		audio.item_coin_pickup()
-		get_parent().get_parent().get_parent().get_node("UI").update_coins_ui()
+		var ui = get_tree().root.get_node("main/UI")
+		ui.update_coins_ui()
 		queue_free()
 	else:
 		print('not enough money')

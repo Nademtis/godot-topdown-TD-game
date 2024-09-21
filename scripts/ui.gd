@@ -17,12 +17,19 @@ var amount_of_items = 0
 @onready var ui_level_complete_warning: Control = $Control/MarginContainer/UiLevelCompleteWarning
 @onready var level_complete_countdown_label : Label
 
+@onready var ui_level_complete_screen: Control = $UiLevelCompleteScreen
+
+func _gui_input(event):
+	if event is InputEventMouseButton:
+		print("Mouse button event detected")
+
 func _ready():
 	self.visible = true
 	update_coins_ui()
 	ui_level_complete_warning.visible = false
+	ui_level_complete_screen.visible = false
 	
-	level_complete_countdown_label = ui_level_complete_warning.get_node("countdown")
+	level_complete_countdown_label = ui_level_complete_warning.get_node("frame/countdown")
 
 func show_level_complete_ui(amount_of_seconds_left: float):
 	ui_level_complete_warning.visible = true
@@ -38,6 +45,11 @@ func update_level_complete_label(amount_of_seconds_left: float):
 	tween.tween_property(level_complete_countdown_label, "scale", Vector2(1.2, 1.2), 0.3)
 	# Add a follow-up tween to shrink it back to 1.0 after the initial tween completes
 	tween.tween_property(level_complete_countdown_label, "scale", Vector2(1, 1), 0.3).set_delay(0.3)
+
+func display_level_complete_screen():
+	ui_level_complete_warning.visible = false # hide the warning
+	ui_level_complete_screen.visible = true
+	
 
 func update_coins_ui():
 	var amount_of_coins = PlayerInventory.coin_amount

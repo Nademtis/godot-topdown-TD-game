@@ -121,9 +121,10 @@ func random_offet() -> Vector2:
 func apply_shake():
 	shake_strength = random_strength
 
-func cutscene_started():
+func cutscene_started(with_shake : bool):
 	camera_pos_before_cutscene = camera.global_position
-	apply_shake()
+	if with_shake:
+		apply_shake()
 	animated_sprite.play("idle")
 	can_move = false
 	
