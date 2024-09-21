@@ -29,7 +29,8 @@ func buy_upgrade():
 		
 		PlayerStats.apply_upgrade(upgrade_resource)
 		audio.item_coin_pickup()
-		var ui = get_tree().root.get_node("main/UI")
+		#var ui = get_tree().root.get_node("main/UI")
+		var ui = get_parent().get_parent().get_parent().get_parent().get_node("UI")
 		ui.update_coins_ui()
 		queue_free()
 	else:
