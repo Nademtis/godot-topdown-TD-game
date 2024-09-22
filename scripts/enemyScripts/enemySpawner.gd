@@ -44,7 +44,8 @@ func _ready() -> void:
 	#print('this level has: ' + str(waves.size()) + ' waves')
 	
 	if waves.is_empty():
-		print_debug('no waves in this level')
+		pass
+		#print_debug('no waves in this level')
 	else:
 		enemy_spawn_rate_timer.timeout.connect(spawn_enemy)
 		call_deferred("create_wave_indicator_ui")

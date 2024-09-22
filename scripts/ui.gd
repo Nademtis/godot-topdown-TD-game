@@ -17,7 +17,7 @@ var amount_of_items = 0
 @onready var ui_level_complete_warning: Control = $Control/MarginContainer/UiLevelCompleteWarning
 @onready var level_complete_countdown_label : Label
 
-@onready var ui_level_complete_screen: Control = $UiLevelCompleteScreen
+@onready var ui_level_complete_screen: UiLevelCompleteScreen = $UiLevelCompleteScreen
 
 func _gui_input(event):
 	if event is InputEventMouseButton:
@@ -48,6 +48,8 @@ func update_level_complete_label(amount_of_seconds_left: float):
 
 func display_level_complete_screen():
 	ui_level_complete_warning.visible = false # hide the warning
+	
+	ui_level_complete_screen.set_gathered_amount()
 	ui_level_complete_screen.visible = true
 	
 
