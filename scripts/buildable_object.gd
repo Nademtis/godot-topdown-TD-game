@@ -39,6 +39,11 @@ func _input(event):
 			if item_cost_array.has(item):
 				PlayerInventory.hub_storage.erase(item)
 				item_cost_array.erase(item)
+				
+				#call main and update hub storage log amount
+				var level_node : Level = get_parent().get_parent()
+				level_node.update_amount_of_hub_wood()
+				
 				check_build_status()
 				
 				#ui and sfx
@@ -49,8 +54,8 @@ func _input(event):
 func check_build_status():
 	var original_price: int = HubProgression.build_recipe_original_price[hub_upgrade]
 	var price_left : int = HubProgression.build_recipe_dic[hub_upgrade].size()
-	
 	label.text = str(original_price - price_left) + '/' + str(original_price)  # Display build status
+	
 	if HubProgression.build_recipe_dic[hub_upgrade].size() <= 0:
 		HubProgression.hub_upgrade_finished(hub_upgrade)
 		queue_free()

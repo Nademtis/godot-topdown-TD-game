@@ -9,12 +9,16 @@ class_name Level
 
 #hub stuff
 @onready var hub_container : Node2D
+@onready var log_container: Node2D
 const HUB = "res://scenes/gameplay/hub.tscn"
+
 
 @onready var BUILDABLE_OBJECT = preload("res://scenes/buildable_object.tscn")
 const CAMPFIRE_TURNED_OFF = preload("res://assets/world/camp/campfire1.png")
 const TENT_PLAYER = preload("res://assets/world/camp/tent1.png")
 const BRIDGE_MOCK = preload("res://assets/world/bridge_mock.png")
+
+
 
 
 @onready var player_campfire: Node2D
@@ -33,11 +37,13 @@ func _ready():
 func init_hub():
 	#this method is called when current scene is hub, should init the hub based on HubProgression
 	hub_container = $HubContainer
+	log_container = $LogContainer
 	
 	player_campfire = $HubContainer/playerCampfire
 	player_tent = $HubContainer/playerTent
 	blacksmith = $HubContainer/Blacksmith
 	bridge1 = $HubContainer/BridgeMock
+	update_amount_of_hub_wood()
 	set_spawn_position_of_nodes()
 	disable_all_nodes()
 	update_hub_upgrade_nodes()
@@ -121,6 +127,30 @@ func set_spawn_position_of_nodes() -> void:
 	HubProgression.HUB_UPGRADE.BRIDGE1 : bridge1.global_position,
 	HubProgression.HUB_UPGRADE.BLACKSMITH_TENT : blacksmith.global_position,
 }
+func update_amount_of_hub_wood() -> void:
+	var hub_wood_amount : int = PlayerInventory.hub_storage.size()
+	for i in range(log_container.get_child_count()):  # Loop through the children of log_container
+		var child = log_container.get_child(i)
+		if i < hub_wood_amount:
+			child.enable()
+		else:
+			child.disable()
+	pass
+
+func remove_one_log_from_hub() -> void:
+	var hub_wood_amount : int = PlayerInventory.hub_storage.size()
+	if hub_wood_amount == 0:
+		push_warning("can't remove log, don't have any")
+		return
+		# Get all visible children
+	var visible_children: Array = []
+	for child in log_container.get_children():
+		if child.visible:
+			visible_children.append(child)
+
+	if visible_children.size() > 0:
+		var random_index = randi() % visible_children.size()
+		visible_children[random_index].disable()
 
 #for level
 func take_damage():

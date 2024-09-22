@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bogkxhiw2i44t"]
+
+[ext_resource type="Texture2D" uid="uid://cf6tm5ae6bl27" path="res://assets/world/log_pile2.png" id="1_2cvq6"]
+[ext_resource type="Script" path="res://scripts/worldScripts/logPile.gd" id="1_h3n0h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bjxt5"]
+radius = 3.0
+
+[node name="LogPile" type="Node2D"]
+script = ExtResource("1_h3n0h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2cvq6")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_bjxt5")

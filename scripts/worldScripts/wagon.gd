@@ -45,7 +45,20 @@ func _input(event):
 			if required_logs!= 0 && wagon_storage.size() >= required_logs: #WIN
 				level_complete() #old 
 			break
+	elif player_is_in_range && event.is_action_pressed("retract"):
+		if player_inventory.size() < PlayerStats.player_inventory_size:
+			for item in wagon_storage:
+				wagon_storage.erase(item)
+				player_inventory.push_front(item)
+				
+				update_label()
+				ui.player_inventory_ui.update_inventory_UI()
+				audio.item_log_pickup()
+				
+				animation_player.play("deposit")
+				break
 			
+		
 func level_complete():
 	levelManager.level_complete()
 
