@@ -8,6 +8,7 @@
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="4_h70q4"]
 [ext_resource type="PackedScene" uid="uid://n46gbuettbxt" path="res://scenes/blacksmith/blacksmith.tscn" id="5_n2bhi"]
 [ext_resource type="Script" path="res://scenes/gameplay/startLevel.gd" id="5_v7rx3"]
+[ext_resource type="PackedScene" uid="uid://bb0iomn1wndp6" path="res://scenes/worldScenes/hub_wood_deposit.tscn" id="5_xjrvd"]
 [ext_resource type="Texture2D" uid="uid://6qmbejvg4jv5" path="res://assets/world/camp/tent1.png" id="6_nblf1"]
 [ext_resource type="PackedScene" uid="uid://kgfcsuen7f07" path="res://scenes/worldScenes/campfire.tscn" id="7_e4a6i"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_dyu18"]
@@ -15,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://cx5bvlnll5qm6" path="res://assets/world/bush/bush2.png" id="9_kpjui"]
 [ext_resource type="PackedScene" uid="uid://ds4touxr66m6b" path="res://scenes/worldScenes/logPile1.tscn" id="11_3xk36"]
 [ext_resource type="PackedScene" uid="uid://bogkxhiw2i44t" path="res://scenes/worldScenes/logPile2.tscn" id="12_xnbom"]
-[ext_resource type="Texture2D" uid="uid://bb5yexq8gsjpm" path="res://assets/UI/sign.png" id="21_k5ak6"]
 [ext_resource type="Texture2D" uid="uid://bn27eicidd8oh" path="res://assets/world/bridge_mock.png" id="23_6lnuq"]
 [ext_resource type="Texture2D" uid="uid://dfv63etiif1a6" path="res://assets/world/bush/bush6.png" id="37_ikaae"]
 [ext_resource type="Texture2D" uid="uid://3gn7swuynay4" path="res://assets/world/bush/bush3.png" id="38_3vm2l"]
@@ -32,13 +32,16 @@ size = Vector2(39, 54.5)
 y_sort_enabled = true
 script = ExtResource("1_as477")
 
-[node name="Wagon" parent="." instance=ExtResource("2_k157b")]
-z_index = 1
-position = Vector2(77, 94)
-
 [node name="UI" parent="." instance=ExtResource("2_2ny0x")]
 unique_name_in_owner = true
 visible = false
+
+[node name="hubWoodDeposit" parent="." instance=ExtResource("5_xjrvd")]
+position = Vector2(120, 28)
+
+[node name="Wagon" parent="." instance=ExtResource("2_k157b")]
+z_index = 1
+position = Vector2(77, 94)
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]
 z_index = 10
@@ -51,14 +54,14 @@ zoom = Vector2(2.8, 2.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 
-[node name="Pointer4" type="Sprite2D" parent="."]
+[node name="nextLevelPointer" type="Sprite2D" parent="."]
 position = Vector2(226, 53)
 texture = ExtResource("4_g7k0j")
 script = ExtResource("5_v7rx3")
 
-[node name="Area2D" type="Area2D" parent="Pointer4"]
+[node name="Area2D" type="Area2D" parent="nextLevelPointer"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer4/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="nextLevelPointer/Area2D"]
 position = Vector2(5, 12)
 shape = SubResource("CircleShape2D_sreep")
 
@@ -290,8 +293,7 @@ offset_right = 760.0
 offset_bottom = 72.0
 text = "gz you won game lmao"
 
-[node name="Sign" type="Sprite2D" parent="."]
-position = Vector2(110, 31)
-texture = ExtResource("21_k5ak6")
+[node name="Tree1" parent="." instance=ExtResource("8_dyu18")]
+position = Vector2(-21, 54)
 
-[connection signal="area_entered" from="Pointer4/Area2D" to="Pointer4" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="nextLevelPointer/Area2D" to="nextLevelPointer" method="_on_area_2d_area_entered"]

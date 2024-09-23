@@ -35,14 +35,16 @@ func start_next_level():
 
 func _deferred_goto_scene(path):
 	if current_scene:
-		current_scene.queue_free()  # Use queue_free() instead of free() for safer removal
+		current_scene.queue_free()
 	var s = ResourceLoader.load(path)
 	if s == null:
 		print_debug("Failed to load scene at: " + path)
 		return
+		
 	current_scene = s.instantiate()
+	current_scene.set_name("main")
 	if current_scene:
-		get_tree().root.add_child(current_scene)
+		get_tree().root.add_child(current_scene, true)
 		get_tree().current_scene = current_scene
 		animation_player.play('fade_in')
 

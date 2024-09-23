@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://bb0iomn1wndp6"]
+
+[ext_resource type="Texture2D" uid="uid://bb5yexq8gsjpm" path="res://assets/UI/sign.png" id="1_1cbsr"]
+[ext_resource type="Script" path="res://scripts/worldScripts/hub_wood_deposit.gd" id="1_fjygu"]
+[ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ann7y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tav4p"]
+radius = 28.0
+
+[node name="hubWoodDeposit" type="Node2D"]
+script = ExtResource("1_fjygu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1cbsr")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -10.0
+offset_top = -9.0
+offset_right = 10.0
+offset_bottom = 5.0
+pivot_offset = Vector2(10, 7)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ann7y")
+theme_override_font_sizes/font_size = 8
+text = "5"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_tav4p")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

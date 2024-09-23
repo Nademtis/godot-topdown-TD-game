@@ -14,7 +14,7 @@ const inventory_string : String = 'INV+'
 signal upgrade_applied
 
 #current player stats
-var player_move_speed : int = 9 * 1000 #9
+var player_move_speed : int = 18 * 1000 #9
 var player_sprint_multiplier : float = 1.3 #1.3
 var player_inventory_size : int = 9 #9
 

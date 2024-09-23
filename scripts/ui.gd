@@ -12,18 +12,20 @@ var amount_of_items = 0
 @onready var wave_uih_box: HBoxContainer = %waveUIHBox
 @onready var progress_dot: ColorRect = %progressDot
 
-@onready var player_inventory_ui: Control = %playerInventoryUI
+@onready var player_inventory_ui: Control = $MarginContainer/playerInventoryUI
 
 @onready var ui_level_complete_warning: Control = $Control/MarginContainer/UiLevelCompleteWarning
 @onready var level_complete_countdown_label : Label
 
 @onready var ui_level_complete_screen: UiLevelCompleteScreen = $UiLevelCompleteScreen
 
-func _gui_input(event):
-	if event is InputEventMouseButton:
-		print("Mouse button event detected")
+#func _gui_input(event):
+	#if event is InputEventMouseButton:
+		#print("Mouse button event detected")
 
 func _ready():
+	add_to_group("mainUI")
+	
 	self.visible = true
 	update_coins_ui()
 	ui_level_complete_warning.visible = false
@@ -34,6 +36,9 @@ func _ready():
 func show_level_complete_ui(amount_of_seconds_left: float):
 	ui_level_complete_warning.visible = true
 	update_level_complete_label(amount_of_seconds_left)
+
+func update_player_inventory_ui():
+	player_inventory_ui.update_inventory_UI()
 
 func update_level_complete_label(amount_of_seconds_left: float):
 	level_complete_countdown_label.text = str(int(amount_of_seconds_left))
