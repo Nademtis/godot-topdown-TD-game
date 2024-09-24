@@ -21,12 +21,12 @@ var player : Player = null:
 		player = p_player
 
 #current player stats
-var player_move_speed : int = 18 * 1000 #9
+var player_move_speed : int = 9 * 1000 #9
 var player_sprint_multiplier : float = 1.3 #1.3
 var player_inventory_size : int = 9 #9
 
-var player_attack_damage : float = 1.0 #1.0
-var player_attack_speed : float = 0.3 # 0.3
+var player_attack_damage : float = 0.8 #1.0
+var player_attack_speed : float = 0.35 # 0.3
 
 var player_archer_damage : float = 1.0 #1.0
 var player_archer_attackspeed : float = 0.7 # 0.7
@@ -51,7 +51,6 @@ func apply_upgrade(upgrade: UpgradeResource) -> void:
 		"player_archer_attackspeed":
 			player_archer_attackspeed -= upgrade.upgrade_amount
 			upgrade_archer_attackspeed.erase(upgrade)
-	
 	emit_signal("upgrade_applied")
 
 #player Axe attack damage
@@ -73,7 +72,7 @@ UpgradeResource.new(speed_string, 25, UPGRADE_SLOT_MOVESPEED, 'player_move_speed
 	
 ]
 
-#player inventory size
+#player inventory size # TODO not currently in use in get_next_upgrades()
 var upgrade_player_inventory_size : Array[UpgradeResource] = [
 	UpgradeResource.new(inventory_string, 30, UPGRADE_SLOT_INVENTORY, 'player_inventory_size', 1),
 	

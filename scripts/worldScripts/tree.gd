@@ -25,9 +25,9 @@ func take_damage():
 		
 		animateChop()
 		
-		if hp == 1:
+		if hp <= 1:
 			audio.tree_creek()
-		if hp < 1:
+		if hp <= 0:
 			audio.tree_falling()
 
 func die():

@@ -71,10 +71,10 @@ func get_current_level_wavelist():
 		#slime, bee, duration
 		1:
 			wavelist = [
-			#breaks.large,
-			#Wave.new(5,5,20),
-			#breaks.small,
-			#Wave.new(10,10,20),
+			breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			Wave.new(10,10,20),
 			breaks.small,
 			Wave.new(15,15,20)
 			]
