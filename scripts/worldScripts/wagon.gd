@@ -18,10 +18,8 @@ func _ready():
 	if (!required_logs): #just in case i forgot to set requiered logs in inspector
 		print_debug("wagon required logs = 0")
 	
-	#ui = get_tree().root.get_node("main/UI") # when main is renamed, this doesnt work
-	ui = get_tree().get_first_node_in_group("mainUI")  # Use root to access globally unique nodes
-	print_debug(ui)
-	#ui = get_tree().root.get_child(0).find_node("UI", true, false)
+	#ui = get_tree().get_first_node_in_group("mainUI")  # Use root to access globally unique nodes
+	#print_debug(ui)
 	update_label()
 
 func update_label():
@@ -40,8 +38,8 @@ func _input(event):
 			
 			#updateUI
 			update_label()
-			print_debug(ui)
-			ui.update_player_inventory_ui()
+			Events.emit_signal("player_inventory_changed")
+			
 			audio.item_log_pickup()
 			
 			animation_player.play("deposit")
@@ -58,9 +56,7 @@ func _input(event):
 				player_inventory.push_front(item)
 				
 				update_label()
-				#print(ui.player_inventory_ui)
-				#ui.player_inventory_ui.update_inventory_UI()
-				ui.update_player_inventory_ui()
+				Events.emit_signal("player_inventory_changed")
 				audio.item_log_pickup()
 				
 				animation_player.play("deposit")

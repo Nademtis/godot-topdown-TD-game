@@ -33,7 +33,8 @@ func take_damage():
 func die():
 	#spawn item
 	var log_item : ItemNode = ItemSpawner.get_item(ItemSpawner.ITEM.LOG)
-	var item_container = get_tree().root.get_node("main").get_node("Items")
+	#var item_container = get_tree().root.get_node("main").get_node("Items")
+	var item_container = get_parent().get_parent().get_node("Items")
 	log_item.position = position
 	
 	#kill 
@@ -41,7 +42,7 @@ func die():
 		item_container.call_deferred("add_child", log_item)
 
 	else:
-		print("no item container in root")
+		print("no item container")
 	call_deferred("queue_free") # call after a psysics/process frame 
 	
 func animateChop():
@@ -52,7 +53,7 @@ func animateChop():
 		anim_shouldChopRight = true
 		animation_player.play("hitLeft")
 	else: #die anim
-		var player_position = get_tree().root.get_node("main").get_node("Player").global_position
+		var player_position = PlayerStats.player.global_position # this fails, how to call position from player
 		if player_position.x > global_position.x:
 			animation_player.play("dieLeft")
 		else:

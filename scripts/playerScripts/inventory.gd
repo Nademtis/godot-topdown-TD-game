@@ -9,6 +9,7 @@ func _ready():
 	ui = get_tree().root.get_node("main/UI")
 	ui.player_inventory_ui.update_inventory_UI()
 	
+	
 func _process(_delta):
 	pass
 
@@ -28,7 +29,8 @@ func _on_area_entered(area : Area2D):
 			inventory.push_front(itemNode.item_resource)
 			itemNode.picked_up() # removes item drop
 			#inform UI
-			ui.player_inventory_ui.update_inventory_UI()
+			#ui.player_inventory_ui.update_inventory_UI()
+			Events.emit_signal("player_inventory_changed")
 	
 	if area.is_in_group("blueprint"):
 		#area.get_parent().deposit_item(inventory)

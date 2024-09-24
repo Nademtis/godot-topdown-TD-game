@@ -24,8 +24,6 @@ var amount_of_items = 0
 		#print("Mouse button event detected")
 
 func _ready():
-	add_to_group("mainUI")
-	
 	self.visible = true
 	update_coins_ui()
 	ui_level_complete_warning.visible = false
@@ -36,9 +34,6 @@ func _ready():
 func show_level_complete_ui(amount_of_seconds_left: float):
 	ui_level_complete_warning.visible = true
 	update_level_complete_label(amount_of_seconds_left)
-
-func update_player_inventory_ui():
-	player_inventory_ui.update_inventory_UI()
 
 func update_level_complete_label(amount_of_seconds_left: float):
 	level_complete_countdown_label.text = str(int(amount_of_seconds_left))

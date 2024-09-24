@@ -217,6 +217,9 @@ position = Vector2(81, 32)
 visible = false
 position = Vector2(-28, -100)
 
+[node name="Tree2" parent="TreeContainer" instance=ExtResource("8_dyu18")]
+position = Vector2(-21, 54)
+
 [node name="TurretContainer" type="Node" parent="."]
 
 [node name="BPcontainer" type="Node" parent="."]
@@ -292,8 +295,5 @@ offset_top = 49.0
 offset_right = 760.0
 offset_bottom = 72.0
 text = "gz you won game lmao"
-
-[node name="Tree1" parent="." instance=ExtResource("8_dyu18")]
-position = Vector2(-21, 54)
 
 [connection signal="area_entered" from="nextLevelPointer/Area2D" to="nextLevelPointer" method="_on_area_2d_area_entered"]

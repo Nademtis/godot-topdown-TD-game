@@ -38,6 +38,8 @@ var shake_strength : float = 0.0
 
 func _ready():
 	
+	PlayerStats.player = self
+	
 	#for debug test
 	debug_pos_for_stuck = global_position
 	

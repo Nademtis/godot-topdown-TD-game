@@ -7,6 +7,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_inventory_UI()
+	Events.connect("player_inventory_changed", update_inventory_UI)
 	pass # Replace with function body.
 
 
@@ -17,5 +18,4 @@ func update_inventory_UI():
 			# Update the panel with the corresponding inventory item
 			ui_panel_list[i].update(player_inventory[i])
 		else:
-			# Clear or reset the panel if there's no corresponding inventory item
 			ui_panel_list[i].update(null)  # Or use an empty state if `null` isn't appropriate

@@ -13,6 +13,13 @@ const inventory_string : String = 'INV+'
 @warning_ignore("unused_signal")
 signal upgrade_applied
 
+#for runtime
+var player : Player = null:
+	get:
+		return player
+	set(p_player):
+		player = p_player
+
 #current player stats
 var player_move_speed : int = 18 * 1000 #9
 var player_sprint_multiplier : float = 1.3 #1.3

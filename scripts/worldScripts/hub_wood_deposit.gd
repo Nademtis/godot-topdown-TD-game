@@ -3,15 +3,11 @@ extends Node2D
 @onready var label: Label = $Control/MarginContainer/Label
 @onready var area_2d: Area2D = $Area2D
 
-var ui : CanvasLayer
-
 var player_is_in_range = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	update_label()
-	ui = get_tree().root.get_node("main/UI")
-	print(ui)
 
 
 func update_label():
@@ -26,14 +22,13 @@ func _input(event):
 			player_inventory.erase(item)
 			hub_storage.push_front(item)
 			
-			#updateUI
+			#UI
 			update_label()
-			ui.player_inventory_ui.update_inventory_UI()
+			Events.emit_signal("player_inventory_changed")
+			get_parent().update_amount_of_hub_wood()
+			
 			audio.item_log_pickup()
-			
 			#animation_player.play("deposit")
-			
-			#print('wagon size: ' + str(wagon_storage.size()))
 			break
 	elif player_is_in_range && event.is_action_pressed("retract"):
 		if player_inventory.size() < PlayerStats.player_inventory_size:
@@ -41,9 +36,11 @@ func _input(event):
 				hub_storage.erase(item)
 				player_inventory.push_front(item)
 				
+				#UI
 				update_label()
-				#ui.player_inventory_ui.update_inventory_UI()
-				ui.update_player_inventory_ui()
+				Events.emit_signal("player_inventory_changed")
+				get_parent().update_amount_of_hub_wood()
+				
 				audio.item_log_pickup()
 				
 				#animation_player.play("deposit")

@@ -35,14 +35,15 @@ func initialize(p_hub_upgrade: HubProgression.HUB_UPGRADE, p_texture : Texture2D
 func _input(event):
 	var item_cost_array = HubProgression.build_recipe_dic[hub_upgrade]
 	if player_is_in_range && event.is_action_pressed("use"):
-		for item : ItemResource in PlayerInventory.hub_storage:
+		for item : ItemResource in PlayerInventory.player_inventory:
 			if item_cost_array.has(item):
-				PlayerInventory.hub_storage.erase(item)
+				PlayerInventory.player_inventory.erase(item)
 				item_cost_array.erase(item)
 				
 				#call main and update hub storage log amount
 				var level_node : Level = get_parent().get_parent()
 				level_node.update_amount_of_hub_wood()
+				Events.emit_signal("player_inventory_changed")
 				
 				check_build_status()
 				
