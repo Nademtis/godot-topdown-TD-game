@@ -4,9 +4,10 @@ var trying_to_build = false
 const TURRET_BUILDABLE_HOVER = preload("res://scenes/turretScenes/turret_buildable_hover.tscn")
 const TURRET_BP = preload("res://scenes/turretScenes/turret_bp.tscn")
 
-@onready var TILEMAP_1: TileMapLayer = get_node_or_null("/root/main/tilemaps/ground")
+@onready var TILEMAP_1: TileMapLayer = get_parent().get_parent().get_node("tilemaps/ground")
 
 var current_bp_hover = null
+
 
 func _process(_delta):
 	
@@ -47,6 +48,8 @@ func tile_under_mouse_is_buildable(mousePosition : Vector2) -> bool:
 		return false
 
 func _input(event):
+	if levelManager.current_scene_is_hub:
+		return
 	if event.is_action_pressed("1") && !trying_to_build:
 		trying_to_build = true
 		current_bp_hover = TURRET_BUILDABLE_HOVER.instantiate()

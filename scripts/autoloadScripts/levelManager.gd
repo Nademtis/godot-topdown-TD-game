@@ -8,6 +8,9 @@ const HUB = "res://scenes/gameplay/hub.tscn"
 var current_scene = null
 var current_index : int = 0
 var new_level_path: String
+
+var current_scene_is_hub : bool = false
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer #used for scene transition
 
 func _ready():
@@ -15,11 +18,11 @@ func _ready():
 
 # Call this function when a level is complete
 func level_complete():
+	current_scene_is_hub = true
 	PlayerInventory.return_to_hub()
 	animation_player.play('fade_out')
 	var new_level_index = current_index + 1
 	new_level_path = LEVEL_PATH + str(new_level_index) + LEVEL_EXTENSION
-	
 	_deferred_goto_scene(HUB)
 
 
@@ -27,6 +30,7 @@ func start_next_level():
 	if ResourceLoader.exists(new_level_path):
 		var new_scene = ResourceLoader.load(new_level_path)
 		if new_scene:
+			current_scene_is_hub = false
 			call_deferred("_deferred_goto_scene", new_level_path)
 		pass
 	else:
