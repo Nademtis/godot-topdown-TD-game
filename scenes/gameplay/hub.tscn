@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cx5bvlnll5qm6" path="res://assets/world/bush/bush2.png" id="9_kpjui"]
 [ext_resource type="PackedScene" uid="uid://ds4touxr66m6b" path="res://scenes/worldScenes/logPile1.tscn" id="11_3xk36"]
 [ext_resource type="PackedScene" uid="uid://bogkxhiw2i44t" path="res://scenes/worldScenes/logPile2.tscn" id="12_xnbom"]
-[ext_resource type="Texture2D" uid="uid://bn27eicidd8oh" path="res://assets/world/bridge_mock.png" id="23_6lnuq"]
+[ext_resource type="PackedScene" uid="uid://uwockjw8hwo8" path="res://scenes/worldScenes/bridge.tscn" id="13_kdvmd"]
 [ext_resource type="Texture2D" uid="uid://dfv63etiif1a6" path="res://assets/world/bush/bush6.png" id="37_ikaae"]
 [ext_resource type="Texture2D" uid="uid://3gn7swuynay4" path="res://assets/world/bush/bush3.png" id="38_3vm2l"]
 [ext_resource type="Texture2D" uid="uid://cyywpj1udwxvr" path="res://assets/world/bush/bush5.png" id="39_eebhh"]
@@ -52,7 +52,7 @@ position = Vector2(77, 94)
 
 [node name="Player" parent="." instance=ExtResource("3_s25l7")]
 z_index = 10
-position = Vector2(16, 56)
+position = Vector2(0, 56)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)
@@ -161,9 +161,8 @@ texture = ExtResource("6_nblf1")
 [node name="Blacksmith" parent="HubContainer" instance=ExtResource("5_n2bhi")]
 position = Vector2(-532, -136)
 
-[node name="BridgeMock" type="Sprite2D" parent="HubContainer"]
-position = Vector2(-385, -16)
-texture = ExtResource("23_6lnuq")
+[node name="Bridge" parent="HubContainer" instance=ExtResource("13_kdvmd")]
+position = Vector2(-385, -19)
 
 [node name="BuildAreaContainer" type="Node" parent="."]
 editor_description = "holds optional collShapes for hub buildables"

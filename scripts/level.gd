@@ -16,14 +16,12 @@ const HUB = "res://scenes/gameplay/hub.tscn"
 @onready var BUILDABLE_OBJECT = preload("res://scenes/buildable_object.tscn")
 const CAMPFIRE_TURNED_OFF = preload("res://assets/world/camp/campfire1.png")
 const TENT_PLAYER = preload("res://assets/world/camp/tent1.png")
-const BRIDGE_MOCK = preload("res://assets/world/bridge_mock.png")
-
-
+const BRIDGE = preload("res://assets/world/bridge.png")
 
 
 @onready var player_campfire: Node2D
 @onready var player_tent: Sprite2D
-@onready var  bridge1: Sprite2D
+@onready var  bridge1: Node2D
 @onready var blacksmith: Blacksmith
 var spawn_position = {} # used for spawning the nodes back in at correct location
 
@@ -42,7 +40,7 @@ func init_hub():
 	player_campfire = $HubContainer/playerCampfire
 	player_tent = $HubContainer/playerTent
 	blacksmith = $HubContainer/Blacksmith
-	bridge1 = $HubContainer/BridgeMock
+	bridge1 = $HubContainer/Bridge
 	update_amount_of_hub_wood()
 	set_spawn_position_of_nodes()
 	disable_all_nodes()
@@ -70,7 +68,7 @@ func update_hub_upgrade_nodes() -> void:
 		
 	if HubProgression.hub_upgrade_status[HubProgression.HUB_UPGRADE.BRIDGE1] == false:
 		var depositArea : CollisionShape2D = get_node_or_null("BuildAreaContainer/bridgeDepositShape")
-		display_blueprint(HubProgression.HUB_UPGRADE.BRIDGE1, BRIDGE_MOCK, depositArea)
+		display_blueprint(HubProgression.HUB_UPGRADE.BRIDGE1, BRIDGE, depositArea)
 		return
 	else:
 		bridge1.position = spawn_position[HubProgression.HUB_UPGRADE.BRIDGE1]

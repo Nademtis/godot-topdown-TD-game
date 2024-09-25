@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bn27eicidd8oh"
-path="res://.godot/imported/bridge_mock.png-8c710433851b0678cf30d945f20eddf4.ctex"
+uid="uid://b7oekvpdvak2p"
+path="res://.godot/imported/bridge_front_poles.png-51121ce02fd3df96bece31577edeea9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/world/bridge_mock.png"
-dest_files=["res://.godot/imported/bridge_mock.png-8c710433851b0678cf30d945f20eddf4.ctex"]
+source_file="res://assets/world/bridge_front_poles.png"
+dest_files=["res://.godot/imported/bridge_front_poles.png-51121ce02fd3df96bece31577edeea9f.ctex"]
 
 [params]
 
