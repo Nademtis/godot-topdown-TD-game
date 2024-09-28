@@ -1,6 +1,10 @@
 extends Node2D
+
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var animation_player = $AnimationPlayer
+@onready var use_button_eui: UseButton = $UseButtonEUI
+
+
 @onready  var turret_path = preload("res://scenes/turretScenes/turret.tscn")
 @onready var label = $Label
 
@@ -38,17 +42,20 @@ func _input(event):
 				#ui and sfx
 				ui.player_inventory_ui.update_inventory_UI()
 				audio.hammer()
+				use_button_eui.use_button()
 				
 				break
 
 func _on_area_2d_area_entered(area):
 	#label.visible = true
 	if area.is_in_group("player"):
+		use_button_eui.show_button()
 		animation_player.play("blink_and_size")
 		player_is_in_range = true
 
 func _on_area_2d_area_exited(area):
 	#label.visible = false
 	if area.is_in_group("player"):
+		use_button_eui.hide_button()
 		animation_player.play("blinkAlpha")
 		player_is_in_range = false

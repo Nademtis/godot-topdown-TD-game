@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://mj5q7s0wwxqo"]
+[gd_scene load_steps=10 format=3 uid="uid://mj5q7s0wwxqo"]
 
-[ext_resource type="Texture2D" uid="uid://catuxlrbteaxs" path="res://assets/world/Wagon.png" id="1_2fmqh"]
 [ext_resource type="Script" path="res://scripts/worldScripts/wagon.gd" id="1_l4q3l"]
+[ext_resource type="Texture2D" uid="uid://c7c1k4lb2mk2b" path="res://assets/world/wagonPNGnew.png" id="2_8kj6c"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_k4kwe"]
+[ext_resource type="PackedScene" uid="uid://bhjdjfatnw6hj" path="res://scenes/UIScenes/useButtonE.tscn" id="4_ll5c1"]
+[ext_resource type="PackedScene" uid="uid://bqosh73tx2ype" path="res://scenes/UIScenes/useButtonR.tscn" id="5_v1tun"]
 
 [sub_resource type="Animation" id="Animation_51cbv"]
 length = 0.001
@@ -52,7 +54,7 @@ script = ExtResource("1_l4q3l")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.7, 0.7)
-texture = ExtResource("1_2fmqh")
+texture = ExtResource("2_8kj6c")
 offset = Vector2(-11, -8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -70,15 +72,21 @@ rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ltk1c")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -17.0
-offset_top = -35.0
-offset_right = 20.0
-offset_bottom = -12.0
+offset_left = -18.0
+offset_top = -30.0
+offset_right = 19.0
+offset_bottom = -7.0
 theme_override_fonts/font = ExtResource("3_k4kwe")
 theme_override_font_sizes/font_size = 8
 text = "5/20"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UseButtonEUI" parent="." instance=ExtResource("4_ll5c1")]
+position = Vector2(-8, -31)
+
+[node name="UseButtonRUI" parent="." instance=ExtResource("5_v1tun")]
+position = Vector2(7, -31)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://der0pgl1pvdmo"]
+[gd_scene load_steps=13 format=3 uid="uid://der0pgl1pvdmo"]
 
 [ext_resource type="Script" path="res://scripts/turretScripts/turret_bp.gd" id="1_ek1ek"]
 [ext_resource type="Script" path="res://scenes/playerScenes/itemResource.gd" id="2_lrj7k"]
 [ext_resource type="Texture2D" uid="uid://cbaev13fic4kd" path="res://assets/turret/turret_1_BP.png" id="2_wrvqx"]
 [ext_resource type="Resource" uid="uid://bghtbm8ax3861" path="res://scenes/items/log.tres" id="3_ohftp"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="5_jwqlk"]
+[ext_resource type="PackedScene" uid="uid://bhjdjfatnw6hj" path="res://scenes/UIScenes/useButtonE.tscn" id="6_wvnio"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l4hnf"]
 animations = [{
@@ -150,6 +151,9 @@ theme_override_font_sizes/font_size = 8
 text = "0/3"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="UseButtonEUI" parent="." instance=ExtResource("6_wvnio")]
+position = Vector2(1, -35)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

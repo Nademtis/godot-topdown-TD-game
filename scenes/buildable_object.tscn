@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://blw1svmwyuw74"]
+[gd_scene load_steps=9 format=3 uid="uid://blw1svmwyuw74"]
 
 [ext_resource type="Script" path="res://scripts/buildable_object.gd" id="1_fefl8"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_yvp1i"]
+[ext_resource type="PackedScene" uid="uid://bhjdjfatnw6hj" path="res://scenes/UIScenes/useButtonE.tscn" id="3_iw0uo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s7f3l"]
 radius = 19.0
@@ -122,6 +123,9 @@ libraries = {
 "": SubResource("AnimationLibrary_cmjfl")
 }
 autoplay = "blink_alpha"
+
+[node name="UseButtonEUI" parent="." instance=ExtResource("3_iw0uo")]
+position = Vector2(0, -29)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

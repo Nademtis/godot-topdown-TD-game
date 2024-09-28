@@ -8,6 +8,8 @@ var wagon_storage : Array [ItemResource] = PlayerInventory.wagon_storage
 
 
 @onready var animation_player = $AnimationPlayer
+@onready var use_button_eui: UseButton = $UseButtonEUI
+@onready var use_button_rui: UseButton = $UseButtonRUI
 
 var ui : CanvasLayer
 
@@ -41,14 +43,15 @@ func _input(event):
 			Events.emit_signal("player_inventory_changed")
 			
 			audio.item_log_pickup()
-			
+			use_button_eui.use_button()
 			animation_player.play("deposit")
 			
 			#print('wagon size: ' + str(wagon_storage.size()))
 			
 			if required_logs!= 0 && wagon_storage.size() >= required_logs: #WIN
 				level_complete() #old 
-			break
+			return
+		use_button_eui.use_button_fail()
 	elif player_is_in_range && event.is_action_pressed("retract"):
 		if player_inventory.size() < PlayerStats.player_inventory_size:
 			for item in wagon_storage:
@@ -58,20 +61,27 @@ func _input(event):
 				update_label()
 				Events.emit_signal("player_inventory_changed")
 				audio.item_log_pickup()
+				use_button_rui.use_button()
+				
 				
 				animation_player.play("deposit")
-				break
-			
+				return
+			use_button_rui.use_button_fail()
 		
 func level_complete():
 	levelManager.level_complete()
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("player"):
+		use_button_eui.show_button()
+		use_button_rui.show_button()
 		#animation_player.play("blink_and_size")
 		player_is_in_range = true
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("player"):
+		use_button_eui.hide_button()
+		use_button_rui.hide_button()
+		
 		#animation_player.play("blinkAlpha")
 		player_is_in_range = false

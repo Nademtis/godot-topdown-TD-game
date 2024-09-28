@@ -185,15 +185,5 @@ theme_override_font_sizes/font_size = 8
 text = "Left Click
 "
 
-[node name="Label2" type="Label" parent="WorldAssetsContainer"]
-offset_left = 17.0
-offset_top = -38.0
-offset_right = 145.0
-offset_bottom = -15.0
-theme_override_fonts/font = ExtResource("10_yo0ah")
-theme_override_font_sizes/font_size = 8
-text = "Press E to deposit
-"
-
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/enemySpawnRateTimer" to="EnemySpawner" method="_on_enemy_spawn_rate_timer_timeout"]

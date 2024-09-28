@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb0iomn1wndp6"]
+[gd_scene load_steps=7 format=3 uid="uid://bb0iomn1wndp6"]
 
 [ext_resource type="Texture2D" uid="uid://bb5yexq8gsjpm" path="res://assets/UI/sign.png" id="1_1cbsr"]
 [ext_resource type="Script" path="res://scripts/worldScripts/hub_wood_deposit.gd" id="1_fjygu"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_ann7y"]
+[ext_resource type="PackedScene" uid="uid://bhjdjfatnw6hj" path="res://scenes/UIScenes/useButtonE.tscn" id="4_wffrf"]
+[ext_resource type="PackedScene" uid="uid://bqosh73tx2ype" path="res://scenes/UIScenes/useButtonR.tscn" id="5_u5fe8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tav4p"]
 radius = 28.0
@@ -44,6 +46,12 @@ text = "5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_tav4p")
+
+[node name="UseButtonEUI" parent="." instance=ExtResource("4_wffrf")]
+position = Vector2(-7, -19)
+
+[node name="UseButtonRUI" parent="." instance=ExtResource("5_u5fe8")]
+position = Vector2(7, -19)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

@@ -3,7 +3,10 @@ extends Node2D
 class_name BuildableObject
 
 var player_is_in_range = false
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var use_button_eui: UseButton = $UseButtonEUI
+
 @onready var label: Label = $Label
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var area_2d: Area2D = $Area2D
@@ -46,6 +49,7 @@ func _input(event):
 				Events.emit_signal("player_inventory_changed")
 				
 				check_build_status()
+				use_button_eui.use_button()
 				
 				#ui and sfx
 				#ui.player_inventory_ui.update_inventory_UI()
@@ -63,10 +67,12 @@ func check_build_status():
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("player"):
+		use_button_eui.show_button()
 		animation_player.play("blink_and_size")
 		player_is_in_range = true
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
 	if area.is_in_group("player"):
+		use_button_eui.hide_button()
 		animation_player.play("blink_alpha")
 		player_is_in_range = false
