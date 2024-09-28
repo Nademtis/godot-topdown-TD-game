@@ -28,7 +28,9 @@ var spawn_position = {} # used for spawning the nodes back in at correct locatio
 func _ready():
 	if self.scene_file_path == HUB:
 		init_hub()
-	pass
+		audio.play_hub_music()
+	else:
+		audio.play_level_music()
 
 
 #for hub
@@ -160,4 +162,5 @@ func take_damage():
 func die():
 	PlayerInventory.player_inventory.clear()
 	PlayerInventory.wagon_storage.clear()
+	audio.play_level_music()
 	get_tree().reload_current_scene()

@@ -129,6 +129,8 @@ bus = &"Environment"
 stream = ExtResource("15_5mhui")
 bus = &"Environment"
 
+[node name="birdTimer" type="Timer" parent="Environment"]
+
 [node name="Turret" type="Node" parent="."]
 
 [node name="bow_load" type="AudioStreamPlayer" parent="Turret"]
@@ -189,7 +191,6 @@ volume_db = -20.0
 [node name="musicIntro" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource("16_s8ycq")
 volume_db = -6.0
-autoplay = true
 bus = &"Music"
 
 [node name="musicSynced" type="AudioStreamPlayer" parent="Music"]
@@ -216,4 +217,5 @@ volume_db = -13.0
 stream = ExtResource("29_qf7kj")
 volume_db = -13.0
 
+[connection signal="timeout" from="Environment/birdTimer" to="." method="_on_bird_timer_timeout"]
 [connection signal="finished" from="Music/musicIntro" to="." method="_on_music_intro_finished"]

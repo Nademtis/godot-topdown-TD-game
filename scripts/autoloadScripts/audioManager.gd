@@ -62,11 +62,25 @@ var coin_pickup_list : Array[AudioStreamPlayer]
 @onready var bow_shoot_1: AudioStreamPlayer = $Turret/bow_shoot1
 @onready var bow_shoot_2: AudioStreamPlayer = $Turret/bow_shoot2
 @onready var bow_shoot_3: AudioStreamPlayer = $Turret/bow_shoot3
+var turret_shoot_list : Array[AudioStreamPlayer]
+
+
+#build
 @onready var hammer_1: AudioStreamPlayer = $Turret/hammer1
 @onready var hammer_2: AudioStreamPlayer = $Turret/hammer2
 @onready var hammer_3: AudioStreamPlayer = $Turret/hammer3
-var turret_shoot_list : Array[AudioStreamPlayer]
 var hammer_list : Array[AudioStreamPlayer]
+
+#environment
+@onready var bird_timer: Timer = $Environment/birdTimer
+
+@onready var bird_1: AudioStreamPlayer = $Environment/bird1
+@onready var bird_2: AudioStreamPlayer = $Environment/bird2
+@onready var bird_3: AudioStreamPlayer = $Environment/bird3
+@onready var bird_4: AudioStreamPlayer = $Environment/bird4
+var bird_list : Array[AudioStreamPlayer]
+
+
 #cave
 @onready var cave_moving_2: AudioStreamPlayer = $Cave/CaveMoving2
 
@@ -77,7 +91,6 @@ func _process(_delta: float) -> void:
 		music_synced.play()
 
 func _ready():
-	
 	#footStep
 	footstep_list = [step_1, step_2, step_3, step_4]
 	footstep_timer.wait_time = footstep_cooldown
@@ -85,6 +98,9 @@ func _ready():
 	#chop
 	chop_list= [chop_1, chop_2]
 	#chop_list= [chop_1, chop_2, chop_3, chop_4]
+	
+	#bird
+	bird_list = [bird_1, bird_2, bird_3, bird_4]
 	
 	#turret
 	turret_shoot_list = [bow_shoot_1, bow_shoot_2, bow_shoot_3]
@@ -98,8 +114,26 @@ func _ready():
 func setup_music():
 	var audio_stream : AudioStreamSynchronized = music_synced.stream
 	audio_stream.set_sync_stream_volume(2,-60) # mutes drums2
+
+func play_level_music():
+	music_should_play = false
 	
+	music_synced.stop()
+	music_synced.seek(0)
 	
+	music_intro.stop()
+	music_intro.seek(0)
+	
+	music_intro.play()
+
+func play_hub_music():
+	music_should_play = false
+	
+	music_intro.stop()
+	music_synced.stop()
+	
+	bird_timer.start()
+	pass
 
 func foot_step():
 	if not footstep_timer.is_stopped():
@@ -154,4 +188,11 @@ func item_log_pickup():
 
 func _on_music_intro_finished() -> void:
 	music_should_play = true
+	pass # Replace with function body.
+
+
+func _on_bird_timer_timeout() -> void:
+	bird_list.pick_random().play()
+	bird_timer.wait_time = randf_range(10,20)
+	bird_timer.start()
 	pass # Replace with function body.
