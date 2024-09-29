@@ -11,10 +11,15 @@ var canShoot = true
 @onready var d_attack_pos: Node2D = $archer/D_attackPos
 @onready var u_attack_pos: Node2D = $archer/U_attackPos
 
+@onready var sfx_shoot: AudioStreamPlayer2D = $SFXShoot
+@onready var sfx_load: AudioStreamPlayer2D = $SFXLoad
+
 func _ready() -> void:
-		attack_speed_timer.wait_time = PlayerStats.player_archer_attackspeed
-		
-		add_to_group("turrets")
+	sfx_load.stream = audio.BOW_LOAD
+	
+	
+	attack_speed_timer.wait_time = PlayerStats.player_archer_attackspeed
+	add_to_group("turrets")
 
 func _process(_delta):
 	if enemyArray.size() > 0 and canShoot:
@@ -34,7 +39,9 @@ func attack():
 		enemyArray.pop_back()
 
 func attack_anim(enemy_pos : Vector2) -> void:
-	audio.turret_load()
+	#audio.turret_load()
+	sfx_shoot.play()
+	
 	var direction = (enemy_pos - global_position).normalized()
 	if abs(direction.x) > abs(direction.y):
 		if direction.x > 0:
@@ -62,7 +69,8 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 			'u_attack':
 				arrow.global_position = u_attack_pos.position
 		add_child(arrow)
-		audio.turret_shoot()
+		sfx_shoot.stream = audio.TURRET_SHOOT_LIST.pick_random()
+		sfx_shoot.play()
 	else:
 		# If the target is invalid, remove it from the array
 		if enemyArray.size() > 0:

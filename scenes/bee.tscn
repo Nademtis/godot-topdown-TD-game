@@ -380,3 +380,11 @@ autoplay = "D_Walk"
 libraries = {
 "": SubResource("AnimationLibrary_x2hjm")
 }
+
+[node name="SFXHit" type="AudioStreamPlayer2D" parent="."]
+max_distance = 400.0
+attenuation = 2.0
+
+[node name="SFXDeath" type="AudioStreamPlayer2D" parent="."]
+max_distance = 400.0
+attenuation = 2.0

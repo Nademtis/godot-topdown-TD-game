@@ -25,7 +25,6 @@ func get_item(item: ITEM) -> ItemNode:
 		ITEM.LOG:
 			new_item.initialize(LOG_RESOURCE)
 		ITEM.COIN:
-			new_item.initialize(COIN_RESOURCE)
-			audio.item_coin_dropped()
+			new_item.initialize(COIN_RESOURCE, audio.COIN_DROPPED_LIST.pick_random())
 	
 	return new_item

@@ -237,6 +237,9 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
 [connection signal="timeout" from="staminaDrainTimer" to="." method="_on_stamina_drain_timer_timeout"]
 [connection signal="area_entered" from="itemArea2D" to="itemArea2D" method="_on_area_entered"]
 [connection signal="area_exited" from="itemArea2D" to="itemArea2D" method="_on_area_exited"]

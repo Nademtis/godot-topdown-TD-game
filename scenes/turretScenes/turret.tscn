@@ -331,6 +331,14 @@ animation = &"d_idle"
 autoplay = "d_idle"
 frame_progress = 0.191123
 
+[node name="SFXShoot" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+attenuation = 2.0
+
+[node name="SFXLoad" type="AudioStreamPlayer2D" parent="."]
+max_distance = 500.0
+attenuation = 2.0
+
 [connection signal="area_entered" from="rangeArea2D" to="." method="_on_range_area_2d_area_entered"]
 [connection signal="area_exited" from="rangeArea2D" to="." method="_on_range_area_2d_area_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

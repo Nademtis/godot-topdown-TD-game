@@ -37,32 +37,36 @@ var chop_list : Array[AudioStreamPlayer]
 
 #enemy
 #slime
-@onready var slime_death: AudioStreamPlayer = $enemy/SlimeDeath
-@onready var slime_hit: AudioStreamPlayer = $enemy/SlimeHit
+const SLIME_DEATH = preload("res://assets/audio/sfx/enemy/slime_death.mp3")
+const SLIME_HIT = preload("res://assets/audio/sfx/enemy/slime_hit.wav")
 
 #bee
-@onready var bee_death: AudioStreamPlayer = $enemy/BeeDeath
-@onready var bee_hit: AudioStreamPlayer = $enemy/BeeHit
+const BEE_DEATH = preload("res://assets/audio/sfx/enemy/bee_death.wav")
+const BEE_HIT = preload("res://assets/audio/sfx/enemy/bee_hit.wav")
 
 #hub
 @onready var blacksmith_1: AudioStreamPlayer = $Hub/Blacksmith1
 @onready var blacksmith_2: AudioStreamPlayer = $Hub/Blacksmith2
 
 #item
-@onready var coin_dropped_1: AudioStreamPlayer = $Item/CoinDropped
-@onready var coin_dropped_2: AudioStreamPlayer = $Item/CoinDropped2
+const COIN_DROPPED_1 = preload("res://assets/audio/sfx/item/coin_dropped.wav")
+const COIN_DROPPED_2 = preload("res://assets/audio/sfx/item/coin_dropped2.wav")
+
 @onready var coin_pickup_1: AudioStreamPlayer = $Item/CoinPickup
 @onready var coin_pickup_2: AudioStreamPlayer = $Item/CoinPickup2
 @onready var log_pickup: AudioStreamPlayer = $Item/LogPickup
-var coin_dropped_list : Array[AudioStreamPlayer]
+var COIN_DROPPED_LIST : Array
 var coin_pickup_list : Array[AudioStreamPlayer]
 
 #turret
-@onready var bow_load: AudioStreamPlayer = $Turret/bow_load
-@onready var bow_shoot_1: AudioStreamPlayer = $Turret/bow_shoot1
-@onready var bow_shoot_2: AudioStreamPlayer = $Turret/bow_shoot2
-@onready var bow_shoot_3: AudioStreamPlayer = $Turret/bow_shoot3
-var turret_shoot_list : Array[AudioStreamPlayer]
+const BOW_LOAD = preload("res://assets/audio/sfx/turret/bow_load.wav")
+
+const BOW_SHOOT_1 = preload("res://assets/audio/sfx/turret/bow_shoot1.wav")
+const BOW_SHOOT_2 = preload("res://assets/audio/sfx/turret/bow_shoot2.wav")
+const BOW_SHOOT_3 = preload("res://assets/audio/sfx/turret/bow_shoot3.wav")
+
+var TURRET_SHOOT_LIST : Array
+
 
 
 #build
@@ -103,11 +107,13 @@ func _ready():
 	bird_list = [bird_1, bird_2, bird_3, bird_4]
 	
 	#turret
-	turret_shoot_list = [bow_shoot_1, bow_shoot_2, bow_shoot_3]
+	#turret_shoot_list = [bow_shoot_1, bow_shoot_2, bow_shoot_3]
 	hammer_list = [hammer_1, hammer_2, hammer_3]
+	TURRET_SHOOT_LIST = [BOW_SHOOT_1, BOW_SHOOT_2, BOW_SHOOT_3]
 	
 	#item
-	coin_dropped_list = [coin_dropped_1, coin_dropped_2]
+	COIN_DROPPED_LIST = [COIN_DROPPED_1, COIN_DROPPED_2]
+	
 	coin_pickup_list = [coin_pickup_1, coin_pickup_2]
 	setup_music()
 
@@ -117,6 +123,7 @@ func setup_music():
 
 func play_level_music():
 	music_should_play = false
+	bird_timer.stop()
 	
 	music_synced.stop()
 	music_synced.seek(0)
@@ -153,31 +160,8 @@ func tree_falling():
 func hammer():
 	hammer_list.pick_random().play()
 
-func turret_shoot():
-	turret_shoot_list.pick_random().play()
-
-func turret_load():
-	bow_load.play()
-
-func enemy_hit(enemy : Enemy):
-	match enemy.name:
-		"Slime":
-			slime_hit.play()
-		"Bee":
-			bee_hit.play()
-	
-func enemy_death(enemy : Enemy):
-	match enemy.name:
-		"Slime":
-			slime_death.play()
-		"Bee":
-			bee_death.play()
-
 func cave_moving():
 	cave_moving_2.play()
-
-func item_coin_dropped():
-	coin_dropped_list.pick_random().play()
 
 func item_coin_pickup():
 	coin_pickup_list.pick_random().play()
@@ -185,11 +169,9 @@ func item_coin_pickup():
 func item_log_pickup():
 	log_pickup.play()
 	
-
 func _on_music_intro_finished() -> void:
 	music_should_play = true
 	pass # Replace with function body.
-
 
 func _on_bird_timer_timeout() -> void:
 	bird_list.pick_random().play()

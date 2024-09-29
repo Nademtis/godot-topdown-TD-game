@@ -8,8 +8,12 @@ class_name Enemy extends Node2D
 
 var previous_pos : Vector2
 
+@onready var sfx_death: AudioStreamPlayer2D = $SFXDeath
+@onready var sfx_hit: AudioStreamPlayer2D = $SFXHit
+
 
 func _ready():
+	setup_SFX()
 	var area2D:Area2D = get_node('Area2D')
 	area2D.area_entered.connect(enemy_hit)
 	animated_sprite.animation_finished.connect(kill)
@@ -53,21 +57,30 @@ func take_damage_from_player():
 		hp = hp - PlayerStats.player_attack_damage
 		animation_player.play("enemy_hit") #making red on hit
 		if hp <= 0:
-			audio.enemy_death(self)
+			sfx_death.play()
 			die()
 			area_2d.set_deferred("monitoring", false)
 		else:
-			audio.enemy_hit(self)
+			sfx_hit.play()
+
+func setup_SFX() -> void:
+	match name:
+		"Slime":
+			sfx_hit.stream = audio.SLIME_HIT
+			sfx_death.stream = audio.SLIME_DEATH
+		"Bee":
+			sfx_hit.stream = audio.BEE_HIT
+			sfx_death.stream = audio.BEE_DEATH
 
 func take_damage_from_arrow():
 		hp = hp - PlayerStats.player_archer_damage
 		animation_player.play("enemy_hit") #making red on hit
 		if hp <= 0:
-			audio.enemy_death(self)
+			sfx_death.play()
 			die()
 			area_2d.set_deferred("monitoring", false)
 		else:
-			audio.enemy_hit(self)
+			sfx_hit.play()
 
 func die():
 	spawn_item()

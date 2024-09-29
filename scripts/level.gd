@@ -140,7 +140,7 @@ func update_amount_of_hub_wood() -> void:
 func remove_one_log_from_hub() -> void:
 	var hub_wood_amount : int = PlayerInventory.hub_storage.size()
 	if hub_wood_amount == 0:
-		push_warning("can't remove log, don't have any")
+		null
 		return
 		# Get all visible children
 	var visible_children: Array = []
