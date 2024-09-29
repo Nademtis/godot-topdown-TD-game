@@ -132,7 +132,7 @@ func create_wave_indicator_ui():
 func level_complete():
 	var amount_of_enemies_left : int = path_2d_1.get_children().size() + path_2d_2.get_children().size()
 
-	if amount_of_enemies_left > 0:
+	if amount_of_enemies_left > 3:
 		print_debug('waiting since: ' + str(amount_of_enemies_left))
 		await get_tree().create_timer(1.0).timeout
 		level_complete()
