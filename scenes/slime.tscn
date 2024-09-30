@@ -383,7 +383,9 @@ libraries = {
 [node name="SFXHit" type="AudioStreamPlayer2D" parent="."]
 max_distance = 400.0
 attenuation = 2.0
+bus = &"SFX"
 
 [node name="SFXDeath" type="AudioStreamPlayer2D" parent="."]
 max_distance = 400.0
 attenuation = 2.0
+bus = &"SFX"

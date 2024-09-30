@@ -84,6 +84,7 @@ func update_hub_upgrade_nodes() -> void:
 		blacksmith.position = spawn_position[HubProgression.HUB_UPGRADE.BLACKSMITH_TENT]
 		blacksmith.visible = true
 		blacksmith.set_process(true)
+		blacksmith.display_next_upgrades()
 
 func display_blueprint(upgrade : HubProgression.HUB_UPGRADE, texture : Texture2D,  p_collision_shape: CollisionShape2D = null) -> void:
 	var blueprint : BuildableObject = BUILDABLE_OBJECT.instantiate()
@@ -140,7 +141,7 @@ func update_amount_of_hub_wood() -> void:
 func remove_one_log_from_hub() -> void:
 	var hub_wood_amount : int = PlayerInventory.hub_storage.size()
 	if hub_wood_amount == 0:
-		null
+		#null
 		return
 		# Get all visible children
 	var visible_children: Array = []

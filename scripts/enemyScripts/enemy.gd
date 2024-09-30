@@ -14,12 +14,12 @@ var previous_pos : Vector2
 
 func _ready():
 	setup_SFX()
-	var area2D:Area2D = get_node('Area2D')
-	area2D.area_entered.connect(enemy_hit)
-	animated_sprite.animation_finished.connect(kill)
+	#var area2D:Area2D = get_node('Area2D')
+	area_2d.area_entered.connect(enemy_hit)
+	#animated_sprite.animation_finished.connect(kill)
 	
 func _process(delta):
-	if hp >= 1:
+	if hp > 0:
 		# for moving slime - uses pathfollow2d progress
 		get_parent().set_progress(get_parent().get_progress() + speed * delta)
 		
@@ -85,15 +85,18 @@ func take_damage_from_arrow():
 func die():
 	spawn_item()
 	get_tree().call_group("turrets", "_on_enemy_died", self)
-	speed = 0 # since we dead
+	#speed = 0 # since we dead
 	
 	#play correct death anim based on direction
 	var firstLetter : String = animated_sprite.animation.substr(0, 1)
+	print(firstLetter + '_Death' )
 	var death_animation : String = firstLetter + '_Death' 
 	animated_sprite.play(death_animation)
+	await get_tree().create_timer(0.5).timeout
+	get_parent().queue_free()
 	
 func kill():
-	get_parent().queue_free() #should probably also kill the parent (pathfollow2d)
+	get_parent().queue_free()
 
 func spawn_item():
 	#print('mob is called: ' + str(self.name)) #might want to use name for spawnRate
