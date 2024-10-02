@@ -66,7 +66,7 @@ func get_current_level_wavelist():
 	}
 	
 	var wavelist : Array[Wave] = []
-	#print_debug('fetches waveList with index: ' + str(current_index))
+	print_debug('fetches waveList with index: ' + str(current_index))
 	match current_index:
 		#slime, bee, duration
 		1:
@@ -96,6 +96,59 @@ func get_current_level_wavelist():
 			Wave.new(20,20,15),
 			Wave.new(20,20,15)
 			]
+		4:
+			wavelist = [
+			#breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			#Wave.new(10,10,20),
+			breaks.small,
+			#Wave.new(15,15,20)
+			]
+		5:
+			wavelist = [
+			#breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			#Wave.new(10,10,20),
+			breaks.small,
+			#Wave.new(15,15,20)
+			]
+		6:
+			wavelist = [
+			#breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			#Wave.new(10,10,20),
+			breaks.small,
+			#Wave.new(15,15,20)
+			]
+		7:
+			wavelist = [
+			#breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			#Wave.new(10,10,20),
+			breaks.small,
+			#Wave.new(15,15,20)
+			]
+		8:
+			wavelist = [
+			#breaks.large,
+			Wave.new(5,5,20),
+			breaks.small,
+			#Wave.new(10,10,20),
+			breaks.small,
+			#Wave.new(15,15,20)
+			]
+			
+			
+			
+			
+			
+			
+		_:
+			push_warning("no wavelist for this index" + str(current_index))
 	
 	return wavelist
 	#return level0_wavelist

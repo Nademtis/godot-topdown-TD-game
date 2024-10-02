@@ -18,6 +18,7 @@ var player_inventory : Array[ItemResource] = PlayerInventory.player_inventory
 
 func _ready():
 	if (!required_logs): #just in case i forgot to set requiered logs in inspector
+		pass
 		print_debug("wagon required logs = 0")
 	
 	#ui = get_tree().get_first_node_in_group("mainUI")  # Use root to access globally unique nodes
