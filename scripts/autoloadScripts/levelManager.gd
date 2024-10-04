@@ -71,82 +71,84 @@ func get_current_level_wavelist():
 		#slime, bee, duration
 		1:
 			wavelist = [
-			#breaks.large,
+			breaks.large,
 			Wave.new(5,5,20),
+			breaks.medium,
+			Wave.new(7,7,20),
 			breaks.small,
-			Wave.new(10,10,20),
-			breaks.small,
-			Wave.new(15,15,20)
+			Wave.new(11,11,25)
 			]
 		2:
 			wavelist = [
-			breaks.medium,
-			Wave.new(10,10,20),
+			breaks.large,
+			Wave.new(9,9,20),
 			breaks.small,
-			Wave.new(15,15,10),
-			Wave.new(20,20,15),
-			Wave.new(20,20,15),
+			Wave.new(13,13,20),
+			breaks.small,
+			Wave.new(20,20,25),
 			]
 		3:
 			wavelist = [
+			breaks.medium,
+			Wave.new(11,11,20),
 			breaks.small,
-			Wave.new(10,10,15),
+			Wave.new(16,16,20),
 			breaks.small,
-			Wave.new(15,15,10),
-			Wave.new(20,20,15),
-			Wave.new(20,20,15)
+			Wave.new(25,25,25),
 			]
 		4:
 			wavelist = [
-			#breaks.large,
-			Wave.new(5,5,20),
+			breaks.medium,
+			Wave.new(15,15,20),
 			breaks.small,
-			#Wave.new(10,10,20),
+			Wave.new(20,20,20),
 			breaks.small,
-			#Wave.new(15,15,20)
+			Wave.new(32,32,30),
 			]
 		5:
 			wavelist = [
-			#breaks.large,
-			Wave.new(5,5,20),
 			breaks.small,
-			#Wave.new(10,10,20),
+			Wave.new(15,15,20),
+			#breaks.small,
+			Wave.new(5,20,35),
+			Wave.new(25,25,20),
 			breaks.small,
-			#Wave.new(15,15,20)
+			Wave.new(36,36,30),
 			]
 		6:
 			wavelist = [
-			#breaks.large,
-			Wave.new(5,5,20),
 			breaks.small,
-			#Wave.new(10,10,20),
+			Wave.new(25,25,20),
+			#breaks.small,
+			Wave.new(30,5,30),
+			Wave.new(25,25,20),
 			breaks.small,
-			#Wave.new(15,15,20)
+			Wave.new(50,50,40),
 			]
 		7:
 			wavelist = [
-			#breaks.large,
-			Wave.new(5,5,20),
+			#breaks.small,
+			Wave.new(10,10,30),
 			breaks.small,
-			#Wave.new(10,10,20),
+			Wave.new(30,5,30),
+			Wave.new(25,25,20),
 			breaks.small,
-			#Wave.new(15,15,20)
+			Wave.new(25,25,30),
+			Wave.new(45,45,40),
+			breaks.small,
 			]
 		8:
 			wavelist = [
-			#breaks.large,
-			Wave.new(5,5,20),
+			#breaks.small,
+			Wave.new(12,12,25),
 			breaks.small,
-			#Wave.new(10,10,20),
+			Wave.new(35,10,35),
+			Wave.new(30,30,25),
 			breaks.small,
-			#Wave.new(15,15,20)
+			Wave.new(30,30,30),
+			Wave.new(100,80,70),
+			breaks.small,
 			]
-			
-			
-			
-			
-			
-			
 		_:
 			push_warning("no wavelist for this index" + str(current_index))
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cb3i110frb4v4"]
+[gd_scene load_steps=18 format=4 uid="uid://cb3i110frb4v4"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_c8wya"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_qcf4e"]
@@ -23,7 +23,22 @@ _data = {
 point_count = 16
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2x5e"]
-size = Vector2(142.75, 146.25)
+size = Vector2(89.375, 146.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dhkr7"]
+size = Vector2(113, 69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l0u5n"]
+size = Vector2(82, 82)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vffvq"]
+size = Vector2(239, 59.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_coyfp"]
+size = Vector2(78, 234)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lla5b"]
+size = Vector2(119, 62)
 
 [node name="main" type="Node2D"]
 y_sort_enabled = true
@@ -118,20 +133,75 @@ y_sort_enabled = true
 [node name="Tree1" parent="TreeContainer" instance=ExtResource("8_sbggj")]
 position = Vector2(-20, -104)
 
+[node name="Tree2" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(-6, -28)
+
+[node name="Tree3" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(-349, -89)
+
+[node name="Tree4" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(-161, 38)
+
+[node name="Tree5" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(-56, 125)
+
+[node name="Tree6" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(38, 136)
+
+[node name="Tree7" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(159, 32)
+
+[node name="Tree8" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(113, -154)
+
+[node name="Tree9" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(227, -304)
+
+[node name="Tree10" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(363, -309)
+
+[node name="Tree11" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(420, -90)
+
+[node name="Tree12" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(419, 11)
+
+[node name="Tree13" parent="TreeContainer" instance=ExtResource("8_sbggj")]
+position = Vector2(585, -103)
+
 [node name="TurretContainer" type="Node2D" parent="."]
 y_sort_enabled = true
 
 [node name="BPcontainer" type="Node" parent="."]
 
 [node name="treeSpawner" parent="." instance=ExtResource("9_chhgv")]
-visible = false
 trees_to_spawn = 1
 spawn_interval = 3.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="treeSpawner"]
-position = Vector2(-70, -38)
+position = Vector2(-1, -64)
 shape = SubResource("RectangleShape2D_g2x5e")
 debug_color = Color(0.107267, 0.845305, 0, 0.42)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="treeSpawner"]
+position = Vector2(175.5, -5.5)
+shape = SubResource("RectangleShape2D_dhkr7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="treeSpawner"]
+position = Vector2(-159, 30)
+shape = SubResource("RectangleShape2D_l0u5n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="treeSpawner"]
+position = Vector2(270.5, -305.25)
+shape = SubResource("RectangleShape2D_vffvq")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="treeSpawner"]
+position = Vector2(417, -19)
+shape = SubResource("RectangleShape2D_coyfp")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="treeSpawner"]
+position = Vector2(-334, -91)
+shape = SubResource("RectangleShape2D_lla5b")
 
 [node name="TreeSpawnContainer" type="Node2D" parent="."]
 y_sort_enabled = true

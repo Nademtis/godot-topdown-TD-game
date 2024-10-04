@@ -11,7 +11,7 @@ class_name Level
 @onready var hub_container : Node2D
 @onready var log_container: Node2D
 const HUB = "res://scenes/gameplay/hub.tscn"
-
+const LEVEL_0 = "res://scenes/gameplay/levels/level0.tscn"
 
 @onready var BUILDABLE_OBJECT = preload("res://scenes/buildable_object.tscn")
 const CAMPFIRE_TURNED_OFF = preload("res://assets/world/camp/campfire1.png")
@@ -29,7 +29,7 @@ func _ready():
 	if self.scene_file_path == HUB:
 		init_hub()
 		audio.play_hub_music()
-	else:
+	elif self.scene_file_path != LEVEL_0:
 		audio.play_level_music()
 
 
