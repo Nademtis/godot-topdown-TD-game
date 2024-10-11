@@ -3,6 +3,7 @@ extends Node2D
 class_name Blacksmith
 
 const UPGRADE_NODE = preload("res://scenes/blacksmith/upgradeNode.tscn")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 @onready var area_2d: Area2D = $Area2D
 @onready var spawn_point_list : Array[Vector2]
@@ -35,6 +36,9 @@ func display_next_upgrades():
 		upgrade_node.set_upgrade_resource(upcoming_upgrades[i])
 		upgrade_node.position = spawn_point_list[i]
 		upgradeNodeContainer.call_deferred("add_child", upgrade_node)
+		
+	audio_stream_player_2d.play()
+	
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

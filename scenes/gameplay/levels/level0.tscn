@@ -62,6 +62,7 @@ tile_set = ExtResource("5_52wxl")
 
 [node name="waterMisc" type="TileMapLayer" parent="tilemaps/water"]
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAD6//7/AQAAAAcAAAAFAAEAAQAAAAcAAAD5/wIAAQAAAAgAAAD//wQAAQAAAAgAAAACAPr/AQAAAAgAAAA=")
 tile_set = ExtResource("5_52wxl")
 
 [node name="ground" type="TileMapLayer" parent="tilemaps"]
@@ -75,6 +76,7 @@ tile_set = ExtResource("5_52wxl")
 
 [node name="groundMisc" type="TileMapLayer" parent="tilemaps/ground"]
 y_sort_enabled = true
+tile_map_data = PackedByteArray("AAABAP3/AQACAAQAAAABAAEAAQACAAQAAAD8/wAAAQACAAQAAAD9//3/AQACAAQAAAD+////AQABAAAAAAAAAP3/AQABAAAAAAACAP//AQABAAAAAAD//wEAAQABAAAAAAAAAP//AQABAAAAAAD+//3/AQABAAAAAAD///3/AQABAAAAAAABAAAAAQAFAAAAAAA=")
 tile_set = ExtResource("5_52wxl")
 
 [node name="upper" type="TileMapLayer" parent="tilemaps"]

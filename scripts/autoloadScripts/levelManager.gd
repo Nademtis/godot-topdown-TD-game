@@ -72,38 +72,38 @@ func get_current_level_wavelist():
 		1:
 			wavelist = [
 			breaks.large,
-			Wave.new(5,5,20),
+			Wave.new(3,3,20),
 			breaks.medium,
-			Wave.new(7,7,20),
+			Wave.new(4,4,20),
 			breaks.small,
-			Wave.new(11,11,25)
+			Wave.new(10,5,25)
 			]
 		2:
 			wavelist = [
 			breaks.large,
-			Wave.new(9,9,20),
+			Wave.new(7,7,20),
 			breaks.small,
-			Wave.new(13,13,20),
+			Wave.new(12,10,20),
 			breaks.small,
-			Wave.new(20,20,25),
+			Wave.new(18,18,25),
 			]
 		3:
 			wavelist = [
 			breaks.medium,
 			Wave.new(11,11,20),
 			breaks.small,
-			Wave.new(16,16,20),
+			Wave.new(15,15,20),
 			breaks.small,
-			Wave.new(25,25,25),
+			Wave.new(22,22,25),
 			]
 		4:
 			wavelist = [
 			breaks.medium,
-			Wave.new(15,15,20),
+			Wave.new(12,12,20),
+			breaks.medium,
+			Wave.new(17,17,20),
 			breaks.small,
-			Wave.new(20,20,20),
-			breaks.small,
-			Wave.new(32,32,30),
+			Wave.new(30,26,30),
 			]
 		5:
 			wavelist = [
@@ -146,7 +146,7 @@ func get_current_level_wavelist():
 			Wave.new(30,30,25),
 			breaks.small,
 			Wave.new(30,30,30),
-			Wave.new(100,80,70),
+			Wave.new(100,80,50),
 			breaks.small,
 			]
 		_:

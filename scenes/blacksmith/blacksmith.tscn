@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://n46gbuettbxt"]
+[gd_scene load_steps=13 format=3 uid="uid://n46gbuettbxt"]
 
 [ext_resource type="Script" path="res://scripts/blacksmith/blacksmith.gd" id="1_q81fe"]
 [ext_resource type="Texture2D" uid="uid://bfjk1vlo1ahvw" path="res://assets/blacksmith/blacksmith_d_idle.png" id="2_er0jb"]
 [ext_resource type="Texture2D" uid="uid://dg5xoc0dyg1sf" path="res://assets/world/anvil.png" id="3_2nfy4"]
 [ext_resource type="Texture2D" uid="uid://cser3qthitikb" path="res://assets/world/camp/tent3.png" id="4_rn2r4"]
+[ext_resource type="AudioStream" uid="uid://c4pypkngnkgi0" path="res://assets/audio/sfx/blacksmith2.wav" id="5_yvbb2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_endep"]
 atlas = ExtResource("2_er0jb")
@@ -100,6 +101,11 @@ unique_name_in_owner = true
 position = Vector2(-38, -20)
 texture = ExtResource("4_rn2r4")
 flip_h = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yvbb2")
+volume_db = 7.0
+bus = &"SFX"
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
