@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b5fbjne4bgkl7"]
+[gd_scene load_steps=17 format=4 uid="uid://b5fbjne4bgkl7"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_1ale8"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_mjpf8"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dwf0mgy07norj" path="res://scenes/plantScenes/treeSpawn.tscn" id="9_nkt7q"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_thsoo"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_yo0ah"]
+[ext_resource type="Texture2D" uid="uid://b0iv2fg1x1g0u" path="res://assets/world/bush/bush1.png" id="12_7cg3c"]
+[ext_resource type="Texture2D" uid="uid://cx5bvlnll5qm6" path="res://assets/world/bush/bush2.png" id="13_ks1wm"]
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -186,6 +188,14 @@ theme_override_fonts/font = ExtResource("10_yo0ah")
 theme_override_font_sizes/font_size = 8
 text = "Left Click
 "
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(31, -119)
+texture = ExtResource("12_7cg3c")
+
+[node name="Bush2" type="Sprite2D" parent="."]
+position = Vector2(93, -85)
+texture = ExtResource("13_ks1wm")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/enemySpawnRateTimer" to="EnemySpawner" method="_on_enemy_spawn_rate_timer_timeout"]

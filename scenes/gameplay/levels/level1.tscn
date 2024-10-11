@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://m6cfur8wqxoa"]
+[gd_scene load_steps=22 format=4 uid="uid://m6cfur8wqxoa"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_hj6f4"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_qhpcl"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_dgbwf"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_2aglk"]
 [ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="10_gb3jk"]
+[ext_resource type="Texture2D" uid="uid://3gn7swuynay4" path="res://assets/world/bush/bush3.png" id="11_bl00i"]
+[ext_resource type="Texture2D" uid="uid://w7thxb4va1ur" path="res://assets/world/bush/bush4.png" id="12_3iar5"]
+[ext_resource type="Texture2D" uid="uid://cx5bvlnll5qm6" path="res://assets/world/bush/bush2.png" id="13_svgcb"]
+[ext_resource type="Texture2D" uid="uid://b0iv2fg1x1g0u" path="res://assets/world/bush/bush1.png" id="14_0r0a4"]
+[ext_resource type="Texture2D" uid="uid://b0fd2pwyi4w7e" path="res://assets/world/stone/stone1.png" id="15_6o24v"]
+[ext_resource type="Texture2D" uid="uid://2o51jul4schi" path="res://assets/world/stone/stone3.png" id="16_1wlk4"]
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -210,6 +216,74 @@ offset_bottom = -6.0
 theme_override_fonts/font = ExtResource("10_gb3jk")
 theme_override_font_sizes/font_size = 8
 text = "Press 1 and left click"
+
+[node name="Bush3" type="Sprite2D" parent="."]
+position = Vector2(-226, -65)
+texture = ExtResource("11_bl00i")
+
+[node name="Bush4" type="Sprite2D" parent="."]
+position = Vector2(-247, -56)
+texture = ExtResource("11_bl00i")
+
+[node name="Bush5" type="Sprite2D" parent="."]
+position = Vector2(-200, -69)
+texture = ExtResource("12_3iar5")
+
+[node name="Bush2" type="Sprite2D" parent="."]
+position = Vector2(-41, -162)
+texture = ExtResource("13_svgcb")
+
+[node name="Bush6" type="Sprite2D" parent="."]
+position = Vector2(-113, -165)
+texture = ExtResource("11_bl00i")
+
+[node name="Bush7" type="Sprite2D" parent="."]
+position = Vector2(47, -129)
+texture = ExtResource("12_3iar5")
+
+[node name="Bush8" type="Sprite2D" parent="."]
+position = Vector2(20, -135)
+texture = ExtResource("11_bl00i")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(223, -34)
+texture = ExtResource("14_0r0a4")
+
+[node name="Bush9" type="Sprite2D" parent="."]
+position = Vector2(199, -40)
+texture = ExtResource("13_svgcb")
+
+[node name="Bush10" type="Sprite2D" parent="."]
+position = Vector2(208, -28)
+texture = ExtResource("11_bl00i")
+
+[node name="Bush11" type="Sprite2D" parent="."]
+position = Vector2(79, 92)
+texture = ExtResource("13_svgcb")
+
+[node name="Stone1" type="Sprite2D" parent="."]
+position = Vector2(55, -35)
+texture = ExtResource("15_6o24v")
+
+[node name="Stone3" type="Sprite2D" parent="."]
+position = Vector2(-255, -33)
+texture = ExtResource("16_1wlk4")
+
+[node name="Stone2" type="Sprite2D" parent="."]
+position = Vector2(-222, 88)
+texture = ExtResource("15_6o24v")
+
+[node name="Stone4" type="Sprite2D" parent="."]
+position = Vector2(231, -20)
+texture = ExtResource("15_6o24v")
+
+[node name="Stone5" type="Sprite2D" parent="."]
+position = Vector2(-120, -148)
+texture = ExtResource("15_6o24v")
+
+[node name="Stone6" type="Sprite2D" parent="."]
+position = Vector2(-43, -149)
+texture = ExtResource("15_6o24v")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/enemySpawnRateTimer" to="EnemySpawner" method="_on_enemy_spawn_rate_timer_timeout"]

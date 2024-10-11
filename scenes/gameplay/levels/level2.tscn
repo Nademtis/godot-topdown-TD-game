@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://xce5nkmv636b"]
+[gd_scene load_steps=27 format=4 uid="uid://xce5nkmv636b"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ms0m6"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_4kojp"]
@@ -6,9 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://mj5q7s0wwxqo" path="res://scenes/playerScenes/wagon.tscn" id="4_iuy8w"]
 [ext_resource type="TileSet" uid="uid://di7oswn3a1fu3" path="res://tileset.tres" id="5_ftobt"]
 [ext_resource type="Script" path="res://scripts/enemyScripts/enemySpawner.gd" id="6_t4ckg"]
+[ext_resource type="Texture2D" uid="uid://chc34pjhqbkef" path="res://assets/world/stone/stone4.png" id="6_xi2a6"]
 [ext_resource type="SpriteFrames" uid="uid://decbvu2uj6duj" path="res://assets/world/cave/cave_animated_sprite_frames.tres" id="7_3mt01"]
+[ext_resource type="Texture2D" uid="uid://bc0330gbkgyjq" path="res://assets/world/stone/stone2.png" id="7_ud824"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_68yt4"]
+[ext_resource type="Texture2D" uid="uid://2o51jul4schi" path="res://assets/world/stone/stone3.png" id="8_earf1"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_qf11f"]
+[ext_resource type="Texture2D" uid="uid://cx5bvlnll5qm6" path="res://assets/world/bush/bush2.png" id="10_e7kph"]
+[ext_resource type="Texture2D" uid="uid://w7thxb4va1ur" path="res://assets/world/bush/bush4.png" id="11_b6uo1"]
+[ext_resource type="Texture2D" uid="uid://cyywpj1udwxvr" path="res://assets/world/bush/bush5.png" id="12_h5hbe"]
+[ext_resource type="Texture2D" uid="uid://3gn7swuynay4" path="res://assets/world/bush/bush3.png" id="13_3ourk"]
+[ext_resource type="Texture2D" uid="uid://dfv63etiif1a6" path="res://assets/world/bush/bush6.png" id="14_w6ov1"]
+[ext_resource type="Texture2D" uid="uid://b0iv2fg1x1g0u" path="res://assets/world/bush/bush1.png" id="15_tgng1"]
+[ext_resource type="Texture2D" uid="uid://b0fd2pwyi4w7e" path="res://assets/world/stone/stone1.png" id="19_4n8mr"]
+[ext_resource type="Texture2D" uid="uid://hmiuawo5vcb7" path="res://assets/world/stone/stone6.png" id="20_44m66"]
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -82,6 +93,18 @@ tile_set = ExtResource("5_ftobt")
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAD2//r/AAALAAEAAAD3//r/AAALAAEAAAD3//v/AAAOAAAAAAD2//v/AAALAAIAAAD1//v/AAAKAAIAAAD1//r/AAAKAAEAAAD1//n/AAAKAAAAAAD2//n/AAALAAAAAAD3//n/AAALAAAAAAD4//r/AAALAAEAAAD4//v/AAALAAIAAAD4//n/AAAOAAIAAAD5//r/AAALAAEAAAD5//v/AAAOAAAAAAD5//n/AAALAAAAAAD6//r/AAALAAEAAAD6//v/AAAOAAAAAAD6//n/AAAPAAIAAAD7//r/AAALAAEAAAD7//v/AAALAAIAAAD7//n/AAALAAEAAAD8//j/AAALAAEAAAD9//j/AAANAAIAAAD9//n/AAALAAEAAAD8//n/AAALAAEAAAD7//j/AAAKAAIAAAD7//f/AAAKAAAAAAD8//f/AAALAAAAAAD9//f/AAAMAAAAAAD9//r/AAALAAIAAAD8//r/AAANAAAAAAD6//j/AAAKAAAAAAD8//v/AAAMAAIAAAD+//n/AAALAAEAAAD+//r/AAAPAAAAAAD+//j/AAAOAAIAAAD///n/AAALAAEAAAD///r/AAALAAEAAAD///j/AAALAAAAAAAAAPn/AAANAAIAAAAAAPr/AAALAAEAAAAAAPj/AAAMAAAAAAAAAPv/AAALAAIAAAD///v/AQACAAAAAAD+//v/AAAKAAIAAAABAPr/AAALAAEAAAABAPv/AAAOAAAAAAABAPn/AAAOAAIAAAACAPr/AAALAAEAAAACAPv/AAAPAAAAAAACAPn/AAALAAAAAAADAPr/AAALAAEAAAADAPv/AAALAAEAAAADAPn/AAAOAAIAAAAEAPr/AAANAAEAAAAEAPv/AAAMAAEAAAAEAPn/AAAMAAAAAAAEAPz/AAAMAAEAAAADAPz/AAALAAEAAAACAPz/AAAPAAEAAAAEAP3/AAAMAAIAAAADAP3/AAAOAAAAAAACAP3/AAAKAAIAAAADAAMAAAALAAEAAAAEAAMAAAAMAAEAAAAEAAQAAAAMAAEAAAADAAQAAAALAAEAAAACAAQAAAAPAAEAAAACAAMAAAAKAAEAAAACAAIAAAAKAAAAAAADAAIAAAAOAAIAAAAEAAIAAAAMAAAAAAAEAAUAAAAMAAIAAAADAAUAAAALAAIAAAACAAUAAAAKAAIAAAD7////AQABAAQAAAAAAAAAAQAEAAQAAAAEAP7/AQABAAQAAAAJAP//AQABAAQAAAD2//z/AQABAAQAAAD1/wMAAQABAAQAAAD6/wUAAQAEAAQAAAAAAAQAAQAEAAQAAAD9//v/AQAEAAQAAAD8/wAAAQABAAQAAAD//wQAAQACAAAAAAD6/wYAAQACAAAAAAD6/wIAAQACAAAAAAD5/wIAAQACAAAAAAD3/wQAAQACAAAAAAD4//z/AQACAAAAAAAFAP7/AQACAAAAAAAIAP//AQACAAAAAAD3/wAAAQAAAAYAAADz/wAAAQAAAAYAAAD1/wgAAQAAAAYAAAD//wgAAQABAAYAAAAAAAgAAQACAAYAAAABAAYAAQABAAYAAAACAAYAAQACAAYAAAAGAAIAAQAFAAYAAAAKAAQAAQAFAAYAAAAIAPr/AQAFAAYAAADz/wEAAQABAAUAAAD0/wcAAQAAAAUAAAD//wcAAQAAAAUAAAAAAAcAAQADAAUAAAD+/wgAAQADAAUAAAABAAcAAQAAAAcAAAABAAgAAQAAAAgAAAD+/wkAAQAAAAgAAAAAAAYAAQAAAAgAAAD+/wcAAQAAAAgAAAD4/wgAAQAAAAgAAADy/wYAAQAAAAgAAADw/wQAAQAAAAgAAADu////AQAAAAgAAADw//z/AQAAAAgAAADy//r/AQAAAAgAAAAKAPv/AQAAAAgAAAANAP7/AQAAAAgAAAAMAAMAAQAAAAgAAAAKAAYAAQAAAAgAAAAFAAoAAQAAAAgAAAD6/wkAAQAAAAgAAAA=")
 tile_set = ExtResource("5_ftobt")
+
+[node name="Stone4" type="Sprite2D" parent="tilemaps/ground"]
+position = Vector2(-358, 121)
+texture = ExtResource("6_xi2a6")
+
+[node name="Stone2" type="Sprite2D" parent="tilemaps/ground"]
+position = Vector2(-295, 224)
+texture = ExtResource("7_ud824")
+
+[node name="Stone3" type="Sprite2D" parent="tilemaps/ground"]
+position = Vector2(-275, 224)
+texture = ExtResource("8_earf1")
 
 [node name="upper" type="TileMapLayer" parent="tilemaps"]
 y_sort_enabled = true
@@ -201,6 +224,106 @@ y_sort_enabled = true
 
 [node name="WorldAssetsContainer" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Bush2" type="Sprite2D" parent="."]
+position = Vector2(-220, -163)
+texture = ExtResource("10_e7kph")
+
+[node name="Bush4" type="Sprite2D" parent="."]
+position = Vector2(-242, -155)
+texture = ExtResource("11_b6uo1")
+
+[node name="Bush5" type="Sprite2D" parent="."]
+position = Vector2(-111, -199)
+texture = ExtResource("12_h5hbe")
+
+[node name="Bush3" type="Sprite2D" parent="."]
+position = Vector2(-89, -189)
+texture = ExtResource("13_3ourk")
+
+[node name="Bush6" type="Sprite2D" parent="."]
+position = Vector2(-65, -198)
+texture = ExtResource("12_h5hbe")
+
+[node name="Bush7" type="Sprite2D" parent="."]
+position = Vector2(121, -94)
+texture = ExtResource("14_w6ov1")
+
+[node name="Bush8" type="Sprite2D" parent="."]
+position = Vector2(79, 157)
+texture = ExtResource("11_b6uo1")
+
+[node name="Bush9" type="Sprite2D" parent="."]
+position = Vector2(48, 152)
+texture = ExtResource("13_3ourk")
+
+[node name="Bush10" type="Sprite2D" parent="."]
+position = Vector2(81, 140)
+texture = ExtResource("10_e7kph")
+
+[node name="Bush11" type="Sprite2D" parent="."]
+position = Vector2(-343, 75)
+texture = ExtResource("13_3ourk")
+
+[node name="Bush12" type="Sprite2D" parent="."]
+position = Vector2(-328, 86)
+texture = ExtResource("10_e7kph")
+
+[node name="Bush13" type="Sprite2D" parent="."]
+position = Vector2(-193, 13)
+texture = ExtResource("13_3ourk")
+
+[node name="Bush14" type="Sprite2D" parent="."]
+position = Vector2(-183, 22)
+texture = ExtResource("10_e7kph")
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(138, -87)
+texture = ExtResource("15_tgng1")
+
+[node name="Stone2" type="Sprite2D" parent="."]
+position = Vector2(19, 156)
+texture = ExtResource("7_ud824")
+
+[node name="Stone3" type="Sprite2D" parent="."]
+position = Vector2(57, 141)
+texture = ExtResource("8_earf1")
+
+[node name="Stone4" type="Sprite2D" parent="."]
+position = Vector2(90, 127)
+texture = ExtResource("7_ud824")
+
+[node name="Stone1" type="Sprite2D" parent="."]
+position = Vector2(41, -43)
+texture = ExtResource("19_4n8mr")
+
+[node name="Stone5" type="Sprite2D" parent="."]
+position = Vector2(87, 88)
+texture = ExtResource("19_4n8mr")
+
+[node name="Stone6" type="Sprite2D" parent="."]
+position = Vector2(158, -79)
+texture = ExtResource("7_ud824")
+
+[node name="Stone7" type="Sprite2D" parent="."]
+position = Vector2(120, -76)
+texture = ExtResource("8_earf1")
+
+[node name="Stone8" type="Sprite2D" parent="."]
+position = Vector2(-138, -155)
+texture = ExtResource("20_44m66")
+
+[node name="Stone9" type="Sprite2D" parent="."]
+position = Vector2(-204, -148)
+texture = ExtResource("20_44m66")
+
+[node name="Stone10" type="Sprite2D" parent="."]
+position = Vector2(-186, -146)
+texture = ExtResource("7_ud824")
+
+[node name="Stone11" type="Sprite2D" parent="."]
+position = Vector2(-157, -148)
+texture = ExtResource("8_earf1")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/enemySpawnRateTimer" to="EnemySpawner" method="_on_enemy_spawn_rate_timer_timeout"]

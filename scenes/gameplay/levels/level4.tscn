@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c4f6g2cp4dl5q"]
+[gd_scene load_steps=17 format=4 uid="uid://c4f6g2cp4dl5q"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_0c6n3"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_dyeau"]
@@ -9,6 +9,8 @@
 [ext_resource type="SpriteFrames" uid="uid://decbvu2uj6duj" path="res://assets/world/cave/cave_animated_sprite_frames.tres" id="7_vve5n"]
 [ext_resource type="PackedScene" uid="uid://bvpuhpb6jhnsw" path="res://scenes/plantScenes/tree.tscn" id="8_rw6v2"]
 [ext_resource type="PackedScene" uid="uid://2btn0q3k4k0w" path="res://scenes/plantScenes/tree_spawner.tscn" id="9_rgrkm"]
+[ext_resource type="Texture2D" uid="uid://b0fd2pwyi4w7e" path="res://assets/world/stone/stone1.png" id="10_nh3f3"]
+[ext_resource type="Texture2D" uid="uid://chc34pjhqbkef" path="res://assets/world/stone/stone4.png" id="11_3ci66"]
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -175,6 +177,22 @@ shape = SubResource("RectangleShape2D_5taou")
 
 [node name="TreeSpawnContainer" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="Stone1" type="Sprite2D" parent="."]
+position = Vector2(105, -43)
+texture = ExtResource("10_nh3f3")
+
+[node name="Stone2" type="Sprite2D" parent="."]
+position = Vector2(-103, -156)
+texture = ExtResource("10_nh3f3")
+
+[node name="Stone3" type="Sprite2D" parent="."]
+position = Vector2(-43, -155)
+texture = ExtResource("10_nh3f3")
+
+[node name="Stone4" type="Sprite2D" parent="."]
+position = Vector2(139, 101)
+texture = ExtResource("11_3ci66")
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/enemySpawnRateTimer" to="EnemySpawner" method="_on_enemy_spawn_rate_timer_timeout"]
