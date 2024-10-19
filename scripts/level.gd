@@ -28,10 +28,12 @@ var spawn_position = {} # used for spawning the nodes back in at correct locatio
 func _ready():
 	if self.scene_file_path == LEVEL_0:
 		var lines :Array[String] = [
-			"yep yep.",
+			"...",
 			"Where am i?",
-			"How did I get here?"
+			"How did I get here?",
+			"I should probably explore to find out what's going on"
 		]
+		await get_tree().create_timer(0.5).timeout
 		DialogManager.start_dialog($Player.position, lines)
 	
 	if self.scene_file_path == HUB:

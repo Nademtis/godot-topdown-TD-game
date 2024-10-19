@@ -38,6 +38,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_4t6nk")]
+unique_name_in_owner = true
 z_index = 5
 position = Vector2(-99, 59)
 

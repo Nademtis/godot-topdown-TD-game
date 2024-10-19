@@ -6,9 +6,9 @@
 
 [node name="Textbox" type="MarginContainer"]
 z_index = 5
-offset_right = 100.0
+offset_right = 20.0
 offset_bottom = 50.0
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_gbrag")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

@@ -5,7 +5,7 @@ class_name Textbox
 @onready var label: Label = $MarginContainer/Label
 @onready var letter_display_timer: Timer = $LetterDisplayTimer
 
-const MAX_WIDTH = 256
+const MAX_WIDTH = 300
 
 var text = ""
 var letter_index = 0
@@ -17,9 +17,8 @@ var punctuation_time : float = 0.2
 signal finished_displaying()
 
 func display_text (text_to_display):
-	#if ready contenue else wait
 	text = text_to_display
-	label.text = text_to_display # error here
+	label.text = text_to_display
 	
 	await resized
 	custom_minimum_size.x = min(size.x, MAX_WIDTH)
@@ -43,6 +42,11 @@ func display_letter():
 	if letter_index >= text.length():
 		finished_displaying.emit()
 		return
+	
+	if text.length() <= 3:
+		letter_time = 0.1  # Slow down for very short text
+	else:
+		letter_time = 0.03  # Regular speed for normal text
 	
 	match text[letter_index]:
 		"!", ".", ",", "?":
