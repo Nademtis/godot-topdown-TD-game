@@ -22,7 +22,7 @@ var player : Player = null:
 
 #current player stats
 var player_move_speed : int = 9 * 1000 #9
-var player_sprint_multiplier : float = 1.3 #1.3
+var player_sprint_multiplier : float = 1.15 #1.3
 var player_inventory_size : int = 9 #9
 
 var player_attack_damage : float = 0.8 #1.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://xce5nkmv636b"]
+[gd_scene load_steps=28 format=4 uid="uid://xce5nkmv636b"]
 
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_ms0m6"]
 [ext_resource type="PackedScene" uid="uid://dki36qsxtoenr" path="res://scenes/ui.tscn" id="2_4kojp"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b0iv2fg1x1g0u" path="res://assets/world/bush/bush1.png" id="15_tgng1"]
 [ext_resource type="Texture2D" uid="uid://b0fd2pwyi4w7e" path="res://assets/world/stone/stone1.png" id="19_4n8mr"]
 [ext_resource type="Texture2D" uid="uid://hmiuawo5vcb7" path="res://assets/world/stone/stone6.png" id="20_44m66"]
+[ext_resource type="FontFile" uid="uid://dtch632goxoep" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="21_8tc8p"]
 
 [sub_resource type="Curve2D" id="Curve2D_rxvsi"]
 _data = {
@@ -324,6 +325,16 @@ texture = ExtResource("7_ud824")
 [node name="Stone11" type="Sprite2D" parent="."]
 position = Vector2(-157, -148)
 texture = ExtResource("8_earf1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -121.0
+offset_right = 132.0
+offset_bottom = -98.0
+theme_override_fonts/font = ExtResource("21_8tc8p")
+theme_override_font_sizes/font_size = 8
+text = "SHIFT to sprint
+"
 
 [connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]
 [connection signal="timeout" from="EnemySpawner/enemySpawnRateTimer" to="EnemySpawner" method="_on_enemy_spawn_rate_timer_timeout"]

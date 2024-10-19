@@ -39,7 +39,7 @@ visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_4t6nk")]
 z_index = 5
-position = Vector2(0, -12)
+position = Vector2(-99, 59)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 8)

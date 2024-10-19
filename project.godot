@@ -24,10 +24,10 @@ PlayerInventory="*res://scripts/autoloadScripts/PlayerInventory.gd"
 ItemSpawner="*res://scripts/autoloadScripts/ItemSpawner.gd"
 HubProgression="*res://scripts/autoloadScripts/HubProgression.gd"
 Events="*res://scripts/autoloadScripts/Events.gd"
+DialogManager="*res://scripts/autoloadScripts/DialogManager.gd"
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="canvas_items"
 
 [file_customization]

@@ -26,6 +26,14 @@ const BRIDGE = preload("res://assets/world/bridge.png")
 var spawn_position = {} # used for spawning the nodes back in at correct location
 
 func _ready():
+	if self.scene_file_path == LEVEL_0:
+		var lines :Array[String] = [
+			"yep yep.",
+			"Where am i?",
+			"How did I get here?"
+		]
+		DialogManager.start_dialog($Player.position, lines)
+	
 	if self.scene_file_path == HUB:
 		init_hub()
 		audio.play_hub_music()
