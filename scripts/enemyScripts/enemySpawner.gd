@@ -76,11 +76,11 @@ func start_wave():
 		
 func next_wave():
 	enemy_spawn_rate_timer.stop()
-	if waves[current_wave_index].mobs_left_in_wave > 0:
-		next_wave()
-	else:
-		current_wave_index += 1
-		start_wave()
+	#if waves[current_wave_index].enemyList.size() > 0:
+	#	next_wave()
+	#else:
+	current_wave_index += 1
+	start_wave()
 
 func _on_timer_timeout():
 	next_wave()

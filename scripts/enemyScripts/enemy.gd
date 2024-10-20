@@ -89,7 +89,7 @@ func die():
 	
 	#play correct death anim based on direction
 	var firstLetter : String = animated_sprite.animation.substr(0, 1)
-	print(firstLetter + '_Death' )
+	#print(firstLetter + '_Death' )
 	var death_animation : String = firstLetter + '_Death' 
 	animated_sprite.play(death_animation)
 	await get_tree().create_timer(0.5).timeout

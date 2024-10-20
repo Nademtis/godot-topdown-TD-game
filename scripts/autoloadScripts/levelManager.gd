@@ -60,93 +60,93 @@ func set_current_level(level):
 
 func get_current_level_wavelist():
 	var breaks = {
-		"small": Wave.new(0,0,5),
-		"medium":Wave.new(0,0,10),
-		"large": Wave.new(0,0,15)
+		"small": Wave.new(0,0,0,0,5),
+		"medium":Wave.new(0,0,0,0,10),
+		"large": Wave.new(0,0,0,0,15)
 	}
 	
 	var wavelist : Array[Wave] = []
 	print_debug('fetches waveList with index: ' + str(current_index))
 	match current_index:
-		#slime, bee, duration
+		#slime, bee, rat, ogre, duration
 		1:
 			wavelist = [
 			breaks.large,
-			Wave.new(3,3,20),
+			Wave.new(3,3,0,0,20),
 			breaks.medium,
-			Wave.new(4,4,20),
+			Wave.new(4,4,0,0,20),
 			breaks.small,
-			Wave.new(10,5,25)
+			Wave.new(10,5,0,0,25)
 			]
 		2:
 			wavelist = [
 			breaks.large,
-			Wave.new(7,7,20),
+			Wave.new(7,7,0,0,20),
 			breaks.small,
-			Wave.new(12,10,20),
+			Wave.new(12,10,0,0,20),
 			breaks.small,
-			Wave.new(18,18,25),
+			Wave.new(18,18,0,0,25),
 			]
 		3:
 			wavelist = [
 			breaks.medium,
-			Wave.new(11,11,20),
+			Wave.new(11,11,0,0,20),
 			breaks.small,
-			Wave.new(15,15,20),
+			Wave.new(15,15,0,0,20),
 			breaks.small,
-			Wave.new(22,22,25),
+			Wave.new(22,22,0,0,25),
 			]
 		4:
 			wavelist = [
 			breaks.medium,
-			Wave.new(12,12,20),
+			Wave.new(3,3,10,10,25),
 			breaks.medium,
-			Wave.new(17,17,20),
+			Wave.new(17,17,0,0,25),
 			breaks.small,
-			Wave.new(30,26,30),
+			Wave.new(30,26,0,0,30),
 			]
 		5:
 			wavelist = [
 			breaks.small,
-			Wave.new(15,15,20),
+			Wave.new(15,15,0,0,20),
 			#breaks.small,
-			Wave.new(5,20,35),
-			Wave.new(25,25,20),
+			Wave.new(5,20,0,0,35),
+			Wave.new(25,25,0,0,20),
 			breaks.small,
-			Wave.new(36,36,30),
+			Wave.new(36,36,0,0,30),
 			]
 		6:
 			wavelist = [
 			breaks.small,
-			Wave.new(25,25,20),
+			Wave.new(25,25,0,0,20),
 			#breaks.small,
-			Wave.new(30,5,30),
-			Wave.new(25,25,20),
+			Wave.new(30,5,0,0,30),
+			Wave.new(25,25,0,0,20),
 			breaks.small,
-			Wave.new(50,50,40),
+			Wave.new(50,50,0,0,40),
 			]
 		7:
 			wavelist = [
 			#breaks.small,
-			Wave.new(10,10,30),
+			Wave.new(10,10,0,0,30),
 			breaks.small,
-			Wave.new(30,5,30),
-			Wave.new(25,25,20),
+			Wave.new(30,5,0,0,30),
+			Wave.new(25,25,0,0,20),
 			breaks.small,
-			Wave.new(25,25,30),
-			Wave.new(45,45,40),
+			Wave.new(25,25,0,0,30),
+			Wave.new(45,45,0,0,40),
 			breaks.small,
 			]
 		8:
 			wavelist = [
 			#breaks.small,
-			Wave.new(12,12,25),
+			Wave.new(12,12,0,0,25),
 			breaks.small,
-			Wave.new(35,10,35),
-			Wave.new(30,30,25),
+			Wave.new(35,10,0,0,35),
+			Wave.new(30,30,0,0,25),
 			breaks.small,
-			Wave.new(30,30,30),
-			Wave.new(100,80,50),
+			Wave.new(30,30,0,0,30),
+			Wave.new(100,80,0,0,50),
 			breaks.small,
 			]
 		_:
